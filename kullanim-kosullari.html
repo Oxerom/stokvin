@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kullanım Koşulları — STOKVIN</title>
+<meta name="description" content="STOKVIN kullanım koşulları. Hizmetin kapsamı, Trendyol API anahtarı, ücretler, sorumluluk sınırı ve fesih.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66' stroke-linecap='butt'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --murekkep:#0D3B66;
+  --zemin:#F7F9FB;
+  --kart:#FFFFFF;
+  --yazi:#12222F;
+  --soluk:#5A6B7A;
+  --cizgi:#DCE4EC;
+  --kar:#2E8F65;
+  --zarar:#C63A31;
+  --uyari:#96610F;
+  --olcu:1120px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+    --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+  }
+}
+:root[data-theme="dark"]{
+  --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+  --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+}
+:root[data-theme="light"]{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--zemin);color:var(--yazi);
+  font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.kap{max-width:var(--olcu);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.25;margin:0;letter-spacing:-.02em;font-weight:700}
+h1{font-size:clamp(28px,4.4vw,42px)}
+h2{font-size:clamp(21px,2.6vw,26px)}
+h3{font-size:18px}
+p{margin:0}
+a{color:inherit}
+
+header{
+  position:sticky;top:0;z-index:50;background:var(--zemin);
+  border-bottom:1px solid var(--cizgi);
+}
+.ustsatir{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo svg{display:block;height:30px;width:auto;color:var(--murekkep)}
+.logoyazi{font-weight:700;font-size:18px;letter-spacing:.06em;display:block}
+.logoalt{font-size:11px;color:var(--soluk);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:-3px}
+nav{margin-inline-start:auto;display:flex;align-items:center;gap:24px}
+nav a{color:var(--soluk);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--murekkep)}
+.dugme{
+  display:inline-block;padding:11px 22px;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:15px;border:1.5px solid var(--murekkep);white-space:nowrap;
+}
+.dolu{background:var(--murekkep);color:var(--zemin)}
+.bos{background:transparent;color:var(--murekkep)}
+@media (max-width:900px){nav .gizlekucuk{display:none}}
+
+.etiket{
+  display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soluk);margin-bottom:14px;font-weight:600;
+}
+.altyazi{color:var(--soluk);margin-top:16px;max-width:70ch;font-size:17px}
+
+.yasal{max-width:820px;margin:0 auto;padding:0 24px}
+.bas{padding:56px 0 8px}
+.taslakkutu{
+  border:2px dashed var(--uyari);border-radius:12px;padding:18px 22px;margin:26px 0 0;
+  background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
+}
+.taslakkutu strong{color:var(--uyari)}
+.taslakkutu p+p{margin-top:9px}
+.doldur{
+  display:inline-block;padding:2px 10px;border-radius:6px;
+  border:1.5px dashed var(--uyari);background:color-mix(in srgb,var(--uyari) 15%,transparent);
+  color:var(--uyari);font-weight:700;font-size:14.5px;line-height:1.5;
+}
+.ozet{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:24px 26px;margin-top:30px;
+}
+.ozet h2{font-size:19px;margin-bottom:12px}
+.ozet ul{margin:0;padding-inline-start:20px;color:var(--soluk);font-size:15.5px}
+.ozet li{margin-bottom:8px}
+.ozet li b{color:var(--yazi)}
+.icindekiler{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:22px 26px;margin-top:20px;
+}
+.icindekiler h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin-bottom:12px}
+.icindekiler ol{margin:0;padding-inline-start:22px;font-size:15.5px;column-width:250px;column-gap:32px}
+.icindekiler li{margin-bottom:7px;break-inside:avoid}
+.icindekiler a{color:var(--soluk);text-decoration:none}
+.icindekiler a:hover{color:var(--murekkep)}
+
+.madde{padding:34px 0;border-top:1px solid var(--cizgi)}
+.madde h2{margin-bottom:14px}
+.madde h3{margin:22px 0 9px}
+.madde p{color:var(--soluk);font-size:16px;margin-bottom:13px;max-width:74ch}
+.madde p b,.madde li b,.madde p strong,.madde li strong{color:var(--yazi)}
+.madde ul,.madde ol{color:var(--soluk);font-size:16px;padding-inline-start:22px;margin:0 0 14px;max-width:74ch}
+.madde li{margin-bottom:9px}
+.madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+th{
+  text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+}
+td{padding:12px 14px;border-bottom:1px solid var(--cizgi);color:var(--soluk);vertical-align:top}
+td b{color:var(--yazi)}
+.kunye{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;margin-bottom:16px;
+}
+.kunye table{min-width:420px}
+.kunye td:first-child{white-space:nowrap;color:var(--yazi);font-weight:600;width:40%}
+.kunye tr:last-child td{border-bottom:0}
+.soru{
+  border-inline-start:3px solid var(--uyari);padding:2px 0 2px 16px;margin:16px 0;
+  font-size:15.5px;color:var(--yazi);
+}
+.soru b{color:var(--uyari)}
+.onemli{
+  background:var(--kart);border:1px solid var(--cizgi);border-inline-start:4px solid var(--murekkep);
+  border-radius:12px;padding:20px 24px;margin:18px 0;
+}
+.onemli h3{margin:0 0 10px}
+.onemli p{color:var(--soluk);font-size:16px;margin-bottom:11px}
+.onemli p:last-child{margin-bottom:0}
+.tarih{font-size:14px;color:var(--soluk);margin-top:18px}
+
+footer{border-top:1px solid var(--cizgi);padding:52px 0 34px;font-size:14.5px;margin-top:40px}
+.altizgara{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media (max-width:760px){.altizgara{grid-template-columns:1fr}}
+footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:9px}
+footer a{color:var(--soluk);text-decoration:none}
+footer a:hover{color:var(--murekkep)}
+.altson{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--cizgi);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  font-size:13px;color:var(--soluk);
+}
+.tanitimcumle{color:var(--soluk);max-width:44ch;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kap ustsatir">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+          <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+          <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+            <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+          </g>
+        </g>
+      </svg>
+      <span>
+        <span class="logoyazi">STOKVIN</span>
+        <span class="logoalt">Kâr Paneli</span>
+      </span>
+    </a>
+    <nav>
+      <a class="gizlekucuk" href="index.html">Ana sayfa</a>
+      <a class="gizlekucuk" href="gizlilik.html">Gizlilik</a>
+      <a class="gizlekucuk" href="mesafeli-satis.html">Mesafeli satış</a>
+      <a class="dugme bos" href="giris.html">Giriş</a>
+    </nav>
+  </div>
+</header>
+
+<main class="yasal">
+
+  <div class="taslakkutu" style="margin-top:26px">
+    <strong>TASLAK — YAYINA ALINMADAN ÖNCE DOLDURULACAK VE AVUKATA OKUTULACAK.</strong>
+    <p>Bu metin bir yapay zekâ tarafından yazılmıştır. <b>Avukat kontrolünden geçmemiştir.</b>
+    Tek kuruş tahsilat yapılmadan önce bir avukatın okuması gerekir.</p>
+    <p>Sayfada <span class="doldur">[DOLDURULACAK: …]</span> şeklinde işaretlenmiş her kutu
+    gerçek bir bilgiyle değiştirilmelidir. Bir tanesi bile doluysa bu sayfa yayına alınmaz.</p>
+  </div>
+
+  <div class="bas">
+    <span class="etiket">Yasal</span>
+    <h1>Kullanım Koşulları</h1>
+    <p class="altyazi">
+      Bu koşullar, STOKVIN hizmetini kullanan satıcı ile hizmeti veren firma arasındaki
+      sözleşmedir. Hesap açtığınızda bu koşulları kabul etmiş olursunuz.
+    </p>
+    <p class="tarih">Yürürlük tarihi: <span class="doldur">[DOLDURULACAK: yürürlük tarihi]</span>
+      &nbsp;·&nbsp; Son güncelleme: <span class="doldur">[DOLDURULACAK: güncelleme tarihi]</span></p>
+  </div>
+
+  <div class="ozet">
+    <h2>Kısaca ne diyor?</h2>
+    <ul>
+      <li>STOKVIN bir <b>hesaplama ve raporlama aracıdır.</b> Muhasebe programı değildir, mali
+        müşavir yerine geçmez.</li>
+      <li>Bize verdiğiniz Trendyol API anahtarı <b>sadece okuma</b> içindir. Mağazanıza hiçbir
+        şey yazmayız.</li>
+      <li>Panelde gördüğünüz rakamlar bilgi amaçlıdır. <b>Fiyat kararı sizindir.</b></li>
+      <li>Abonelik aylıktır ve <b>istediğiniz an iptal edebilirsiniz.</b></li>
+      <li>Trendyol ile <b>hiçbir bağımız yoktur.</b> Trendyol'un kendi kurallarına uymak sizin
+        sorumluluğunuzdadır.</li>
+      <li>Yazılımı kopyalayamaz, başkasına satamaz, tersine mühendislik yapamazsınız.</li>
+    </ul>
+  </div>
+
+  <div class="icindekiler">
+    <h2>İçindekiler</h2>
+    <ol>
+      <li><a href="#m1">Taraflar</a></li>
+      <li><a href="#m2">Tanımlar</a></li>
+      <li><a href="#m3">Hizmet ne yapar, ne yapmaz</a>
+        &mdash; <a href="#m3-1">3.1 Fiyat güncelleme (varsayılan kapalı)</a></li>
+      <li><a href="#m4">Hesap açma ve hesap güvenliği</a></li>
+      <li><a href="#m5">Trendyol API anahtarı</a></li>
+      <li><a href="#m6">Trendyol ile ilişkimiz yok</a></li>
+      <li><a href="#m7">Ücret, ödeme ve fatura</a></li>
+      <li><a href="#m8">Yapmanız gerekenler</a></li>
+      <li><a href="#m9">Yapamayacaklarınız</a></li>
+      <li><a href="#m10">Fikri mülkiyet</a></li>
+      <li><a href="#m11">Hizmetin sürekliliği ve kesintiler</a></li>
+      <li><a href="#m12">Sorumluluk sınırı</a></li>
+      <li><a href="#m13">Askıya alma ve fesih</a></li>
+      <li><a href="#m14">Kişisel veriler</a></li>
+      <li><a href="#m15">Koşulların değişmesi</a></li>
+      <li><a href="#m16">Uygulanacak hukuk ve uyuşmazlık</a></li>
+      <li><a href="#m17">İletişim</a></li>
+    </ol>
+  </div>
+
+  <section class="madde" id="m1">
+    <h2>1. Taraflar</h2>
+    <p><b>Hizmeti veren (kısaca "STOKVIN" veya "biz"):</b></p>
+    <div class="kunye">
+      <div class="kaydir">
+        <table>
+          <tbody>
+            <tr><td>Unvan</td><td><span class="doldur">[DOLDURULACAK: şirket / şahıs firması tam unvanı]</span></td></tr>
+            <tr><td>Adres</td><td><span class="doldur">[DOLDURULACAK: açık adres]</span></td></tr>
+            <tr><td>Vergi dairesi / no</td><td><span class="doldur">[DOLDURULACAK: vergi dairesi ve numarası]</span></td></tr>
+            <tr><td>MERSİS no</td><td><span class="doldur">[DOLDURULACAK: MERSİS no — yoksa "yok"]</span></td></tr>
+            <tr><td>Telefon</td><td><span class="doldur">[DOLDURULACAK: telefon]</span></td></tr>
+            <tr><td>E-posta</td><td><span class="doldur">[DOLDURULACAK: iletişim e-postası]</span></td></tr>
+            <tr><td>İnternet adresi</td><td><span class="doldur">[DOLDURULACAK: alan adı]</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p><b>Hizmeti kullanan (kısaca "Satıcı" veya "siz"):</b> Kayıt sırasında verdiğiniz
+      bilgilerle tanımlanan gerçek veya tüzel kişi.</p>
+  </section>
+
+  <section class="madde" id="m2">
+    <h2>2. Tanımlar</h2>
+    <ul>
+      <li><b>Hizmet:</b> STOKVIN internet paneli ve Chrome tarayıcı eklentisi.</li>
+      <li><b>Panel:</b> giriş yaptığınızda açılan, kâr ve gider ekranlarının bulunduğu internet
+        sayfası.</li>
+      <li><b>Eklenti:</b> Trendyol satıcı panelinde çalışan, ekrana kâr rakamı yazan Chrome
+        eklentisi.</li>
+      <li><b>API anahtarı:</b> Trendyol satıcı panelinizden oluşturduğunuz, mağaza verilerinizin
+        okunmasını sağlayan erişim bilgisi.</li>
+      <li><b>Abonelik:</b> hizmeti kullanma hakkı veren, aylık ücretli üyelik.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m3">
+    <h2>3. Hizmet ne yapar, ne yapmaz</h2>
+    <h3>Ne yapar</h3>
+    <p>STOKVIN, verdiğiniz API anahtarıyla Trendyol'dan sipariş, ürün, soru ve hakediş
+      bilgilerinizi okur ve dört uygulama sunar: <b>Kâr Analizi</b> (komisyon, kargo, hizmet
+      bedeli, stopaj ve KDV kalemleri ayrılmış net kâr hesabı), <b>Günlük Rapor</b>, <b>Sorular
+      ve Üretim</b> (yapay zekâ destekli taslak cevaplar; üretim kategorilerini ve şartlarını
+      siz ayarlarsınız) ve <b>Fatura iptali</b> (yalnız BIEN, siz açarsanız).</p>
+
+    <div class="onemli">
+      <h3>Ne yapmaz — bunu açıkça yazıyoruz</h3>
+      <p><b>Muhasebe programı değildir.</b> Resmî defterinizi tutmaz, beyanname hazırlamaz,
+        e-fatura kesmez. Vergi hesabınızın doğru kaynağı mali müşavirinizdir.</p>
+      <p><b>Mali, hukuki veya yatırım tavsiyesi vermez.</b> Paneldeki rakamlar bilgi amaçlıdır.
+        Fiyat değiştirme, kampanyaya girme, ürün kapatma kararlarını siz verirsiniz ve
+        sonuçlarından siz sorumlusunuz.</p>
+      <p><b>Stoğunuza dokunmaz.</b> Stok güncellemez, ürün açmaz veya kapatmaz, sipariş
+        onaylamaz veya iptal etmez. Bu işlemler hizmette hiç yoktur ve hiçbir ayarla
+        açılamaz.</p>
+      <p><b>Mağazanıza giden her işlem sizin açtığınız bir anahtara bağlıdır.</b> Bunlar
+        üçtür: müşteri sorusuna onayladığınız cevabın gönderilmesi, (açtıysanız) iade
+        faturasının fatura programınızda iptali ve (açtıysanız) aşağıdaki 3.1 maddesinde
+        düzenlenen fiyat güncelleme. Üçü de varsayılan olarak kapalıdır.</p>
+      <p><b>Fatura kesmez.</b> Faturası kesilmesi gereken siparişleri yalnız listeler; kesme
+        işlemini siz kendi programınızda yaparsınız. Fatura iptali yalnız BIEN kullanan
+        mağazalarda çalışır ve varsayılan olarak kapalıdır.</p>
+      <p><b>Kâr garantisi vermez.</b> Panelin kârınızı artıracağını taahhüt etmiyoruz; sadece
+        mevcut durumunuzu hesaplarız.</p>
+    </div>
+
+    <h3 id="m3-1">3.1 Fiyat güncelleme — yalnız siz açarsanız</h3>
+    <p>Otomatik fiyat güncelleme <b>varsayılan olarak kapalıdır</b>. Siz panelden bu anahtarı
+      açmadıkça STOKVIN mağazanızdaki hiçbir fiyatı değiştirmez.</p>
+    <p>Anahtarı açtığınızda aşağıdaki şartlar geçerlidir:</p>
+    <ol>
+      <li>Her ürün için bir <b>taban fiyat</b> belirlenir. Panel hiçbir koşulda bu fiyatın
+        altına inmez.</li>
+      <li>Taban fiyat, sizin girdiğiniz ürün maliyeti ve desi bilgisinden hesaplanır.
+        <b>Maliyetini girmediğiniz üründe taban fiyat hesaplanamaz; o ürünün fiyatı
+        güncellenmez.</b></li>
+      <li>Yazılan her fiyat; eski fiyatı, yeni fiyatı, tarihi ve saatiyle panelde listelenir.
+        Bu liste silinmez.</li>
+      <li>Anahtarı istediğiniz an kapatabilirsiniz. Kapattığınız anda fiyat yazma durur. Panel,
+        kapatmadan önce yazdığı fiyatları kendiliğinden eski hâline döndürmez; dilerseniz siz
+        değiştirirsiniz.</li>
+      <li>Trendyol satıcı panelinden API anahtarınızı yenilediğinizde erişim aynı anda biter.
+        Bunun için bizden izin almanız gerekmez.</li>
+      <li><b>Fiyat kararının sonucundan siz sorumlusunuz.</b> Girdiğiniz maliyet yanlışsa taban
+        fiyat da yanlış çıkar ve panel o yanlış tabana uyar. Anahtarı açmadan önce taban
+        fiyatlarınızı kontrol etmenizi öneririz.</li>
+      <li>Panel bir fiyatı <b>yükseltmek için</b> de yazabilir; anahtar tek yönlü değildir.
+        Bir <b>tavan fiyat</b> da belirleyebilirsiniz; belirlerseniz panel bu fiyatın üstüne
+        çıkmaz.</li>
+    </ol>
+
+    <h4>Anahtarı açmak — açık rızanız ve kaydı</h4>
+    <p>Bu anahtar kendiliğinden açılmaz ve bizim tarafımızdan açılamaz. Açma ekranında
+      <b>ürünlerinizin taban fiyatları listelenir</b>, bu maddenin metni gösterilir ve
+      onayladığınızı ayrıca işaretlemeniz istenir. İşaretlediğinizde <b>kim açtı, hangi tarih
+      ve saatte açtı, hangi sürüm koşulları onayladı</b> bilgisi kaydedilir. Bu kayıt
+      rızanızın belgesidir ve anahtarı kapatsanız da saklanır.</p>
+    <p>Anahtar kapalıyken bu maddenin hiçbir hükmü işlemez; hizmet 3. maddedeki hâliyle
+      çalışır.</p>
+
+    <h4>Bu maddede sorumluluğumuzun sınırı</h4>
+    <ol start="8">
+      <li><b>Fiyatı biz seçmeyiz, kuralı siz kurarsınız.</b> Panel, sizin belirlediğiniz taban
+        ve tavan arasında, sizin girdiğiniz maliyete göre hesaplar. Bu sınırların kendisi sizin
+        ticari kararınızdır.</li>
+      <li><b>Pazaryerinin kendi kuralları bizim elimizde değildir.</b> Pazaryeri gönderdiğimiz
+        fiyatı reddedebilir, geciktirebilir, kendi kampanyası için değiştirebilir veya fiyat
+        davranışı sebebiyle mağazanıza işlem uygulayabilir. Biz yalnız gönderiyoruz; kararı
+        pazaryeri verir.</li>
+      <li><b>Yazma başarısız olabilir.</b> Kesinti, bağlantı hatası veya anahtarınızın süresi
+        dolması hâlinde fiyat gitmeyebilir ya da gecikebilir. Panelin bir fiyatı yazdığını
+        göstermesi, o fiyatın pazaryerinde yayında olduğunun garantisi değildir.
+        <b>Fiyatlarınızı kendiniz de kontrol etmeniz gerekir.</b></li>
+      <li><b>Yazılan fiyat listesini takip etmek sizin yükümlülüğünüzdür.</b> Listeyi biz
+        tutarız ve silmeyiz; okumak ve beklemediğiniz bir şey görürseniz anahtarı kapatmak
+        size düşer.</li>
+      <li>Bu maddeden doğan her talepte <a href="#m12">12. maddedeki sorumluluk sınırı</a>
+        aynen uygulanır.</li>
+    </ol>
+
+    <h3>Rakamların doğruluğu</h3>
+    <p>Hesaplarımızın kaynağı Trendyol'un kendi verisidir. Trendyol'un verisi eksik, gecikmeli
+      veya hatalı gelirse panelin rakamı da öyle olur. Ayrıca girdiğiniz ürün maliyeti ve desi
+      bilgileri yanlışsa sonuç da yanlış çıkar. <b>Rakamları önemli bir karar öncesinde kendi
+      kayıtlarınızla karşılaştırmanızı öneririz.</b></p>
+    <p>Maliyetini girmediğiniz üründe kâr hesabı yapılmaz; tahmin üretilmez.</p>
+  </section>
+
+  <section class="madde" id="m4">
+    <h2>4. Hesap açma ve hesap güvenliği</h2>
+    <ul>
+      <li>Hesap açmak için e-posta adresinizi doğrularsınız ve firma bilgilerinizi girersiniz.</li>
+      <li>Verdiğiniz bilgilerin <b>doğru ve güncel</b> olmasından siz sorumlusunuz. Fatura
+        bilgisi yanlışsa doğacak sonuçlar size aittir.</li>
+      <li>Şifrenizi korumak sizin sorumluluğunuzdadır. Hesabınızdan yapılan işlemler size ait
+        sayılır.</li>
+      <li>Hesabınızın izinsiz kullanıldığını fark ederseniz <b>derhâl bize haber verin.</b></li>
+      <li>Bir abonelik <span class="doldur">[DOLDURULACAK: bir abonelikle kaç Trendyol mağazası
+        bağlanabilir — 1 mi, sınırsız mı]</span> mağaza içindir.</li>
+      <li>Hesabınızı başkasıyla paylaşamaz, kiralayamaz, devredemezsiniz.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m5">
+    <h2>5. Trendyol API anahtarı</h2>
+    <p>Bu sözleşmenin en önemli maddesidir. Bize başka bir şirketin mağaza erişim bilgisini
+      emanet ediyorsunuz; bunun kurallarını burada tek tek yazıyoruz.</p>
+
+    <h3>5.1 Ne alıyoruz</h3>
+    <p>Trendyol satıcı panelinizden oluşturduğunuz <b>satıcı (cari) numarası, API anahtarı ve
+      API gizli anahtarı.</b> Başka bir bilgi istemiyoruz. <b>Trendyol şifrenizi asla
+      istemeyiz</b> — biri sizden Trendyol şifrenizi isterse o biz değiliz.</p>
+
+    <h3>5.2 Erişim sadece okumadır</h3>
+    <p>Anahtarla mağazanızdan yalnızca <b>okuruz.</b> Yazma, değiştirme, silme, sipariş
+      işleme, mesajlaşma yetkisi kullanmayız. Bu, sözleşmeden doğan bir taahhüdümüzdür; aksi
+      bir işlem yaparsak sözleşmeye aykırı davranmış oluruz.</p>
+
+    <h3>5.3 Nasıl saklanır</h3>
+    <p>Anahtarlarınız sunucumuzda <b>şifrelenmiş olarak</b> tutulur; panel ekranlarında açık
+      olarak gösterilmez. Erişim, hizmetin çalışması için gereken sistemle ve
+      <span class="doldur">[DOLDURULACAK: yetkili kişi sayısı / rolü]</span> ile sınırlıdır.</p>
+
+    <h3>5.4 İstediğiniz an geri alırsınız</h3>
+    <p>Anahtar sizindir ve her an geri alabilirsiniz:</p>
+    <ul>
+      <li>STOKVIN hesap ayarlarınızdan <b>"Anahtarı sil"</b> diyerek, veya</li>
+      <li>Trendyol satıcı panelinizden anahtarı <b>iptal ederek.</b></li>
+    </ul>
+    <p>Her iki durumda da panel veri çekmeyi durdurur. Mağazanızda başka hiçbir şey olmaz,
+      hiçbir kaydınız etkilenmez.</p>
+
+    <h3>5.5 Abonelik biterse</h3>
+    <p>Abonelik iptal edildiğinde veya sona erdiğinde anahtarınız
+      <span class="doldur">[DOLDURULACAK: gün sayısı]</span> içinde sunucudan silinir.
+      Yedeklerdeki kopyalar <span class="doldur">[DOLDURULACAK: yedek döngü süresi]</span>
+      içinde düşer. Silme tamamlandığında size e-posta ile bildiririz.</p>
+
+    <h3>5.6 Yetkiniz olduğunu beyan edersiniz</h3>
+    <p>Bize verdiğiniz anahtarın ait olduğu mağazanın <b>sahibi veya yetkilisi olduğunuzu</b>
+      beyan edersiniz. Başkasının mağaza anahtarını izinsiz bağlarsanız doğacak her türlü
+      sorumluluk size aittir.</p>
+
+    <div class="soru">
+      <b>Dürüst uyarı — henüz yapılmamış olanlar:</b> Şifreli saklama, erişim kaydı, otomatik
+      silme ve silme bildirimi <b>bugün itibarıyla kurulmuş değildir.</b> Bu maddeler yazılım
+      tamamlanmadan yayına alınamaz.
+    </div>
+  </section>
+
+  <section class="madde" id="m6">
+    <h2>6. Trendyol ile ilişkimiz yok</h2>
+    <p>STOKVIN <b>bağımsız bir üründür.</b> Trendyol ile ortaklığı, bayiliği, iş birliği veya
+      resmî bir bağı yoktur. Trendyol tarafından onaylanmış veya desteklenmiş değildir.
+      Trendyol, Trendyol'un tescilli markasıdır ve burada sadece hizmetin ne işe yaradığını
+      anlatmak için kullanılmıştır.</p>
+    <p>Trendyol'un satıcı sözleşmesine, API kullanım kurallarına ve platform politikalarına
+      uymak <b>sizin sorumluluğunuzdadır.</b> Trendyol'un API'sini kapatması, kurallarını
+      değiştirmesi veya mağazanıza işlem uygulaması hâlinde sorumluluk kabul etmeyiz.</p>
+  </section>
+
+  <section class="madde" id="m7">
+    <h2>7. Ücret, ödeme ve fatura</h2>
+    <ul>
+      <li>Hizmet <b>aylık abonelik</b> ile verilir. Üç paket vardır:
+        <b>Başlangıç ₺499,99</b> (ayda 300 soru taslağı), <b>Gelişmiş ₺999,99</b>
+        (ayda 1.000 soru taslağı) ve <b>Profesyonel ₺1.399,99</b> (ayda 2.000 soru taslağı).
+        Paketler arasında özellik farkı yoktur; fark yalnız aylık yapay zekâ hakkıdır.
+        Güncel fiyatlar <a href="index.html#fiyat">fiyat bölümünde</a> yayımlanır.</li>
+      <li>Ücretler <b>KDV dâhil / hariç:</b>
+        <span class="doldur">[DOLDURULACAK: fiyatlar KDV dâhil mi hariç mi]</span></li>
+      <li>Ödeme, kayıtlı kartınızdan <b>her dönem başında otomatik</b> tahsil edilir.</li>
+      <li>Her ödeme için <b>fatura düzenlenir</b> ve e-posta ile gönderilir.</li>
+      <li><b>Deneme süresi:</b>
+        <span class="doldur">[DOLDURULACAK: deneme süresi var mı, kaç gün, kart isteniyor mu —
+        karar verilmedi]</span></li>
+      <li><b>Aylık yapay zekâ hakkı biterse:</b> panel çalışmaya devam eder. Kâr Analizi,
+        günlük rapor rakamları ve ekranların tamamı açıktır; yalnız yeni soru taslağı yazılmaz
+        ve raporun yazılı yorumu durur. Hak ay başında yenilenir, dilerseniz üst pakete
+        geçersiniz. <b>Paket ücreti dışında ek bir tahsilat yapılmaz</b> — hak aşımı için
+        ayrıca ücretlendirme yoktur ve otomatik olarak üst pakete geçirilmezsiniz.</li>
+      <li>Fiyat değişikliğini <b>en az 30 gün önceden</b> e-posta ile bildiririz. Yeni fiyatı
+        kabul etmezseniz bildirimden itibaren aboneliğinizi ücretsiz sonlandırabilirsiniz.</li>
+      <li>Ödeme alınamazsa hesabınız <span class="doldur">[DOLDURULACAK: kaç gün sonra]</span>
+        askıya alınır. Askı süresince veriniz silinmez.</li>
+    </ul>
+    <p>İptal ve iade kurallarının tamamı <a href="iptal-iade.html">İptal ve İade Koşulları</a>
+      sayfasındadır.</p>
+  </section>
+
+  <section class="madde" id="m8">
+    <h2>8. Yapmanız gerekenler</h2>
+    <ul>
+      <li>Hizmeti yürürlükteki mevzuata uygun kullanmak.</li>
+      <li>Hesap bilgilerinizi doğru ve güncel tutmak.</li>
+      <li>Trendyol'un kendi kurallarına uymak.</li>
+      <li>Panelin gösterdiği rakamları kendi ticari kararınızın tek dayanağı yapmadan önce
+        kontrol etmek.</li>
+      <li>Bir hata gördüğünüzde bize bildirmek.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m9">
+    <h2>9. Yapamayacaklarınız</h2>
+    <ul>
+      <li>Yazılımın kaynak koduna ulaşmaya, kodu çözmeye veya <b>tersine mühendislik</b>
+        yapmaya çalışmak.</li>
+      <li>Hizmeti <b>kopyalamak, çoğaltmak, kiralamak veya başkasına satmak.</b></li>
+      <li>Panel ekranlarını, metinlerini veya hesaplama yöntemini izinsiz ticari amaçla
+        kullanmak.</li>
+      <li>Otomatik yazılımlarla hizmeti toplu şekilde taramak, veri çekmek, aşırı yük bindirmek.</li>
+      <li>Hesabınızı birden fazla firmayla paylaşmak.</li>
+      <li>Sisteme izinsiz erişmeye çalışmak, güvenlik önlemlerini aşmayı denemek.</li>
+      <li>Başkasının Trendyol anahtarını yetkisiz olarak bağlamak.</li>
+    </ul>
+    <p>Bu maddelere aykırılık hâlinde hesabınızı uyarı yaparak veya ağır hâllerde uyarı
+      yapmadan askıya alabilir ya da kapatabiliriz.</p>
+  </section>
+
+  <section class="madde" id="m10">
+    <h2>10. Fikri mülkiyet</h2>
+    <p><b>Yazılım, ekranlar, metinler, logo ve hesaplama yöntemi bize aittir.</b> Abonelik size
+      bunları kullanma hakkı verir; mülkiyetini devretmez.</p>
+    <p><b>Verileriniz sizindir.</b> Trendyol'dan gelen mağaza verileriniz, girdiğiniz ürün
+      maliyetleri ve raporlarınız üzerinde hak iddia etmiyoruz. Bunları sadece size hizmet
+      vermek için işleriz.</p>
+    <p>STOKVIN adı ve logosu <span class="doldur">[DOLDURULACAK: marka tescil başvurusu yapıldı
+      mı, tescil no]</span>.</p>
+  </section>
+
+  <section class="madde" id="m11">
+    <h2>11. Hizmetin sürekliliği ve kesintiler</h2>
+    <p>Hizmetin kesintisiz çalışması için çaba gösteririz, ancak <b>kesintisizlik garantisi
+      vermiyoruz.</b> Şu durumlarda hizmet geçici olarak durabilir:</p>
+    <ul>
+      <li>Planlı bakım — mümkün olduğunca önceden haber veririz.</li>
+      <li>Trendyol'un API'sini değiştirmesi, kapatması veya arıza vermesi.</li>
+      <li>Trendyol'un satıcı panelindeki ekranları değiştirmesi — bu hâlde eklentinin bir kısmı
+        çalışmayı bırakabilir.</li>
+      <li>Sunucu, internet altyapısı veya barındırma sağlayıcısı kaynaklı arızalar.</li>
+      <li>Elektrik kesintisi, doğal afet, siber saldırı gibi elimizde olmayan sebepler.</li>
+    </ul>
+    <p>Uzun süreli kesintilerde <span class="doldur">[DOLDURULACAK: telafi politikası — kesinti
+      günü kadar abonelik uzatması verilecek mi]</span>.</p>
+  </section>
+
+  <section class="madde" id="m12">
+    <h2>12. Sorumluluk sınırı</h2>
+    <p>Hizmeti dikkatle sunarız, ancak şu konularda sorumluluk kabul etmiyoruz:</p>
+    <ul>
+      <li>Panelde gördüğünüz rakamlara dayanarak verdiğiniz ticari kararların sonuçları.</li>
+      <li>Trendyol'un verisinden veya sizin girdiğiniz maliyet bilgisinden kaynaklanan
+        yanlışlıklar.</li>
+      <li>Kâr kaybı, iş kaybı, itibar kaybı gibi dolaylı zararlar.</li>
+      <li>Trendyol'un mağazanıza uyguladığı işlemler.</li>
+    </ul>
+    <p>Kusurumuzdan doğan doğrudan zararlarda sorumluluğumuz, zararın doğduğu tarihten önceki
+      <b>son 3 aylık dönemde bize ödediğiniz toplam abonelik ücreti</b> ile sınırlıdır.</p>
+    <p>Bu sınırlama <b>kastımızdan veya ağır kusurumuzdan doğan zararlarda uygulanmaz.</b></p>
+    <div class="soru">
+      <b>Avukata sorulacak:</b> Türk Borçlar Kanunu'nun 115. maddesi kast ve ağır kusur için
+      sorumsuzluk anlaşmasını geçersiz sayıyor. Yukarıdaki üst sınır bu çerçevede geçerli mi,
+      yoksa daraltılması mı gerekir? Ayrıca müşteri bir <b>tüketici</b> sayılırsa bu sınırlama
+      hiç uygulanabilir mi?
+    </div>
+  </section>
+
+  <section class="madde" id="m13">
+    <h2>13. Askıya alma ve fesih</h2>
+    <h3>Siz sonlandırırsanız</h3>
+    <p>Aboneliğinizi <b>istediğiniz an,</b> sebep göstermeden, panelden iptal edebilirsiniz.
+      Ayrıntılar <a href="iptal-iade.html">İptal ve İade Koşulları</a> sayfasındadır.</p>
+    <h3>Biz sonlandırırsak</h3>
+    <p>Aşağıdaki hâllerde hesabınızı askıya alabilir veya kapatabiliriz:</p>
+    <ul>
+      <li>Ödemenin alınamaması ve gecikmenin sürmesi.</li>
+      <li>9. maddedeki yasaklara aykırı davranış.</li>
+      <li>Sisteme veya diğer kullanıcılara zarar veren kullanım.</li>
+      <li>Hizmetin tamamen kapatılması — bu hâlde <b>en az 30 gün önceden</b> haber verir ve
+        peşin alınmış ücretin kullanılmayan kısmını iade ederiz.</li>
+    </ul>
+    <p>Hesap kapandığında API anahtarınız silinir, verileriniz gizlilik politikasında yazan
+      süreler içinde silinir. Kapanmadan önce verilerinizi
+      <span class="doldur">[DOLDURULACAK: dışa aktarma (Excel indirme) imkânı olacak mı]</span>.</p>
+  </section>
+
+  <section class="madde" id="m14">
+    <h2>14. Kişisel veriler</h2>
+    <p>Kişisel verilerinizi nasıl işlediğimiz ayrı bir metinde anlatılmıştır:
+      <a href="gizlilik.html">Gizlilik Politikası ve KVKK Aydınlatma Metni</a>. O metin bu
+      sözleşmenin ayrılmaz parçasıdır.</p>
+    <p>Trendyol siparişlerinizin içindeki alıcı bilgileri bakımından <b>veri sorumlusu
+      sizsiniz, biz sizin adınıza veri işleyeniz.</b> Bu verileri yalnızca size hizmet vermek
+      için işleriz.</p>
+  </section>
+
+  <section class="madde" id="m15">
+    <h2>15. Koşulların değişmesi</h2>
+    <p>Bu koşulları değiştirebiliriz. <b>Aleyhinize olan bir değişikliği en az 30 gün önceden</b>
+      e-posta ile bildiririz. Kabul etmezseniz, değişiklik yürürlüğe girmeden aboneliğinizi
+      sonlandırabilirsiniz.</p>
+  </section>
+
+  <section class="madde" id="m16">
+    <h2>16. Uygulanacak hukuk ve uyuşmazlık</h2>
+    <p>Bu sözleşmeye <b>Türk hukuku</b> uygulanır.</p>
+    <p>Uyuşmazlıkta <span class="doldur">[DOLDURULACAK: yetkili mahkeme ve icra daireleri —
+      firmanın bulunacağı il]</span> yetkilidir.</p>
+    <div class="soru">
+      <b>Avukata sorulacak:</b> Müşterilerimiz ticari faaliyet yürüten satıcılar, yani
+      <b>tacir.</b> Bu durumda yetki sözleşmesi geçerli olur. Ancak müşteri şahıs olarak
+      alıyorsa <b>tüketici</b> sayılabilir ve tüketiciye karşı yetki sözleşmesi geçersizdir;
+      tüketici kendi yerleşim yerindeki tüketici mahkemesine gidebilir. Bu maddenin iki hâli
+      de kapsayacak şekilde nasıl yazılması gerekir?
+    </div>
+  </section>
+
+  <section class="madde" id="m17">
+    <h2>17. İletişim</h2>
+    <p>Soru, şikâyet ve bildirimler için:
+      <span class="doldur">[DOLDURULACAK: destek e-postası]</span></p>
+    <p>Destek kanalı ve çalışma saatleri:
+      <span class="doldur">[DOLDURULACAK: destek kanalı — e-posta mı, WhatsApp mı; saatleri
+      ne — karar verilmedi]</span></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="kap">
+    <div class="altizgara">
+      <div>
+        <a class="logo" href="index.html">
+          <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+            <g fill="none" stroke="currentColor" stroke-linecap="butt">
+              <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+              <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+                <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+              </g>
+            </g>
+          </svg>
+          <span class="logoyazi">STOKVIN</span>
+        </a>
+        <p class="tanitimcumle">
+          Trendyol satıcıları için net kâr, komisyon ve kargo analizi. Çalışan bir mağazanın
+          kendi ihtiyacından çıktı.
+        </p>
+      </div>
+      <div>
+        <h4>Panel</h4>
+        <ul>
+          <li><a href="index.html">Ana sayfa</a></li>
+          <li><a href="index.html#fark">Farkı ne?</a></li>
+          <li><a href="index.html#yontem">Nasıl hesaplıyor?</a></li>
+          <li><a href="index.html#eklenti">Chrome eklentisi</a></li>
+          <li><a href="index.html#fiyat">Fiyat</a></li>
+          <li><a href="giris.html">Giriş</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yasal</h4>
+        <ul>
+          <li><a href="gizlilik.html">Gizlilik politikası</a></li>
+          <li><a href="kullanim-kosullari.html">Kullanım koşulları</a></li>
+          <li><a href="on-bilgilendirme.html">Ön bilgilendirme formu</a></li>
+          <li><a href="mesafeli-satis.html">Mesafeli satış sözleşmesi</a></li>
+          <li><a href="iptal-iade.html">İptal ve iade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="altson">
+      <span>© 2026 STOKVIN</span>
+      <span>Trendyol, Trendyol'un tescilli markasıdır. STOKVIN bağımsız bir üründür, Trendyol ile bir bağı yoktur.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

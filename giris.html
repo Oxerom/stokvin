@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giriş — STOKVIN</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66' stroke-linecap='butt'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+    --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+  }
+}
+:root[data-theme="dark"]{
+  --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+  --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+}
+:root[data-theme="light"]{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;background:var(--zemin);color:var(--yazi);
+  font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:40px 20px;
+}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;margin-bottom:28px}
+.logo svg{display:block;height:32px;width:auto;color:var(--murekkep)}
+.logoyazi{font-weight:700;font-size:19px;letter-spacing:.06em;display:block}
+.logoalt{font-size:11px;color:var(--soluk);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:-3px}
+
+.kutu{
+  width:100%;max-width:430px;background:var(--kart);border:1px solid var(--cizgi);
+  border-radius:16px;padding:32px;
+}
+h1{font-size:25px;margin:0 0 8px;letter-spacing:-.02em}
+.altyazi{color:var(--soluk);font-size:15px;margin:0 0 26px}
+
+.sekmeler{display:flex;gap:6px;background:var(--zemin);border-radius:10px;padding:4px;margin-bottom:26px}
+.sekme{
+  flex:1;padding:9px;border:0;border-radius:7px;background:transparent;cursor:pointer;
+  font:inherit;font-size:15px;font-weight:600;color:var(--soluk);
+}
+.sekme[aria-selected="true"]{background:var(--kart);color:var(--yazi);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+
+label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}
+input{
+  width:100%;padding:12px 14px;border:1.5px solid var(--cizgi);border-radius:10px;
+  background:var(--zemin);color:var(--yazi);font:inherit;font-size:16px;margin-bottom:18px;
+}
+input:focus{outline:none;border-color:var(--murekkep)}
+input[aria-invalid="true"]{border-color:var(--zarar)}
+.hata{color:var(--zarar);font-size:13.5px;margin:-13px 0 16px;display:none}
+.hata.acik{display:block}
+
+button.gonder{
+  width:100%;padding:13px;border:0;border-radius:10px;background:var(--murekkep);
+  color:var(--zemin);font:inherit;font-size:16px;font-weight:600;cursor:pointer;
+}
+.sonuc{
+  margin-top:18px;padding:14px 16px;border-radius:10px;font-size:14.5px;display:none;
+  border:2px dashed var(--uyari);background:color-mix(in srgb,var(--uyari) 9%,transparent);
+}
+.sonuc.acik{display:block}
+.sonuc strong{color:var(--uyari)}
+
+.notlar{margin-top:22px;padding-top:20px;border-top:1px solid var(--cizgi);font-size:13.5px;color:var(--soluk)}
+.notlar p{margin:0 0 9px}
+.notlar p:last-child{margin:0}
+.geri{margin-top:26px;font-size:14.5px}
+.geri a{color:var(--soluk)}
+</style>
+</head>
+<body>
+
+<a class="logo" href="index.html">
+  <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+    <g fill="none" stroke="currentColor" stroke-linecap="butt">
+      <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+      <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+        <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+      </g>
+    </g>
+  </svg>
+  <span>
+    <span class="logoyazi">STOKVIN</span>
+    <span class="logoalt">Kâr Paneli</span>
+  </span>
+</a>
+
+<div class="kutu">
+  <div class="sekmeler" role="tablist">
+    <button class="sekme" id="sekmeGiris" role="tab" aria-selected="true">Giriş yap</button>
+    <button class="sekme" id="sekmeKayit" role="tab" aria-selected="false">Hesap aç</button>
+  </div>
+
+  <h1 id="baslik">Tekrar hoş geldin</h1>
+  <p class="altyazi" id="altyazi">Panelini açmak için e-postanı ve şifreni yaz.</p>
+
+  <form id="form" novalidate>
+    <div id="adAlani" hidden>
+      <label for="ad">Mağaza adı</label>
+      <input type="text" id="ad" autocomplete="organization">
+      <div class="hata" id="hataAd">Mağaza adını yaz.</div>
+    </div>
+
+    <label for="eposta">E-posta</label>
+    <input type="email" id="eposta" autocomplete="email" inputmode="email">
+    <div class="hata" id="hataEposta">Geçerli bir e-posta yaz.</div>
+
+    <label for="sifre">Şifre</label>
+    <input type="password" id="sifre" autocomplete="current-password">
+    <div class="hata" id="hataSifre">Şifre en az 8 karakter olmalı.</div>
+
+    <button class="gonder" type="submit" id="gonder">Giriş yap</button>
+  </form>
+
+  <div class="sonuc" id="sonuc">
+    <strong>Bu sayfa henüz bağlı değil.</strong>
+    Form çalışıyor ama arkasında bir sistem yok; üyelik, ödeme ve satıcı verilerinin
+    birbirinden ayrılması daha kurulmadı. Hiçbir bilgi hiçbir yere gönderilmedi.
+  </div>
+
+  <div class="notlar">
+    <p>Trendyol anahtarın burada istenmez. Hesabın açıldıktan sonra panelin içinden bağlanır.</p>
+    <p>Stoğuna dokunulmaz. Mağazana giden her işlem senin açtığın bir anahtara bağlı —
+      otomatik fiyat güncelleme dâhil, hepsi kapalı gelir.</p>
+    <p>Hesap açtığında <a href="kullanim-kosullari.html">Kullanım Koşulları</a>'nı kabul etmiş,
+      <a href="gizlilik.html">Gizlilik Politikası</a>'nı okumuş olursun.
+      Ücretli plana geçmeden önce ayrıca <a href="on-bilgilendirme.html">Ön Bilgilendirme
+      Formu</a> ve <a href="mesafeli-satis.html">Mesafeli Satış Sözleşmesi</a> gösterilir.</p>
+  </div>
+</div>
+
+<p class="geri"><a href="index.html">← Tanıtım sayfasına dön</a></p>
+
+<script>
+(function(){
+  var kayitMi = false;
+  var form = document.getElementById("form");
+  var sonuc = document.getElementById("sonuc");
+  var adAlani = document.getElementById("adAlani");
+
+  function sekmeSec(kayit){
+    kayitMi = kayit;
+    document.getElementById("sekmeGiris").setAttribute("aria-selected", String(!kayit));
+    document.getElementById("sekmeKayit").setAttribute("aria-selected", String(kayit));
+    adAlani.hidden = !kayit;
+    document.getElementById("baslik").textContent = kayit ? "Hesap aç" : "Tekrar hoş geldin";
+    document.getElementById("altyazi").textContent = kayit
+      ? "Mağaza adını, e-postanı ve bir şifre yaz."
+      : "Panelini açmak için e-postanı ve şifreni yaz.";
+    document.getElementById("gonder").textContent = kayit ? "Hesap aç" : "Giriş yap";
+    document.getElementById("sifre").setAttribute("autocomplete", kayit ? "new-password" : "current-password");
+    sonuc.classList.remove("acik");
+    temizle();
+  }
+
+  document.getElementById("sekmeGiris").addEventListener("click", function(){ sekmeSec(false); });
+  document.getElementById("sekmeKayit").addEventListener("click", function(){ sekmeSec(true); });
+
+  function isaretle(alanId, hataId, hataliMi){
+    document.getElementById(alanId).setAttribute("aria-invalid", String(hataliMi));
+    document.getElementById(hataId).classList.toggle("acik", hataliMi);
+  }
+
+  function temizle(){
+    isaretle("ad","hataAd",false);
+    isaretle("eposta","hataEposta",false);
+    isaretle("sifre","hataSifre",false);
+  }
+
+  form.addEventListener("submit", function(olay){
+    olay.preventDefault();
+    temizle();
+    var tamam = true;
+
+    if (kayitMi && document.getElementById("ad").value.trim() === ""){
+      isaretle("ad","hataAd",true); tamam = false;
+    }
+    var eposta = document.getElementById("eposta").value.trim();
+    if (eposta.indexOf("@") < 1 || eposta.lastIndexOf(".") < eposta.indexOf("@") + 2){
+      isaretle("eposta","hataEposta",true); tamam = false;
+    }
+    if (document.getElementById("sifre").value.length < 8){
+      isaretle("sifre","hataSifre",true); tamam = false;
+    }
+
+    sonuc.classList.toggle("acik", tamam);
+  });
+})();
+</script>
+
+</body>
+</html>

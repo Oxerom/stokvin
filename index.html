@@ -3,40 +3,898 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>STOKVIN</title>
-<meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<title>STOKVIN — Trendyol'da gerçek net kârını gör</title>
+<meta name="description" content="Trendyol satıcıları için kâr paneli, günlük rapor, soru cevaplama ve fatura iptali. Komisyonu tarifeden değil, Trendyol'un ödediği hakedişten okur. Onayınız olmadan mağazanıza hiçbir şey gönderilmez.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66' stroke-linecap='butt'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 <style>
-  html,body{height:100%;margin:0}
-  body{display:flex;align-items:center;justify-content:center;background:#F7F9FB;color:#0D3B66;
-       font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:0 24px}
-  main{text-align:center}
-  svg{width:min(360px,80vw);height:auto;display:block;margin:0 auto 28px}
-  p{margin:0;font-size:1.05rem;letter-spacing:.02em;color:#3D5A80}
+:root{
+  --murekkep:#0D3B66;
+  --zemin:#F7F9FB;
+  --kart:#FFFFFF;
+  --yazi:#12222F;
+  --soluk:#5A6B7A;
+  --cizgi:#DCE4EC;
+  --kar:#2E8F65;
+  --zarar:#C63A31;
+  --uyari:#96610F;
+  --olcu:1120px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --murekkep:#E8EEF4;
+    --zemin:#0A1A2A;
+    --kart:#10263A;
+    --yazi:#E8EEF4;
+    --soluk:#9DB0C0;
+    --cizgi:#1E3B54;
+    --kar:#4FC492;
+    --zarar:#F0716A;
+    --uyari:#E0A54A;
+  }
+}
+:root[data-theme="dark"]{
+  --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+  --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+}
+:root[data-theme="light"]{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--zemin);color:var(--yazi);
+  font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.kap{max-width:var(--olcu);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.2;margin:0;letter-spacing:-.02em;font-weight:700}
+h1{font-size:clamp(30px,5vw,50px)}
+h2{font-size:clamp(24px,3.4vw,34px)}
+h3{font-size:19px}
+p{margin:0}
+a{color:inherit}
+
+header{
+  position:sticky;top:0;z-index:50;background:var(--zemin);
+  border-bottom:1px solid var(--cizgi);
+}
+.ustsatir{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo svg{display:block;height:30px;width:auto;color:var(--murekkep)}
+.logoyazi{font-weight:700;font-size:18px;letter-spacing:.06em;display:block}
+.logoalt{font-size:11px;color:var(--soluk);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:-3px}
+nav{margin-inline-start:auto;display:flex;align-items:center;gap:24px}
+nav a{color:var(--soluk);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--murekkep)}
+.dugme{
+  display:inline-block;padding:11px 22px;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:15px;border:1.5px solid var(--murekkep);white-space:nowrap;
+}
+.dolu{background:var(--murekkep);color:var(--zemin)}
+.bos{background:transparent;color:var(--murekkep)}
+@media (max-width:900px){nav .gizlekucuk{display:none}}
+
+section{padding:80px 0;border-top:1px solid var(--cizgi)}
+section:first-of-type{border-top:0}
+.etiket{
+  display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soluk);margin-bottom:14px;font-weight:600;
+}
+.altyazi{color:var(--soluk);margin-top:16px;max-width:62ch;font-size:17px}
+
+.giris{padding:76px 0 64px}
+.rozet{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
+  border:1px solid var(--cizgi);background:var(--kart);font-size:14px;color:var(--soluk);
+  margin-bottom:26px;
+}
+.rozet::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--kar);flex-shrink:0}
+.girisyazi{margin-top:22px;max-width:60ch;font-size:19px;color:var(--soluk)}
+.girisyazi strong{color:var(--yazi)}
+.dugmeler{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.minik{margin-top:18px;font-size:14px;color:var(--soluk)}
+
+.ekran{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;
+  overflow:hidden;margin-top:44px;
+}
+.ekranbas{
+  padding:12px 18px;border-bottom:1px solid var(--cizgi);font-size:13px;
+  color:var(--soluk);display:flex;align-items:center;gap:9px;letter-spacing:.04em;
+}
+.ekranbas i{width:8px;height:8px;border-radius:50%;background:var(--cizgi);flex-shrink:0}
+.kartlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--cizgi)}
+.kutucuk{background:var(--kart);padding:20px}
+.kutucuk .bas{font-size:13px;color:var(--soluk)}
+.kutucuk .buyuk{font-size:27px;font-weight:700;margin-top:5px;letter-spacing:-.02em}
+.kutucuk .alt{font-size:12px;color:var(--soluk);margin-top:4px}
+.yesil{color:var(--kar)}
+.kirmizi{color:var(--zarar)}
+
+.kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+th{
+  text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--soluk);font-weight:600;padding:13px 18px;border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);white-space:nowrap;
+}
+td{padding:13px 18px;border-bottom:1px solid var(--cizgi);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+.sag{text-align:end}
+.rozetzarar{
+  display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:700;
+  background:color-mix(in srgb,var(--zarar) 15%,transparent);color:var(--zarar);
+}
+.rozetkar{
+  display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:700;
+  background:color-mix(in srgb,var(--kar) 15%,transparent);color:var(--kar);
+}
+.ornekyazi{
+  padding:14px 18px;font-size:13px;color:var(--soluk);border-top:1px solid var(--cizgi);
+  background:color-mix(in srgb,var(--soluk) 6%,transparent);
+}
+
+.izgara{display:grid;gap:20px;margin-top:40px}
+.dort{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.uc{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.iki{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.kartkutu{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:26px;
+}
+.numara{
+  font-size:12px;font-weight:700;color:var(--soluk);letter-spacing:.1em;margin-bottom:12px;
+}
+.kartkutu h3{margin-bottom:11px}
+.kartkutu p{color:var(--soluk);font-size:15.5px}
+.kartkutu p b{color:var(--yazi)}
+.kanit{
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--cizgi);
+  font-size:13.5px;color:var(--soluk);
+}
+.kanit b{color:var(--yazi);font-weight:600}
+
+.hesap{background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;margin-top:36px}
+.hesap table{min-width:420px}
+.hesap td:first-child{white-space:normal}
+.hesap .kucuk{color:var(--soluk);font-size:13px}
+.toplam td{font-weight:700;font-size:17px;border-top:2px solid var(--murekkep)}
+
+ul.maddeler{list-style:none;padding:0;margin:26px 0 0}
+ul.maddeler li{
+  position:relative;padding-inline-start:26px;margin-bottom:13px;color:var(--soluk);font-size:15.5px;
+}
+ul.maddeler li::before{
+  content:"";position:absolute;inset-inline-start:2px;top:9px;width:7px;height:7px;
+  border-radius:2px;background:var(--murekkep);
+}
+ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
+
+.serit{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;padding:20px;
+}
+.seritust{font-size:12px;color:var(--soluk);letter-spacing:.08em;text-transform:uppercase}
+.seriturun{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-top:12px;font-weight:600}
+.seritkar{
+  margin-top:14px;padding:13px 15px;border-radius:10px;
+  background:color-mix(in srgb,var(--kar) 12%,transparent);
+  border:1px solid color-mix(in srgb,var(--kar) 35%,transparent);
+  display:flex;flex-wrap:wrap;gap:16px;font-size:14px;font-weight:600;
+}
+.seritalt{margin-top:11px;font-size:13px;color:var(--soluk)}
+
+.adim{display:flex;gap:18px;align-items:flex-start}
+.adimno{
+  flex-shrink:0;width:38px;height:38px;border-radius:10px;border:1.5px solid var(--murekkep);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;
+}
+
+.taslakkutu{
+  border:2px dashed var(--uyari);border-radius:12px;padding:18px 22px;margin-top:30px;
+  background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
+}
+.taslakkutu strong{color:var(--uyari)}
+.paket{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:30px;
+  display:flex;flex-direction:column;
+}
+.paketad{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);font-weight:600}
+.paketfiyat{font-size:42px;font-weight:700;margin-top:12px;letter-spacing:-.03em}
+.paketfiyat small{font-size:17px;font-weight:500;color:var(--soluk);letter-spacing:0}
+.paketkime{color:var(--soluk);font-size:15px;margin-top:6px}
+.paket ul{list-style:none;padding:0;margin:24px 0 28px;flex-grow:1}
+.paket li{position:relative;padding-inline-start:26px;margin-bottom:11px;font-size:15px;color:var(--soluk)}
+.paket li::before{
+  content:"";position:absolute;inset-inline-start:3px;top:6px;width:11px;height:6px;
+  border-inline-start:2px solid var(--kar);border-bottom:2px solid var(--kar);
+  transform:rotate(-45deg);
+}
+
+details{border-bottom:1px solid var(--cizgi);padding:20px 0}
+details summary{
+  cursor:pointer;font-weight:600;font-size:17px;list-style:none;
+  display:flex;justify-content:space-between;gap:18px;align-items:flex-start;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-size:22px;color:var(--soluk);line-height:1;flex-shrink:0}
+details[open] summary::after{content:"−"}
+details p{margin-top:14px;color:var(--soluk);font-size:15.5px;max-width:74ch}
+
+.kapanis{text-align:center;padding:86px 0}
+.kapanis .dugmeler{justify-content:center}
+.kapanis .altyazi{margin-inline:auto;text-align:center;max-width:52ch}
+
+footer{border-top:1px solid var(--cizgi);padding:52px 0 34px;font-size:14.5px}
+.altizgara{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media (max-width:760px){.altizgara{grid-template-columns:1fr}}
+footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:9px}
+footer a{color:var(--soluk);text-decoration:none}
+footer a:hover{color:var(--murekkep)}
+.altson{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--cizgi);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  font-size:13px;color:var(--soluk);
+}
+.tanitimcumle{color:var(--soluk);max-width:44ch;margin-top:14px}
+
+.taslakbant{
+  border-bottom:2px dashed var(--uyari);
+  background:color-mix(in srgb,var(--uyari) 12%,transparent);
+  color:var(--yazi);padding:12px 24px;font-size:14px;text-align:center;line-height:1.5;
+}
+.taslakbant strong{color:var(--uyari)}
 </style>
 </head>
 <body>
+
+<div class="taslakbant">
+  <strong>TASLAK — bu site yayında değil.</strong>
+  Üyelik, ödeme ve satıcı verilerinin birbirinden ayrılması henüz kurulmadı; fiyatlar
+  onaylanmadı; yasal metinleri avukat okumadı. Bu sayfa yapılacak işin taslağıdır.
+</div>
+
+<header>
+  <div class="kap ustsatir">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+          <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+          <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+            <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+          </g>
+        </g>
+      </svg>
+      <span>
+        <span class="logoyazi">STOKVIN</span>
+        <span class="logoalt">Kâr Paneli</span>
+      </span>
+    </a>
+    <nav>
+      <a class="gizlekucuk" href="#fark">Farkı ne?</a>
+      <a class="gizlekucuk" href="#uygulamalar">Uygulamalar</a>
+      <a class="gizlekucuk" href="#yontem">Nasıl hesaplıyor?</a>
+      <a class="gizlekucuk" href="#eklenti">Eklenti</a>
+      <a class="gizlekucuk" href="#kurulum">Kurulum</a>
+      <a class="gizlekucuk" href="#fiyat">Fiyat</a>
+      <a class="dugme bos" href="giris.html">Giriş</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 521 92" role="img" aria-label="STOKVIN">
-  <g fill="none" stroke="#0D3B66" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10">
-    <g transform="scale(1.375)">
-      <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
-      <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
-        <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
-      </g>
-    </g>
-    <g transform="translate(116,8)" stroke-width="13">
-      <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
-      <path d="M85 6.5 V65.5 M60 6.5 H110"/>
-      <rect x="127.5" y="6.5" width="41" height="59" rx="16"/>
-      <path d="M195.5 6.5 V65.5 M234.5 6.5 L202 36 L234.5 65.5"/>
-      <path d="M254.5 6.5 L278 56.5 L301.5 6.5"/>
-      <path d="M323.5 6.5 V65.5"/>
-      <path d="M351.5 6.5 V65.5 M394.5 6.5 V65.5 M351.5 6.5 L394.5 65.5"/>
-    </g>
-  </g>
-</svg>
-<p>Yakında.</p>
+
+<section class="giris">
+  <div class="kap">
+    <span class="rozet">Komisyonu Trendyol'un gerçekten kestiği orandan okuyoruz.</span>
+    <h1>Net kârını Trendyol'un<br>sana ödediği paradan hesaplıyoruz.</h1>
+    <p class="girisyazi">
+      Trendyol sana ne ödediğini hakediş dökümünde satır satır yazıyor. STOKVIN o satırları
+      okur; komisyonu, kargoyu, hizmet bedelini, stopajı ve KDV'yi düşer ve ürün başına
+      <strong>cebine giren parayı</strong> gösterir.
+    </p>
+    <div class="dugmeler">
+      <a class="dugme dolu" href="giris.html">Mağazanı bağla</a>
+      <a class="dugme bos" href="#yontem">Nasıl hesaplıyor?</a>
+    </div>
+    <p class="minik">
+      Kurulum birkaç dakika &nbsp;·&nbsp; Stoğuna hiç dokunulmaz &nbsp;·&nbsp;
+      Fiyat güncelleme kapalı gelir, açan sensin
+    </p>
+
+    <div class="ekran">
+      <div class="ekranbas"><i></i> STOKVIN · Kâr Analizi</div>
+      <div class="kartlar">
+        <div class="kutucuk">
+          <div class="bas">Ciro</div>
+          <div class="buyuk">₺120.000</div>
+          <div class="alt">son 30 gün</div>
+        </div>
+        <div class="kutucuk">
+          <div class="bas">Net kâr</div>
+          <div class="buyuk yesil">₺18.600</div>
+          <div class="alt">%15,5 marj</div>
+        </div>
+        <div class="kutucuk">
+          <div class="bas">Gerçekleşen komisyon</div>
+          <div class="buyuk">%17,4</div>
+          <div class="alt">tarifede %21 yazıyor</div>
+        </div>
+        <div class="kutucuk">
+          <div class="bas">Dağıtılamayan gider</div>
+          <div class="buyuk">₺6.300</div>
+          <div class="alt">tazmin, teslim edilemeyen gönderi, erken ödeme kesintisi</div>
+        </div>
+      </div>
+      <div class="kaydir">
+        <table>
+          <thead>
+            <tr>
+              <th>Ürün</th><th class="sag">Satış</th><th class="sag">Komisyon</th>
+              <th class="sag">Kargo</th><th class="sag">Net kâr</th><th class="sag">Durum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kablosuz şarj standı</td><td class="sag">₺149,90</td><td class="sag">₺26,08</td>
+              <td class="sag">₺40,99</td><td class="sag yesil">₺30,12</td>
+              <td class="sag"><span class="rozetkar">+%20,1</span></td>
+            </tr>
+            <tr>
+              <td>Mutfak organizatörü · 4'lü</td><td class="sag">₺69,90</td><td class="sag">₺12,16</td>
+              <td class="sag">₺10,25</td><td class="sag yesil">₺6,40</td>
+              <td class="sag" style="color:var(--soluk);font-size:13px">adet başı</td>
+            </tr>
+            <tr>
+              <td>Masa lambası</td><td class="sag">₺109,00</td><td class="sag">₺18,96</td>
+              <td class="sag">₺40,99</td><td class="sag kirmizi">−₺3,10</td>
+              <td class="sag"><span class="rozetzarar">ZARAR</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ornekyazi">
+        Buradaki rakamların hepsi <strong>örnektir</strong>, tanıtım için yazılmıştır. Panel
+        açıldığında burada kendi mağazanın kendi rakamları olur ve bu sayfada hiç görünmez.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fark">
+  <div class="kap">
+    <span class="etiket">Farkı ne?</span>
+    <h2>Dört yerde başka programlardan farklı hesaplıyoruz.</h2>
+    <p class="altyazi">
+      Bu paneli kendi Trendyol mağazamız için yazdık. Aşağıdaki dört madde, kendi hesabımız
+      tutmadığı için günlerce uğraştığımız yerler.
+    </p>
+    <div class="izgara dort">
+      <div class="kartkutu">
+        <div class="numara">01</div>
+        <h3>Komisyon hakedişten okunur</h3>
+        <p>
+          Tarifede yazan oran, Trendyol'un gerçekten kestiği oran değil. Kampanyada Trendyol
+          komisyonun bir kısmını üstleniyor, oran aşağı iniyor. Aynı barkodun komisyonu iki
+          hafta içinde birden fazla kez değişebiliyor. STOKVIN ödeme dökümlerini okur ve
+          <b>fiilen kesilen oranı</b> kullanır.
+        </p>
+        <div class="kanit">
+          <b>Nasıl biliyoruz:</b> Kendi mağazamızın bir yıllık ödeme dökümünde satır satır
+          ölçtük.
+        </div>
+      </div>
+      <div class="kartkutu">
+        <div class="numara">02</div>
+        <h3>Kargo barem kuralına göre</h3>
+        <p>
+          Asgari sipariş adedi olan bir üründe müşteri tek paket alır ve <b>tek kargo</b> öder.
+          Adet başına ayrı kargo yazan hesap o ürünü olduğundan kötü gösterir. STOKVIN önce
+          paketin kârını bulur, sonra adede böler.
+        </p>
+        <div class="kanit">
+          <b>Nasıl biliyoruz:</b> Kargo rakamını Trendyol'un kendi fiyat listesinden,
+          desiye ve sepet tutarına göre alıyoruz.
+        </div>
+      </div>
+      <div class="kartkutu">
+        <div class="numara">03</div>
+        <h3>Sessizce düşülen kalemler ekrana çıkar</h3>
+        <p>
+          Tazmin, yanlış ürün gönderimi, teslim edilemeyen gönderi, erken ödeme kesintisi.
+          Bunlar ürün kârının içinde görünmez, ay sonunda paranın azalması olarak görünür.
+          STOKVIN bunları kendi ekranında tek tek listeler.
+        </p>
+        <div class="kanit">
+          <b>Nasıl biliyoruz:</b> Bu kalemlerin üzerinde barkod yazmıyor, o yüzden ürünlere
+          <b>dağıtmıyoruz</b>. Dağıtsak düzgün görünürdü ama yanlış olurdu.
+        </div>
+      </div>
+      <div class="kartkutu">
+        <div class="numara">04</div>
+        <h3>Mağazana giden her şey senin anahtarınla</h3>
+        <p>
+          Üç işlem var, üçü de kapalı gelir: müşteri sorusuna onayladığın cevap, iade
+          faturasının iptali ve otomatik fiyat güncelleme. Hangisini açacağına sen karar
+          verirsin, istediğin an kapatırsın. <b>Stoğuna hiç dokunulmaz</b> — stok güncelleme
+          bu programda yok.
+        </p>
+        <div class="kanit">
+          <b>Nasıl biliyoruz:</b> Stok güncelleme ve ürün gönderme modülleri bu üründe <b>hiç
+          yazılmadı</b>. Olmayan kodu kimse yanlışlıkla açamaz. Fiyat güncelleme yazılıdır ama
+          anahtarı kapalıyken tek satır fiyat gitmez ve açıkken taban fiyatının altına inmez.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="uygulamalar">
+  <div class="kap">
+    <span class="etiket">Uygulamalar</span>
+    <h2>Bir panelde dört uygulama. Hepsi her pakette.</h2>
+    <p class="altyazi">
+      STOKVIN mağazanın günlük işlerinden dördünü tek panelde toplar.
+      Paketler arasında özellik farkı yok. Fark yalnız aylık yapay zekâ hakkında.
+    </p>
+    <div class="izgara dort">
+      <div class="kartkutu">
+        <h3>Kâr Analizi</h3>
+        <p>
+          Ürün ürün net kâr: hakedişten gerçekleşen komisyon, barem kuralıyla kargo, KDV ve
+          stopaj doğru tabandan, görünmeyen giderler ayrı ekranda. Fiyat denemesi ve başabaş
+          fiyatı da burada.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Günlük Rapor</h3>
+        <p>
+          Her sabah tek ekran: dünün ve haftanın net kârı, bekleyen işler, yıldız ürünler ve
+          zarar edenler, üstüne "ne durumdasın, ne yapsan iyi olur" diyen yazılı bir yorum.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Sorular &amp; Üretim</h3>
+        <p>
+          Müşteri soruları tek kuyrukta. Yapay zekâ cevabı taslak olarak yazar; sen onaylarsın,
+          sistem gönderir. İstersen yüksek güvenli cevaplar için otomatik göndermeyi açarsın,
+          istediğin an kapatırsın. Üretim yapan mağazada sorulardan ve siparişlerden üretim listesi de
+          çıkar; hangi kategorinin üretim sayılacağını ve hangi bilginin çıkarılacağını
+          <b>kendin ayarlarsın</b>.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Fatura iptali</h3>
+        <p>
+          İade gelen siparişin faturası panelde listelenir; onayladığında fatura programında
+          iptal edilir. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Şimdilik
+          yalnız <b>BIEN</b> kullanan mağazalarda çalışır. Ayrıca teslim edilmiş ama faturası
+          kesilmemiş siparişler ayrı bir listede gösterilir. Panel fatura <b>kesmez</b>,
+          sadece hatırlatır.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yontem">
+  <div class="kap">
+    <span class="etiket">Yöntem</span>
+    <h2>Rakamın nereden geldiğini de gösteriyoruz.</h2>
+    <p class="altyazi">
+      Bir satıştan cebine kalan parayı bulmak için yedi kalemin düşülmesi gerekiyor. STOKVIN
+      hepsini ayrı ayrı yazar. Sen de hangi kalemin canını yaktığını görürsün.
+    </p>
+
+    <div class="hesap">
+      <div class="ekranbas"><i></i> Tek satış · ₺149,90</div>
+      <div class="kaydir">
+        <table>
+          <tbody>
+            <tr><td>Satış fiyatı</td><td class="sag">149,90</td></tr>
+            <tr><td>Ürün maliyeti</td><td class="sag">−32,00</td></tr>
+            <tr><td>Komisyon <span class="kucuk">(%17,4, hakedişte kesilen oran)</span></td><td class="sag">−26,08</td></tr>
+            <tr><td>Kargo <span class="kucuk">(barem fiyatı, paket başına bir kez)</span></td><td class="sag">−40,99</td></tr>
+            <tr><td>Hizmet bedeli</td><td class="sag">−13,20</td></tr>
+            <tr><td>Ödenecek KDV <span class="kucuk">(bir kez)</span></td><td class="sag">−6,27</td></tr>
+            <tr><td>Stopaj <span class="kucuk">(%1)</span></td><td class="sag">−1,24</td></tr>
+            <tr class="toplam"><td>Net kâr</td><td class="sag yesil">30,12</td></tr>
+            <tr><td class="kucuk">Kâr marjı</td><td class="sag kucuk">%20,1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ornekyazi">
+        Rakamlar <strong>örnektir</strong>. Kendi ürününde bu satırlar senin kendi maliyetin,
+        senin komisyonun ve senin kargo tarifenle dolar.
+      </div>
+    </div>
+
+    <div class="izgara uc">
+      <div class="kartkutu">
+        <h3>KDV bir kez düşülür.</h3>
+        <p>
+          Satış KDV'sinden alış, kargo, komisyon ve hizmet KDV'si mahsup edilir; kalan borç
+          kârdan iner. Kendi Excel'imizde de yaptığımız hata KDV'yi iki kez düşmekti.
+          Bu, kârı olduğundan düşük gösterir.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Stopaj doğru tabandan alınır.</h3>
+        <p>
+          Stopaj satış fiyatından değil, komisyon düşüldükten sonra kalan hakedişten kesiliyor.
+          Yanlış tabandan hesaplayan bir program stopajı yaklaşık %20 fazla düşer.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Kargo paket başına bir kez yazılır.</h3>
+        <p>
+          Asgari 2 adetlik bir kutuda kargo ve hizmet bedeli <b>bir kez</b> ödenir. 69,90 TL'lik
+          bir ürün 2'li kutuda gidiyorsa 40,99 TL kargo adet başına 20,50 TL'dir, 40,99 TL
+          değil. Bu tek fark bir ürünü "zarar" görünümünden çıkarabiliyor.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kap">
+    <span class="etiket">Fiyat kararı</span>
+    <h2>"Bu fiyata satsam ne kalır?" sorusunun cevabı iki saniyede.</h2>
+    <p class="altyazi">
+      Bir fiyat yaz, panel o fiyatta kalan net kârı ve marjı anında söyler. Ters yönde de
+      çalışır: <b>başabaş fiyatı</b> (zarar etmeden satabileceğin en düşük fiyat) ve
+      <b>hedef marj fiyatı</b> (mesela %20 kâr istiyorsan satman gereken fiyat) hesaplanır.
+    </p>
+    <ul class="maddeler">
+      <li>Kaç adetlik siparişte satıldığını hesaba katar. Ucuz üründe sonucu değiştiren bu.</li>
+      <li><strong>Fiyatı sen açmadıkça panel yazmaz.</strong> Otomatik fiyat güncelleme kapalı
+        gelir. Açarsan da koyduğun taban fiyatın altına inmez ve yazdığı her fiyatı listeler.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="eklenti">
+  <div class="kap">
+    <span class="etiket">Chrome eklentisi</span>
+    <h2>Kârı görmek için Trendyol panelinden çıkmana gerek yok.</h2>
+    <p class="altyazi">
+      Eklenti, Trendyol'un kendi ekranlarına yerleşir. Fiyatın yanında net kâr yazar. Fiyatı
+      değiştirdiğinde rakam anında güncellenir. Hangi fiyatta ne kazanacağını satışa çıkmadan
+      görürsün.
+    </p>
+    <div class="izgara iki">
+      <div>
+        <ul class="maddeler">
+          <li>Ürün listesi, fiyatlandırma ekranları ve siparişler dahil <strong>Trendyol'un beş ekranında</strong> çalışır.</li>
+          <li>Ekranda birden çok fiyat aralığı varsa, her aralık <strong>kendi komisyonuyla</strong> ayrı hesaplanır.</li>
+          <li><strong>Komisyon oranı o an ekranda yazandan alınır.</strong></li>
+          <li>Zarar eden satır kırmızı görünür. Kırmızı yalnız zararı gösterir, kampanya işareti değildir.</li>
+          <li>Maliyetini girmediğin üründe rakam <strong>uydurulmaz</strong>, "maliyet gir" yazar.</li>
+          <li>Eklentinin kendisi Trendyol'a hiçbir şey yazmaz, hiçbir form doldurmaz, hiçbir istek engellemez.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="serit">
+          <div class="seritust">Trendyol · Ürünlerim</div>
+          <div class="seriturun">
+            <span>Kablosuz şarj standı</span>
+            <span>₺149,90</span>
+          </div>
+          <div class="seritkar">
+            <span class="yesil">Adet başı kâr ₺30,12</span>
+            <span>Kâr marjı %20,1</span>
+            <span>Komisyon %17,4 · ekrandan</span>
+          </div>
+          <div class="seritalt">tek adetlik kutu · kargo ₺40,99 barem · hizmet ₺13,20</div>
+        </div>
+        <p class="minik">örnektir</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kap">
+    <span class="etiket">Görünmeyen giderler</span>
+    <h2>Ürün kârında görünmeyen ama paranı azaltan kalemler.</h2>
+    <p class="altyazi">
+      Trendyol bazı kesintileri siparişe bağlamaz: tazmin bedeli, yanlış ürün gönderimi,
+      müşteriye teslim edilemeyen gönderi, erken ödeme kesintisi, mikro ihracat gönderi bedeli.
+      Bunlar hiçbir ürünün kâr satırında görünmez; sadece yıl sonunda "para nerede" sorusu
+      olarak görünür. STOKVIN bunları ayrı bir ekranda, kalem kalem, tutarıyla ve satır
+      sayısıyla listeler.
+    </p>
+    <div class="izgara iki">
+      <div class="kartkutu">
+        <h3>Bu kalemler ürünlere dağıtılmaz.</h3>
+        <p>
+          Trendyol bu satırlara barkod yazmıyor. Ciroya bölerek dağıtmak düzgün görünür ama
+          uydurma olur; biz yapmıyoruz.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Erken ödeme anaparası gider değildir.</h3>
+        <p>
+          Erken çektiğin para zaten senin paran. Gider olan sadece
+          kesilen ücrettir; panel ikisini ayrı gösterir.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kurulum">
+  <div class="kap">
+    <span class="etiket">Kurulum</span>
+    <h2>Üç adımda kurulur, kod yazmak gerekmez.</h2>
+    <div class="izgara uc">
+      <div class="kartkutu">
+        <div class="adim">
+          <div class="adimno">1</div>
+          <div>
+            <h3>Hesabını aç</h3>
+            <p style="margin-top:9px">E-postanla üye ol. İndirilecek program yok; panel tarayıcıda açılır.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kartkutu">
+        <div class="adim">
+          <div class="adimno">2</div>
+          <div>
+            <h3>Trendyol anahtarını bağla</h3>
+            <p style="margin-top:9px">Satıcı panelinden aldığın bilgi. STOKVIN bu anahtarla mağazanı okur; onay vermediğin sürece hiçbir şey göndermez.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kartkutu">
+        <div class="adim">
+          <div class="adimno">3</div>
+          <div>
+            <h3>Maliyetleri gir</h3>
+            <p style="margin-top:9px">Ürün maliyeti ve desi. Gerisini panel Trendyol'dan çeker.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="altyazi" style="margin-top:28px">
+      Bütün ürünleri doldurmak zorunda değilsin. Panel ürünleri <b>en çok satandan</b> sıralar
+      ve baştaki birkaç ürünü yeşil işaretler; cironun büyük kısmı zaten orada. Excel dosyasını
+      indirip toplu da doldurabilirsin. Boş bıraktığın hücre eskisini silmez.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="kap">
+    <span class="etiket">Güvenlik</span>
+    <h2>Mağazanın anahtarı sende kalır.</h2>
+    <p class="altyazi">
+      Bir Trendyol mağazası kapanırsa iş durur. Biz de bir mağaza işletiyoruz ve bunu biliyoruz.
+      Onun için <b>onayın olmadan mağazana hiçbir şey gitmez.</b>
+    </p>
+    <div class="izgara dort">
+      <div class="kartkutu">
+        <h3>Stoğa hiç dokunulmaz</h3>
+        <p>Stok güncelleme bu programda yok; hiçbir ayarla açılmaz. Ürün açılmaz, sipariş onaylanmaz veya iptal edilmez. Fiyat güncelleme ayrı bir anahtar: kapalı gelir, koyduğun taban fiyatın altına inmez, kapattığın an durur.</p>
+      </div>
+      <div class="kartkutu">
+        <h3>Anahtarı istediğin an iptal edersin</h3>
+        <p>Trendyol satıcı panelinden anahtarı yenilediğin an STOKVIN mağazana erişemez. Bunu bizden izin almadan, tek başına yapabilirsin.</p>
+      </div>
+      <div class="kartkutu">
+        <h3>Her gönderim senin onayınla</h3>
+        <p>Soru cevabı da fatura iptali de önce ekranda taslak olarak durur; sen onaylamadan gitmez. Otomatik cevap ayrı bir anahtardır ve o anahtar sende.</p>
+      </div>
+      <div class="kartkutu">
+        <h3>Eklenti sadece Trendyol'da</h3>
+        <p>Chrome eklentisi yalnız Trendyol satıcı panelinde açılır. Başka hiçbir siteyi görmez, hiçbir sayfaya rakam yazmaz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kap">
+    <span class="etiket">Bizde olmayanlar</span>
+    <h2>Yapmadığımız işleri de yazıyoruz.</h2>
+    <p class="altyazi">
+      Bu programda şunlar yok:
+    </p>
+    <ul class="maddeler">
+      <li><strong>Reklam gideri ayrı bir kalem olarak gösterilmiyor.</strong></li>
+      <li><strong>Maliyet girmediğin üründe kâr hesabı yapılmaz.</strong> Tahmin edilmez, "maliyet gir" yazar.</li>
+      <li><strong>Stok ve ürün gönderme yok.</strong> Stok güncellemek, ürün açmak, sipariş onaylamak bu programda hiç yok; hiçbir ayarla açılmaz.</li>
+      <li><strong>Fiyatı kendiliğinden değiştirmez.</strong> Otomatik fiyat güncelleme kapalı gelir. Sen açarsan, yalnız koyduğun taban fiyatın üstünde çalışır.</li>
+      <li><strong>Fatura kesme yok.</strong> Kesilmesi gerekenler listelenir ama kesilmez; iade faturası iptali de şimdilik yalnız BIEN kullananlarda ve sen açarsan.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="fiyat">
+  <div class="kap">
+    <span class="etiket">Fiyat</span>
+    <h2>Üç paket, fark yalnız aylık yapay zekâ hakkı.</h2>
+    <p class="altyazi">
+      Hangi paketi alırsan al dört uygulama, panelin tamamı ve eklenti açık. Paketleri ayıran
+      tek şey yapay zekânın aylık kullanım hakkı: soru taslakları, rapor yorumu ve metin çıkarma bu haktan harcar.
+    </p>
+
+    <div class="taslakkutu">
+      <strong>Yayın öncesi not.</strong>
+      Deneme süresi, kart isteyip istemediğimiz ve yıllık indirim kararı verilmeden bu bölüm
+      yayına alınmaz.
+    </div>
+
+    <div class="izgara uc">
+      <div class="paket">
+        <div class="paketad">Başlangıç</div>
+        <div class="paketfiyat">₺499,99 <small>/ ay</small></div>
+        <div class="paketkime">Soru trafiği az mağazalar için</div>
+        <ul>
+          <li>Dört uygulamanın tamamı</li>
+          <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
+          <li>Excel ile toplu maliyet girişi</li>
+          <li>Günlük rapor yorumu her gün</li>
+          <li>Ayda <b>300 soru taslağı</b> (~günde 10)</li>
+        </ul>
+        <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
+      </div>
+      <div class="paket">
+        <div class="paketad">Gelişmiş</div>
+        <div class="paketfiyat">₺999,99 <small>/ ay</small></div>
+        <div class="paketkime">Soru trafiği yoğun mağazalar için</div>
+        <ul>
+          <li>Başlangıç paketindeki her şey</li>
+          <li>Ayda <b>1.000 soru taslağı</b> (~günde 33)</li>
+        </ul>
+        <a class="dugme dolu" href="giris.html" style="text-align:center">Başla</a>
+      </div>
+      <div class="paket">
+        <div class="paketad">Profesyonel</div>
+        <div class="paketfiyat">₺1.399,99 <small>/ ay</small></div>
+        <div class="paketkime">En büyük mağazalar için</div>
+        <ul>
+          <li>Başlangıç paketindeki her şey</li>
+          <li>Ayda <b>2.000 soru taslağı</b> (~günde 66)</li>
+        </ul>
+        <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
+      </div>
+    </div>
+
+    <p class="altyazi" style="margin-top:26px">
+      <b>Her pakette rakam bellidir, sınırsız paket yoktur.</b> Aylık soru taslağı hakkın
+      biterse panel çalışmaya devam eder; kâr rakamların ve raporun aynen gelir, yalnız yeni
+      taslak yazılmaz. Ay başında hakkın yenilenir, beklemek istemezsen üst pakete geçersin.
+      <b>Paket ücretinin dışında ek ücret yok.</b> Hak aşımı ücreti almıyoruz.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="kap">
+    <span class="etiket">Sık sorulanlar</span>
+    <h2>Merak edilenler</h2>
+    <div style="margin-top:30px;max-width:860px">
+      <details>
+        <summary>Trendyol API bilgimi vermek güvenli mi?</summary>
+        <p>Anahtarı bize veriyorsun ve sunucumuzda saklanıyor; hizmetin siparişlerini kendi başına çekebilmesi için bu gerekli. STOKVIN o anahtarla mağazanı okur; mağazana giden tek şey, senin onayladığın soru cevabıdır. Fiyat değiştirmez, stok güncellemez, ürün göndermez, o modüller üründe yok. Rahat etmezsen Trendyol panelinden anahtarı istediğin an yenilersin, erişimimiz o anda biter. Nasıl sakladığımız ve ne zaman sildiğimiz <a href="gizlilik.html">gizlilik politikasında</a> yazıyor.</p>
+      </details>
+      <details>
+        <summary>Kâr hesabı neden başka programlardan farklı çıkıyor?</summary>
+        <p>Başlıca üç sebepten. Komisyonu tarifeden değil hakedişten okuyoruz. Kargoyu barem kuralıyla, paket başına bir kez yazıyoruz. KDV'yi bir kez düşüyoruz. Üçü de kârı yukarı ya da aşağı kaydırır; hangisinin ne kadar kaydırdığını ekranda satır satır görürsün.</p>
+      </details>
+      <details>
+        <summary>Maliyet girmezsem ne olur?</summary>
+        <p>Hiçbir şey uydurulmaz. O ürün "maliyet gir" diye işaretlenir ve kâr hesabına girmez. Yanlış rakam göstermektense hiç göstermemeyi tercih ediyoruz.</p>
+      </details>
+      <details>
+        <summary>Kaç ürünün maliyetini girmem gerekiyor?</summary>
+        <p>Hepsini değil. Panel ürünleri en çok satandan sıralar; genelde ilk birkaç ürün cironun büyük kısmını kapsar. Yeşil işaretli satırlardan başla, gerisini zamanla doldur.</p>
+      </details>
+      <details>
+        <summary>KDV ve stopaj dahil mi?</summary>
+        <p>Dahil. KDV bir kez düşülür: satış KDV'sinden alış, kargo, komisyon ve hizmet KDV'si mahsup edilir, kalan borç kârdan iner. Stopaj satış fiyatından değil, komisyon düşüldükten sonra kalan hakediş tutarından hesaplanır. Trendyol da böyle kesiyor.</p>
+      </details>
+      <details>
+        <summary>İade ve kayıp ürünler hesaba giriyor mu?</summary>
+        <p>Ürün kârında değil. İade bir satış gideri değil, mağaza riskidir; ürünün kârını olduğundan kötü göstermemesi için ayrı tutulur. Gerçekleşen iadeler mağaza geneli raporunda ve hakediş dökümünde görünür.</p>
+      </details>
+      <details>
+        <summary>Eklenti Trendyol ekranını değiştirirse ne olur?</summary>
+        <p>Trendyol sayfasını değiştirdiğinde eklentinin bir kısmı çalışmayı bırakabilir. Eklenti kaç satır görüp kaçına rakam yazdığını kendi sayar ve tutmadığında söyler. Ayrıca ekranda son güncelleme zamanı yazar. Yanlış rakam yazmaktansa hiç yazmamayı tercih ediyoruz.</p>
+      </details>
+      <details>
+        <summary>İnternetim yokken çalışır mı?</summary>
+        <p>Panel açılır, daha önce çekilmiş veriyi gösterir. Yeni sipariş çekmek için internet gerekir.</p>
+      </details>
+      <details>
+        <summary>Müşteri sorularını benim yerime mi cevaplıyorsunuz?</summary>
+        <p>Taslağı yapay zekâ yazar, sen ekranda görürsün, onaylarsın, sistem gönderir. Onaylamadığın hiçbir cevap gitmez. İstersen yalnız yüksek güvenli cevaplar için otomatik göndermeyi açarsın; o anahtar sende, istediğin an kapatırsın. Taslak yazılırken soru metni yapay zekâ sağlayıcımıza iletilir; kime ve nasıl, <a href="gizlilik.html">gizlilik politikasında</a> yazılı.</p>
+      </details>
+      <details>
+        <summary>Fatura iptali nasıl çalışıyor?</summary>
+        <p>Şimdilik yalnız BIEN kullanan mağazalarda. İade gelen siparişin faturası panelde listelenir; onayladığında BIEN'de iptal edilir. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Fatura <b>kesme</b> bu ürünün işi değil; panel yalnız "bugün kesilmesi gerekenler" listesini gösterir, kesmeyi sen kendi programında yaparsın.</p>
+      </details>
+      <details>
+        <summary>Yapay zekâ hakkım biterse ne olur?</summary>
+        <p>Panel durmaz. Kâr Analizi ve rapor rakamları yapay zekâ kullanmaz, aynen gelir. Soru taslakları kural tabanlı yönteme döner, raporun yazılı yorumu ertesi aya kadar durur. Hakkın ay başında yenilenir; beklemek istemezsen üst pakete geçmek hakkı anında açar. Paket ücretinin dışında ek ücret çıkmaz, aşan kullanım için ayrıca para istemiyoruz.</p>
+      </details>
+      <details>
+        <summary>Verilerimi siz görüyor musunuz?</summary>
+        <p>Siparişlerin ve hakediş dökümün bizim sunucumuzda işleniyor; hizmet böyle çalışıyor. Her satıcının verisi diğerlerinden ayrı tutulur; başka bir satıcı seninkini göremez. Hesabını kapattığında anahtarın ve verinin ne olacağı <a href="gizlilik.html">gizlilik politikasında</a> gün gün yazılı.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="kapanis">
+  <div class="kap">
+    <h2>Hangi ürününden zarar ettiğini bu hafta öğren.</h2>
+    <p class="altyazi">
+      Kurulumu birkaç dakika. Beğenmezsen iptal et. Anahtarını Trendyol panelinden yenilediğin
+      an erişimimiz biter.
+    </p>
+    <div class="dugmeler">
+      <a class="dugme dolu" href="giris.html">Mağazanı bağla</a>
+      <a class="dugme bos" href="#fiyat">Fiyatlara bak</a>
+    </div>
+  </div>
+</section>
+
 </main>
+
+<footer>
+  <div class="kap">
+    <div class="altizgara">
+      <div>
+        <a class="logo" href="#">
+          <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+            <g fill="none" stroke="currentColor" stroke-linecap="butt">
+              <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+              <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+                <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+              </g>
+            </g>
+          </svg>
+          <span class="logoyazi">STOKVIN</span>
+        </a>
+        <p class="tanitimcumle">
+          Trendyol satıcıları için net kâr, komisyon ve kargo analizi. Çalışan bir mağazanın
+          kendi ihtiyacından çıktı.
+        </p>
+      </div>
+      <div>
+        <h4>Panel</h4>
+        <ul>
+          <li><a href="#fark">Farkı ne?</a></li>
+          <li><a href="#yontem">Nasıl hesaplıyor?</a></li>
+          <li><a href="#eklenti">Chrome eklentisi</a></li>
+          <li><a href="#kurulum">Kurulum</a></li>
+          <li><a href="#fiyat">Fiyat</a></li>
+          <li><a href="giris.html">Giriş</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yasal</h4>
+        <ul>
+          <li><a href="gizlilik.html">Gizlilik politikası</a></li>
+          <li><a href="kullanim-kosullari.html">Kullanım koşulları</a></li>
+          <li><a href="on-bilgilendirme.html">Ön bilgilendirme formu</a></li>
+          <li><a href="mesafeli-satis.html">Mesafeli satış sözleşmesi</a></li>
+          <li><a href="iptal-iade.html">İptal ve iade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="altson">
+      <span>© 2026 STOKVIN</span>
+      <span>Trendyol, Trendyol'un tescilli markasıdır. STOKVIN bağımsız bir üründür, Trendyol ile bir bağı yoktur.</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

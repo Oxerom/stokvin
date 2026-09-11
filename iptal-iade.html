@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İptal ve İade Koşulları — STOKVIN</title>
+<meta name="description" content="STOKVIN aboneliğini nasıl iptal edersiniz, ne zaman para iadesi alırsınız, iptalden sonra verilerinize ve Trendyol anahtarınıza ne olur.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66' stroke-linecap='butt'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --murekkep:#0D3B66;
+  --zemin:#F7F9FB;
+  --kart:#FFFFFF;
+  --yazi:#12222F;
+  --soluk:#5A6B7A;
+  --cizgi:#DCE4EC;
+  --kar:#2E8F65;
+  --zarar:#C63A31;
+  --uyari:#96610F;
+  --olcu:1120px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+    --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+  }
+}
+:root[data-theme="dark"]{
+  --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+  --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+}
+:root[data-theme="light"]{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--zemin);color:var(--yazi);
+  font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.kap{max-width:var(--olcu);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.25;margin:0;letter-spacing:-.02em;font-weight:700}
+h1{font-size:clamp(28px,4.4vw,42px)}
+h2{font-size:clamp(21px,2.6vw,26px)}
+h3{font-size:18px}
+p{margin:0}
+a{color:inherit}
+
+header{
+  position:sticky;top:0;z-index:50;background:var(--zemin);
+  border-bottom:1px solid var(--cizgi);
+}
+.ustsatir{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo svg{display:block;height:30px;width:auto;color:var(--murekkep)}
+.logoyazi{font-weight:700;font-size:18px;letter-spacing:.06em;display:block}
+.logoalt{font-size:11px;color:var(--soluk);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:-3px}
+nav{margin-inline-start:auto;display:flex;align-items:center;gap:24px}
+nav a{color:var(--soluk);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--murekkep)}
+.dugme{
+  display:inline-block;padding:11px 22px;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:15px;border:1.5px solid var(--murekkep);white-space:nowrap;
+}
+.dolu{background:var(--murekkep);color:var(--zemin)}
+.bos{background:transparent;color:var(--murekkep)}
+@media (max-width:900px){nav .gizlekucuk{display:none}}
+
+.etiket{
+  display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soluk);margin-bottom:14px;font-weight:600;
+}
+.altyazi{color:var(--soluk);margin-top:16px;max-width:70ch;font-size:17px}
+
+.yasal{max-width:820px;margin:0 auto;padding:0 24px}
+.bas{padding:56px 0 8px}
+.taslakkutu{
+  border:2px dashed var(--uyari);border-radius:12px;padding:18px 22px;margin:26px 0 0;
+  background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
+}
+.taslakkutu strong{color:var(--uyari)}
+.taslakkutu p+p{margin-top:9px}
+.doldur{
+  display:inline-block;padding:2px 10px;border-radius:6px;
+  border:1.5px dashed var(--uyari);background:color-mix(in srgb,var(--uyari) 15%,transparent);
+  color:var(--uyari);font-weight:700;font-size:14.5px;line-height:1.5;
+}
+.ozet{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:24px 26px;margin-top:30px;
+}
+.ozet h2{font-size:19px;margin-bottom:12px}
+.ozet ul{margin:0;padding-inline-start:20px;color:var(--soluk);font-size:15.5px}
+.ozet li{margin-bottom:8px}
+.ozet li b{color:var(--yazi)}
+.icindekiler{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:22px 26px;margin-top:20px;
+}
+.icindekiler h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin-bottom:12px}
+.icindekiler ol{margin:0;padding-inline-start:22px;font-size:15.5px;column-width:250px;column-gap:32px}
+.icindekiler li{margin-bottom:7px;break-inside:avoid}
+.icindekiler a{color:var(--soluk);text-decoration:none}
+.icindekiler a:hover{color:var(--murekkep)}
+
+.madde{padding:34px 0;border-top:1px solid var(--cizgi)}
+.madde h2{margin-bottom:14px}
+.madde h3{margin:22px 0 9px}
+.madde p{color:var(--soluk);font-size:16px;margin-bottom:13px;max-width:74ch}
+.madde p b,.madde li b,.madde p strong,.madde li strong{color:var(--yazi)}
+.madde ul,.madde ol{color:var(--soluk);font-size:16px;padding-inline-start:22px;margin:0 0 14px;max-width:74ch}
+.madde li{margin-bottom:9px}
+.madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+th{
+  text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+}
+td{padding:12px 14px;border-bottom:1px solid var(--cizgi);color:var(--soluk);vertical-align:top}
+td b{color:var(--yazi)}
+.soru{
+  border-inline-start:3px solid var(--uyari);padding:2px 0 2px 16px;margin:16px 0;
+  font-size:15.5px;color:var(--yazi);
+}
+.soru b{color:var(--uyari)}
+.onemli{
+  background:var(--kart);border:1px solid var(--cizgi);border-inline-start:4px solid var(--murekkep);
+  border-radius:12px;padding:20px 24px;margin:18px 0;
+}
+.onemli h3{margin:0 0 10px}
+.onemli p{color:var(--soluk);font-size:16px;margin-bottom:11px}
+.onemli p:last-child{margin-bottom:0}
+.adim{display:flex;gap:18px;align-items:flex-start;margin-bottom:20px}
+.adimno{
+  flex-shrink:0;width:38px;height:38px;border-radius:10px;border:1.5px solid var(--murekkep);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;
+}
+.adim p{margin:6px 0 0}
+.tarih{font-size:14px;color:var(--soluk);margin-top:18px}
+
+footer{border-top:1px solid var(--cizgi);padding:52px 0 34px;font-size:14.5px;margin-top:40px}
+.altizgara{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media (max-width:760px){.altizgara{grid-template-columns:1fr}}
+footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:9px}
+footer a{color:var(--soluk);text-decoration:none}
+footer a:hover{color:var(--murekkep)}
+.altson{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--cizgi);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  font-size:13px;color:var(--soluk);
+}
+.tanitimcumle{color:var(--soluk);max-width:44ch;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kap ustsatir">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+          <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+          <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+            <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+          </g>
+        </g>
+      </svg>
+      <span>
+        <span class="logoyazi">STOKVIN</span>
+        <span class="logoalt">Kâr Paneli</span>
+      </span>
+    </a>
+    <nav>
+      <a class="gizlekucuk" href="index.html">Ana sayfa</a>
+      <a class="gizlekucuk" href="gizlilik.html">Gizlilik</a>
+      <a class="gizlekucuk" href="mesafeli-satis.html">Mesafeli satış</a>
+      <a class="dugme bos" href="giris.html">Giriş</a>
+    </nav>
+  </div>
+</header>
+
+<main class="yasal">
+
+  <div class="taslakkutu" style="margin-top:26px">
+    <strong>TASLAK — YAYINA ALINMADAN ÖNCE DOLDURULACAK VE AVUKATA OKUTULACAK.</strong>
+    <p>Bu metin bir yapay zekâ tarafından yazılmıştır. <b>Avukat kontrolünden geçmemiştir.</b>
+    Tek kuruş tahsilat yapılmadan önce bir avukatın okuması gerekir.</p>
+    <p>Sayfada <span class="doldur">[DOLDURULACAK: …]</span> şeklinde işaretlenmiş her kutu
+    gerçek bir bilgiyle değiştirilmelidir. Bir tanesi bile doluysa bu sayfa yayına alınmaz.</p>
+  </div>
+
+  <div class="bas">
+    <span class="etiket">Yasal</span>
+    <h1>İptal ve İade Koşulları</h1>
+    <p class="altyazi">
+      Aboneliğinizi nasıl iptal edersiniz, hangi durumda paranız iade edilir, iptalden sonra
+      verilerinize ve Trendyol anahtarınıza ne olur — hepsi bu sayfada.
+    </p>
+    <p class="tarih">Yürürlük tarihi: <span class="doldur">[DOLDURULACAK: yürürlük tarihi]</span></p>
+  </div>
+
+  <div class="ozet">
+    <h2>Kısaca ne diyor?</h2>
+    <ul>
+      <li>Aboneliği <b>istediğiniz an, panelden tek tıkla</b> iptal edebilirsiniz. Telefon
+        etmenize, yalvarmanıza gerek yok.</li>
+      <li>İptal edince <b>ödediğiniz dönemin sonuna kadar</b> panel açık kalır.</li>
+      <li><b>İlk 14 gün içinde</b> memnun kalmazsanız ilk dönem ücretinizin tamamını iade
+        ederiz.</li>
+      <li>İptalden sonra <b>Trendyol anahtarınız silinir</b> ve verileriniz belirtilen süre
+        içinde silinir.</li>
+      <li>Biz hizmeti kapatırsak, <b>kullanmadığınız günlerin parasını iade ederiz.</b></li>
+    </ul>
+  </div>
+
+  <div class="icindekiler">
+    <h2>İçindekiler</h2>
+    <ol>
+      <li><a href="#m1">Aboneliği nasıl iptal edersiniz?</a></li>
+      <li><a href="#m2">İptal edince ne oluyor?</a></li>
+      <li><a href="#m3">Para iadesi hangi hâlde yapılır?</a></li>
+      <li><a href="#m4">İade nasıl ve ne zaman ödenir?</a></li>
+      <li><a href="#m5">Deneme süresi</a></li>
+      <li><a href="#m6">Verilerinize ve Trendyol anahtarınıza ne olur?</a></li>
+      <li><a href="#m7">Hizmeti biz durdurursak</a></li>
+      <li><a href="#m8">Fiyat değişirse</a></li>
+      <li><a href="#m9">Ödeme alınamazsa</a></li>
+      <li><a href="#m10">Şikâyetiniz varsa</a></li>
+    </ol>
+  </div>
+
+  <section class="madde" id="m1">
+    <h2>1. Aboneliği nasıl iptal edersiniz?</h2>
+    <div class="adim">
+      <div class="adimno">1</div>
+      <div>
+        <h3>Panelden</h3>
+        <p>Hesap ayarlarınızdaki <b>"Aboneliği iptal et"</b> düğmesine basarsınız. Sebep
+          yazmanız istenmez, onay için aramayız, "bir daha düşünün" ekranıyla
+          uğraştırmayız.</p>
+      </div>
+    </div>
+    <div class="adim">
+      <div class="adimno">2</div>
+      <div>
+        <h3>Veya e-posta ile</h3>
+        <p>Kayıtlı e-posta adresinizden
+          <span class="doldur">[DOLDURULACAK: iptal/destek e-posta adresi]</span>
+          adresine yazarsınız. İptali <b>en geç 1 iş günü içinde</b> işleriz ve size yazılı
+          teyit göndeririz.</p>
+      </div>
+    </div>
+    <p>İptal, bir sonraki otomatik tahsilattan <b>en az 24 saat önce</b> yapılırsa o dönemin
+      ücreti çekilmez.</p>
+
+    <div class="onemli">
+      <h3>İptali zorlaştırmamız yasak</h3>
+      <p>Abonelik Sözleşmeleri Yönetmeliği, sağlayıcının <b>aboneliği kurmaktan daha ağır
+        koşullar içeren</b> veya feshi zorlaştıran bir iptal yöntemi belirlemesini yasaklar.
+        Üyeliği internet sitesinden bir formla açtığınıza göre, kapatmanın da o kadar kolay
+        olması gerekir.</p>
+      <p>Aynı Yönetmelik, fesih talebinin bize ulaştığı tarihten itibaren <b>en geç 7 gün
+        içinde</b> yerine getirilmesini şart koşar. Bu süre içinde iptal işlenmezse,
+        hizmeti kullanmaya devam etmiş olsanız bile sizden ücret talep edilemez.</p>
+    </div>
+
+    <div class="soru">
+      <b>Dürüst uyarı:</b> Panelden tek tıkla iptal özelliği <b>henüz yazılmadı.</b>
+      Yayına alınmadan önce <b>yapılmak zorunda</b> — yukarıdaki kural yüzünden "sadece
+      e-posta ile iptal" seçeneğine geri çekilmek güvenli bir çözüm değildir.
+    </div>
+  </section>
+
+  <section class="madde" id="m2">
+    <h2>2. İptal edince ne oluyor?</h2>
+    <ul>
+      <li>Panel, <b>ödediğiniz dönemin son gününe kadar</b> normal şekilde açık kalır.</li>
+      <li>Dönem bitince erişim kapanır. Kartınızdan bir daha para çekilmez.</li>
+      <li>Kalan günler için ayrıca para iadesi yapılmaz — çünkü o günleri kullanmaya devam
+        edersiniz.</li>
+      <li>Fikrinizi değiştirirseniz, verileriniz silinmeden önce
+        <span class="doldur">[DOLDURULACAK: kaç gün içinde geri dönülebilir]</span> içinde
+        aboneliği yeniden başlatabilirsiniz; her şey kaldığınız yerden devam eder.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m3">
+    <h2>3. Para iadesi hangi hâlde yapılır?</h2>
+
+    <div class="onemli">
+      <h3>İlk 14 gün — koşulsuz iade</h3>
+      <p>İlk aboneliğinizin başladığı tarihten itibaren <b>14 gün içinde</b> memnun kalmazsanız,
+        sebep sormadan <b>ödediğiniz ilk dönem ücretinin tamamını</b> iade ederiz.</p>
+      <p>Bu hakkı kendi irademizle veriyoruz. Ticari alımlarda tüketici kanunundaki cayma
+        hakkı uygulanmayabilir; buna rağmen ilk ayda parasını geri isteyen bir satıcıyla
+        tartışmak istemiyoruz.</p>
+    </div>
+
+    <h3>Diğer hâller</h3>
+    <div class="kaydir">
+      <table>
+        <thead><tr><th>Durum</th><th>İade</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>İlk 14 gün içinde iptal</td>
+            <td><b>Tam iade</b></td>
+          </tr>
+          <tr>
+            <td>14. günden sonra, dönem ortasında iptal</td>
+            <td>İade yok; dönem sonuna kadar kullanırsınız</td>
+          </tr>
+          <tr>
+            <td>Hizmet bizim kusurumuzla uzun süre çalışmadı</td>
+            <td><span class="doldur">[DOLDURULACAK: kaç saatten fazla kesinti iade/uzatma
+              hakkı doğuruyor]</span></td>
+          </tr>
+          <tr>
+            <td>Yanlışlıkla ikinci kez tahsilat yapıldı</td>
+            <td><b>Fazla çekilen tutar tam iade</b></td>
+          </tr>
+          <tr>
+            <td>Biz hizmeti tamamen kapattık</td>
+            <td><b>Kullanılmayan günlerin ücreti iade</b></td>
+          </tr>
+          <tr>
+            <td>Kurallara aykırı kullanım nedeniyle hesap kapatıldı</td>
+            <td>İade yapılmaz</td>
+          </tr>
+          <tr>
+            <td>Yıllık ödeme yapılmışsa dönem ortasında iptal</td>
+            <td><span class="doldur">[DOLDURULACAK: yıllık paket olacak mı, olursa kalan ayların
+              iadesi yapılacak mı — karar verilmedi]</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Trendyol'un API'sini kapatması gibi bizim elimizde olmayan sebeplerle hizmet kalıcı
+      olarak veremez hâle gelirsek, kullanılmayan dönemin ücretini iade ederiz.</p>
+  </section>
+
+  <section class="madde" id="m4">
+    <h2>4. İade nasıl ve ne zaman ödenir?</h2>
+    <ul>
+      <li>İade, <b>ödemeyi yaptığınız kartın kendisine</b> yapılır. Başka bir hesaba havale
+        yapılmaz.</li>
+      <li>İadeyi, talebinizin bize ulaşmasından itibaren <b>en geç 14 gün içinde</b>
+        başlatırız.</li>
+      <li>Paranın kartınızda görünmesi bankanıza bağlıdır; genelde birkaç iş günü sürer,
+        bazı bankalarda bir sonraki ekstreye yansır. Bu kısım bizim elimizde değildir.</li>
+      <li>İade edilen tutar için <b>iade faturası</b> düzenlenir ve size gönderilir.</li>
+      <li>İadeden herhangi bir kesinti yapılmaz.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m5">
+    <h2>5. Deneme süresi</h2>
+    <p><span class="doldur">[DOLDURULACAK: deneme süresi olacak mı? Kaç gün? Kart bilgisi
+      istenecek mi? Deneme bitince otomatik ücretlendirme mi olacak, yoksa hesap kısıtlı moda
+      mı düşecek? — Emre karar vermedi]</span></p>
+    <p>Deneme süresi sonunda otomatik ücretlendirme yapılacaksa, ücret çekilmeden
+      <b>en az 3 gün önce</b> e-posta ile hatırlatma göndeririz.</p>
+  </section>
+
+  <section class="madde" id="m6">
+    <h2>6. Verilerinize ve Trendyol anahtarınıza ne olur?</h2>
+    <p>Bu, iptal ettiğinizde en çok merak edilen konu, o yüzden net yazıyoruz.</p>
+    <div class="kaydir">
+      <table>
+        <thead><tr><th>Ne</th><th>İptalden sonra</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Trendyol API anahtarınız</b></td>
+            <td><span class="doldur">[DOLDURULACAK: gün sayısı]</span> içinde sunucudan
+              tamamen silinir. Silindiğinde e-posta ile haber veririz.</td>
+          </tr>
+          <tr>
+            <td><b>Sipariş, ürün, hakediş verileriniz</b></td>
+            <td><span class="doldur">[DOLDURULACAK: gün sayısı]</span> içinde silinir.</td>
+          </tr>
+          <tr>
+            <td><b>Girdiğiniz maliyet bilgileri</b></td>
+            <td>Aynı süre içinde silinir.</td>
+          </tr>
+          <tr>
+            <td><b>Fatura ve ödeme kayıtları</b></td>
+            <td>Vergi mevzuatı gereği saklanır —
+              <span class="doldur">[DOLDURULACAK: süre, mali müşavire sorulacak]</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><b>Anahtarı beklemeden kendiniz de iptal edebilirsiniz.</b> Trendyol satıcı panelinizden
+      API anahtarını silmeniz yeterlidir; o anda bizim erişimimiz biter.</p>
+    <p>Verileriniz silinmeden önce dışa aktarma:
+      <span class="doldur">[DOLDURULACAK: Excel olarak indirme imkânı verilecek mi]</span></p>
+  </section>
+
+  <section class="madde" id="m7">
+    <h2>7. Hizmeti biz durdurursak</h2>
+    <ul>
+      <li>Hizmeti tamamen kapatmaya karar verirsek <b>en az 30 gün önceden</b> e-posta ile
+        haber veririz.</li>
+      <li>Peşin aldığımız ücretin <b>kullanılmayan kısmını iade ederiz.</b></li>
+      <li>Kapanmadan önce verilerinizi indirebilmeniz için süre tanırız.</li>
+      <li>Bütün Trendyol API anahtarları silinir.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m8">
+    <h2>8. Fiyat değişirse</h2>
+    <p>Abonelik ücretini değiştirebiliriz. Ancak <b>zam en az 30 gün önceden</b> e-posta ile
+      bildirilir. Yeni fiyatı kabul etmezseniz, zam yürürlüğe girmeden aboneliğinizi
+      sonlandırabilirsiniz; o ana kadarki kullanımınız için ek bir ücret istenmez.</p>
+    <p>Zam, halihazırda ödemiş olduğunuz döneme <b>geriye dönük uygulanmaz.</b></p>
+  </section>
+
+  <section class="madde" id="m9">
+    <h2>9. Ödeme alınamazsa</h2>
+    <ul>
+      <li>Kartınızdan tahsilat yapılamazsa size e-posta göndeririz ve
+        <span class="doldur">[DOLDURULACAK: kaç gün deneneceği]</span> boyunca tekrar
+        deneriz.</li>
+      <li>Bu süre içinde panel açık kalır.</li>
+      <li>Ödeme yine alınamazsa hesap <b>askıya alınır</b> — kapatılmaz. Askı süresince
+        veriniz silinmez.</li>
+      <li>Askı <span class="doldur">[DOLDURULACAK: kaç gün sürer]</span> sürer. Bu sürede
+        ödeme yapılırsa hesap aynen açılır.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m10">
+    <h2>10. Şikâyetiniz varsa</h2>
+    <p>Önce doğrudan bize yazın; çoğu sorun aynı gün çözülür:
+      <span class="doldur">[DOLDURULACAK: destek e-postası]</span></p>
+    <p>Çözemezsek başvurabileceğiniz merciler
+      <a href="mesafeli-satis.html#m10">Mesafeli Satış Sözleşmesi'nin 10. maddesinde</a>
+      yazılıdır.</p>
+    <p>Bu sayfa, <a href="kullanim-kosullari.html">Kullanım Koşulları</a> ve
+      <a href="mesafeli-satis.html">Mesafeli Satış Sözleşmesi</a> ile birlikte okunur.
+      Aralarında çelişki olursa <b>abone lehine olan hüküm uygulanır.</b></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="kap">
+    <div class="altizgara">
+      <div>
+        <a class="logo" href="index.html">
+          <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+            <g fill="none" stroke="currentColor" stroke-linecap="butt">
+              <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+              <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+                <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+              </g>
+            </g>
+          </svg>
+          <span class="logoyazi">STOKVIN</span>
+        </a>
+        <p class="tanitimcumle">
+          Trendyol satıcıları için net kâr, komisyon ve kargo analizi. Çalışan bir mağazanın
+          kendi ihtiyacından çıktı.
+        </p>
+      </div>
+      <div>
+        <h4>Panel</h4>
+        <ul>
+          <li><a href="index.html">Ana sayfa</a></li>
+          <li><a href="index.html#fark">Farkı ne?</a></li>
+          <li><a href="index.html#yontem">Nasıl hesaplıyor?</a></li>
+          <li><a href="index.html#eklenti">Chrome eklentisi</a></li>
+          <li><a href="index.html#fiyat">Fiyat</a></li>
+          <li><a href="giris.html">Giriş</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yasal</h4>
+        <ul>
+          <li><a href="gizlilik.html">Gizlilik politikası</a></li>
+          <li><a href="kullanim-kosullari.html">Kullanım koşulları</a></li>
+          <li><a href="on-bilgilendirme.html">Ön bilgilendirme formu</a></li>
+          <li><a href="mesafeli-satis.html">Mesafeli satış sözleşmesi</a></li>
+          <li><a href="iptal-iade.html">İptal ve iade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="altson">
+      <span>© 2026 STOKVIN</span>
+      <span>Trendyol, Trendyol'un tescilli markasıdır. STOKVIN bağımsız bir üründür, Trendyol ile bir bağı yoktur.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

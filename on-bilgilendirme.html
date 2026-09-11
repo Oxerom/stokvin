@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>On Bilgilendirme Formu &mdash; STOKVIN</title>
+<meta name="description" content="STOKVIN aboneligi satin alinmadan once okunmasi gereken on bilgilendirme formu: saglayici bilgileri, fiyat, ifa, cayma hakki ve fesih.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66' stroke-linecap='butt'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --murekkep:#0D3B66;
+  --zemin:#F7F9FB;
+  --kart:#FFFFFF;
+  --yazi:#12222F;
+  --soluk:#5A6B7A;
+  --cizgi:#DCE4EC;
+  --kar:#2E8F65;
+  --zarar:#C63A31;
+  --uyari:#96610F;
+  --olcu:1120px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+    --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+  }
+}
+:root[data-theme="dark"]{
+  --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+  --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+}
+:root[data-theme="light"]{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--zemin);color:var(--yazi);
+  font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.kap{max-width:var(--olcu);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.25;margin:0;letter-spacing:-.02em;font-weight:700}
+h1{font-size:clamp(28px,4.4vw,42px)}
+h2{font-size:clamp(21px,2.6vw,26px)}
+h3{font-size:18px}
+p{margin:0}
+a{color:inherit}
+
+header{
+  position:sticky;top:0;z-index:50;background:var(--zemin);
+  border-bottom:1px solid var(--cizgi);
+}
+.ustsatir{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo svg{display:block;height:30px;width:auto;color:var(--murekkep)}
+.logoyazi{font-weight:700;font-size:18px;letter-spacing:.06em;display:block}
+.logoalt{font-size:11px;color:var(--soluk);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:-3px}
+nav{margin-inline-start:auto;display:flex;align-items:center;gap:24px}
+nav a{color:var(--soluk);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--murekkep)}
+.dugme{
+  display:inline-block;padding:11px 22px;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:15px;border:1.5px solid var(--murekkep);white-space:nowrap;
+}
+.dolu{background:var(--murekkep);color:var(--zemin)}
+.bos{background:transparent;color:var(--murekkep)}
+@media (max-width:900px){nav .gizlekucuk{display:none}}
+
+.etiket{
+  display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soluk);margin-bottom:14px;font-weight:600;
+}
+.altyazi{color:var(--soluk);margin-top:16px;max-width:70ch;font-size:17px}
+
+.yasal{max-width:820px;margin:0 auto;padding:0 24px}
+.bas{padding:56px 0 8px}
+.taslakkutu{
+  border:2px dashed var(--uyari);border-radius:12px;padding:18px 22px;margin:26px 0 0;
+  background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
+}
+.taslakkutu strong{color:var(--uyari)}
+.taslakkutu p+p{margin-top:9px}
+.doldur{
+  display:inline-block;padding:2px 10px;border-radius:6px;
+  border:1.5px dashed var(--uyari);background:color-mix(in srgb,var(--uyari) 15%,transparent);
+  color:var(--uyari);font-weight:700;font-size:14.5px;line-height:1.5;
+}
+.ozet{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:24px 26px;margin-top:30px;
+}
+.ozet h2{font-size:19px;margin-bottom:12px}
+.ozet ul{margin:0;padding-inline-start:20px;color:var(--soluk);font-size:15.5px}
+.ozet li{margin-bottom:8px}
+.ozet li b{color:var(--yazi)}
+.icindekiler{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:22px 26px;margin-top:20px;
+}
+.icindekiler h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin-bottom:12px}
+.icindekiler ol{margin:0;padding-inline-start:22px;font-size:15.5px;column-width:250px;column-gap:32px}
+.icindekiler li{margin-bottom:7px;break-inside:avoid}
+.icindekiler a{color:var(--soluk);text-decoration:none}
+.icindekiler a:hover{color:var(--murekkep)}
+
+.madde{padding:34px 0;border-top:1px solid var(--cizgi)}
+.madde h2{margin-bottom:14px}
+.madde h3{margin:22px 0 9px}
+.madde p{color:var(--soluk);font-size:16px;margin-bottom:13px;max-width:74ch}
+.madde p b,.madde li b,.madde p strong,.madde li strong{color:var(--yazi)}
+.madde ul,.madde ol{color:var(--soluk);font-size:16px;padding-inline-start:22px;margin:0 0 14px;max-width:74ch}
+.madde li{margin-bottom:9px}
+.madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+th{
+  text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+}
+td{padding:12px 14px;border-bottom:1px solid var(--cizgi);color:var(--soluk);vertical-align:top}
+td b{color:var(--yazi)}
+.kunye{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;margin-bottom:16px;
+}
+.kunye table{min-width:420px}
+.kunye td:first-child{white-space:nowrap;color:var(--yazi);font-weight:600;width:40%}
+.kunye tr:last-child td{border-bottom:0}
+.soru{
+  border-inline-start:3px solid var(--uyari);padding:2px 0 2px 16px;margin:16px 0;
+  font-size:15.5px;color:var(--yazi);
+}
+.soru b{color:var(--uyari)}
+.onemli{
+  background:var(--kart);border:1px solid var(--cizgi);border-inline-start:4px solid var(--murekkep);
+  border-radius:12px;padding:20px 24px;margin:18px 0;
+}
+.onemli h3{margin:0 0 10px}
+.onemli p{color:var(--soluk);font-size:16px;margin-bottom:11px}
+.onemli p:last-child{margin-bottom:0}
+.tarih{font-size:14px;color:var(--soluk);margin-top:18px}
+.kucuk{font-size:13.5px;color:var(--soluk);font-weight:400}
+
+footer{border-top:1px solid var(--cizgi);padding:52px 0 34px;font-size:14.5px;margin-top:40px}
+.altizgara{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media (max-width:760px){.altizgara{grid-template-columns:1fr}}
+footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:9px}
+footer a{color:var(--soluk);text-decoration:none}
+footer a:hover{color:var(--murekkep)}
+.altson{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--cizgi);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  font-size:13px;color:var(--soluk);
+}
+.tanitimcumle{color:var(--soluk);max-width:44ch;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kap ustsatir">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+          <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+          <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+            <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+          </g>
+        </g>
+      </svg>
+      <span>
+        <span class="logoyazi">STOKVIN</span>
+        <span class="logoalt">Kâr Paneli</span>
+      </span>
+    </a>
+    <nav>
+      <a class="gizlekucuk" href="index.html">Ana sayfa</a>
+      <a class="gizlekucuk" href="mesafeli-satis.html">Mesafeli satış</a>
+      <a class="gizlekucuk" href="iptal-iade.html">İptal ve iade</a>
+      <a class="dugme bos" href="giris.html">Giriş</a>
+    </nav>
+  </div>
+</header>
+
+<main class="yasal">
+
+  <div class="taslakkutu" style="margin-top:26px">
+    <strong>TASLAK — YAYINA ALINMADAN ÖNCE DOLDURULACAK VE AVUKATA OKUTULACAK.</strong>
+    <p>Bu metin bir yapay zekâ tarafından yazılmıştır. <b>Avukat kontrolünden geçmemiştir.</b>
+    Tek kuruş tahsilat yapılmadan önce bir avukatın okuması gerekir.</p>
+    <p>Sayfada <span class="doldur">[DOLDURULACAK: …]</span> şeklinde işaretlenmiş her kutu
+    gerçek bir bilgiyle değiştirilmelidir. Bir tanesi bile doluysa bu sayfa yayına alınmaz.</p>
+    <p><b>Bu form neden ayrı bir sayfa?</b> Mesafeli Sözleşmeler Yönetmeliği,
+    sözleşmenin kendisinden <b>ayrı</b> bir ön bilgilendirme yapılmasını ve müşterinin bunu
+    sözleşmeden önce okuyup onaylamasını arar. Sözleşme metnini göstermek tek başına yetmez.</p>
+  </div>
+
+  <div class="bas">
+    <span class="etiket">Yasal</span>
+    <h1>Ön Bilgilendirme Formu</h1>
+    <p class="altyazi">
+      Aboneliği satın almadan <b>önce</b> okumanız gereken bilgiler. Ödeme ekranında bu formu
+      onayladığınızı işaretlemeniz istenir; ancak ondan sonra
+      <a href="mesafeli-satis.html">Mesafeli Satış Sözleşmesi</a> kurulur.
+    </p>
+    <p class="tarih">Yürürlük tarihi: <span class="doldur">[DOLDURULACAK: yürürlük tarihi]</span></p>
+  </div>
+
+  <div class="ozet">
+    <h2>Kısaca ne diyor?</h2>
+    <ul>
+      <li>Satın aldığınız şey <b>bir internet hizmetine abonelik</b>tir. Kargoyla gelen bir
+        ürün yoktur, elinize fiziksel bir şey geçmez.</li>
+      <li>Ödemeniz alınır alınmaz hizmet <b>anında açılır.</b></li>
+      <li>Hizmet anında açıldığı için <b>yasal cayma hakkı bu satışta kullanılamaz.</b>
+        Sebebini 6. maddede yazdık.</li>
+      <li>Buna rağmen <b>kendi irademizle 14 günlük iade imkânı</b> tanıyoruz. Bu bir yasal
+        zorunluluk değil, bizim verdiğimiz sözdür ve bu formda yazılı olduğu için bağlayıcıdır.</li>
+      <li>Aboneliği <b>panelin içinden tek tıkla</b> iptal edersiniz. İptal için bizi aramanız,
+        e-posta yazmanız veya sebep bildirmeniz gerekmez.</li>
+    </ul>
+  </div>
+
+  <div class="icindekiler">
+    <h2>İçindekiler</h2>
+    <ol>
+      <li><a href="#m1">Hizmeti sunan (sağlayıcı) bilgileri</a></li>
+      <li><a href="#m2">Hizmetin temel nitelikleri</a></li>
+      <li><a href="#m3">Fiyat ve tüm vergiler dâhil toplam tutar</a></li>
+      <li><a href="#m4">Ödeme şekli ve tahsilat</a></li>
+      <li><a href="#m5">Hizmetin ifası — ne zaman başlar</a></li>
+      <li><a href="#m6">Cayma hakkı ve neden kullanılamadığı</a></li>
+      <li><a href="#m7">Kendi irademizle verdiğimiz 14 günlük iade</a></li>
+      <li><a href="#m8">Sözleşmenin süresi ve fesih</a></li>
+      <li><a href="#m9">Şikâyet ve uyuşmazlık — nereye başvurulur</a></li>
+      <li><a href="#m10">Kişisel veriler ve Trendyol anahtarınız</a></li>
+      <li><a href="#m11">Cayma hakkı formu</a></li>
+    </ol>
+  </div>
+
+  <section class="madde" id="m1">
+    <h2>1. Hizmeti sunan (sağlayıcı) bilgileri</h2>
+    <p>6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun gereği hizmeti sunan
+    tarafın tanıtıcı bilgileri aşağıdadır.</p>
+    <div class="kunye kaydir">
+      <table>
+        <tr><td>Unvan</td><td><span class="doldur">[DOLDURULACAK: şirket / şahıs firması tam unvanı]</span></td></tr>
+        <tr><td>Adres</td><td><span class="doldur">[DOLDURULACAK: açık adres]</span></td></tr>
+        <tr><td>Telefon</td><td><span class="doldur">[DOLDURULACAK: telefon]</span></td></tr>
+        <tr><td>E-posta</td><td><span class="doldur">[DOLDURULACAK: iletişim e-postası]</span></td></tr>
+        <tr><td>Vergi dairesi / no</td><td><span class="doldur">[DOLDURULACAK: vergi dairesi ve numarası]</span></td></tr>
+        <tr><td>MERSİS no</td><td><span class="doldur">[DOLDURULACAK: MERSİS no — yoksa "yok"]</span></td></tr>
+        <tr><td>KEP adresi</td><td><span class="doldur">[DOLDURULACAK: KEP adresi — yoksa "yok"]</span></td></tr>
+        <tr><td>ETBİS kaydı</td><td><span class="doldur">[DOLDURULACAK: ETBİS kayıt bilgisi — kayıt yapılmadan satış başlatılamaz]</span></td></tr>
+        <tr><td>İnternet adresi</td><td><span class="doldur">[DOLDURULACAK: alan adı]</span></td></tr>
+      </table>
+    </div>
+    <div class="soru">
+      <b>Emre'ye not:</b> Bu tablodaki hiçbir satır boş kalamaz. ETBİS kaydı, Ticaret
+      Bakanlığı mevzuatına göre <b>faaliyete başlamadan önce</b> yapılır — yani ilk satıştan
+      önce. ETBİS için de önce şirket (şahıs veya limited) gerekir.
+    </div>
+  </section>
+
+  <section class="madde" id="m2">
+    <h2>2. Hizmetin temel nitelikleri</h2>
+    <p>STOKVIN, Trendyol satıcılarının <b>net kârını</b> hesaplayan, internet üzerinden
+    kullanılan bir panel hizmetidir. Fiziksel bir ürün değildir; kargo, teslimat ve montaj
+    söz konusu değildir.</p>
+    <p>Hizmet, sizin Trendyol satıcı panelinizden aldığınız <b>okuma yetkili API anahtarı</b>
+    ile mağazanızın verilerini okur ve şu hesapları yapar:</p>
+    <ul>
+      <li>Sipariş bazında komisyon, kargo, KDV ve ürün maliyeti düşülmüş <b>net kâr</b></li>
+      <li>Zarar eden ürünlerin tespiti</li>
+      <li>Hakediş kalemlerinin panel hesabıyla karşılaştırılması</li>
+      <li>Her sabah hazırlanan <b>günlük rapor</b></li>
+      <li>Müşteri sorularına <b>onayınızla gönderilen</b> yapay zekâ destekli taslak cevaplar
+        ve ayarlarına göre üretim listesi</li>
+      <li>Teslim edilmiş ama faturası kesilmemiş siparişlerin listesi (panel fatura kesmez)</li>
+      <li>Özelliği açarsanız, iade edilen siparişin faturasının BIEN'de <b>onayınızla</b> iptali</li>
+      <li>İsteğe bağlı Chrome eklentisi ile Trendyol ekranlarında kâr rakamının gösterilmesi</li>
+      <li>Siz açarsanız, belirlediğiniz taban fiyatın üstünde kalmak şartıyla otomatik fiyat
+        güncelleme (varsayılan olarak kapalıdır)</li>
+    </ul>
+    <div class="onemli">
+      <h3>Ne yapmaz</h3>
+      <p>STOKVIN <b>stoğunuza dokunmaz.</b> Stok güncellemez, ürün açmaz, sipariş onaylamaz.
+      Bu işlemler hizmette hiç yoktur. Fatura da kesmez.</p>
+      <p>Mağazanıza giden işlemler üçtür ve <b>üçü de sizin açtığınız bir anahtara bağlıdır</b>:
+      müşteri sorusuna onayladığınız cevabın gönderilmesi, (açtıysanız) iade faturasının BIEN'de
+      iptali ve (açtıysanız) fiyat güncelleme. Üçü de varsayılan olarak kapalıdır.
+      <b>Otomatik fiyat güncelleme açılırsa</b> panel, her ürün için belirlenen taban fiyatın
+      altına inmez; maliyeti girilmemiş üründe çalışmaz; yazdığı her fiyatı eski fiyatı ve
+      saatiyle listeler; anahtarı kapattığınız anda durur. Bir <b>tavan fiyat</b> da
+      belirleyebilirsiniz. Anahtar ancak açma ekranında taban fiyatlarınızı görüp ayrıca
+      onayladığınızda açılır ve bu onay kaydedilir. Şartların tamamı
+      <a href="kullanim-kosullari.html#m3-1">Kullanım Koşulları 3.1</a> maddesindedir.</p>
+      <p>Hesaplanan rakamlar bir <b>karar destek bilgisidir</b>, mali müşavir raporu veya resmî
+      muhasebe kaydı değildir. Vergi beyanınızın dayanağı olarak kullanılamaz.</p>
+    </div>
+    <p>Hizmetin çalışması, Trendyol'un kendi API servislerinin çalışmasına bağlıdır. Trendyol
+    tarafındaki kesinti, kural değişikliği veya erişim kısıtı hizmeti geçici olarak
+    durdurabilir. Bu hâlde ne yapıldığı
+    <a href="kullanim-kosullari.html">Kullanım Koşulları</a>'nda yazılıdır.</p>
+  </section>
+
+  <section class="madde" id="m3">
+    <h2>3. Fiyat ve tüm vergiler dâhil toplam tutar</h2>
+    <div class="kaydir">
+      <table>
+        <thead>
+          <tr><th>Plan</th><th>Aylık ücret</th><th>KDV</th><th>Toplam</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Başlangıç</b><br><span class="kucuk">ayda 300 soru taslağı</span></td>
+            <td>₺499,99</td>
+            <td><span class="doldur">[DOLDURULACAK: KDV oranı ve tutarı]</span></td>
+            <td><span class="doldur">[DOLDURULACAK: KDV dâhil toplam]</span></td>
+          </tr>
+          <tr>
+            <td><b>Gelişmiş</b><br><span class="kucuk">ayda 1.000 soru taslağı</span></td>
+            <td>₺999,99</td>
+            <td><span class="doldur">[DOLDURULACAK: KDV oranı ve tutarı]</span></td>
+            <td><span class="doldur">[DOLDURULACAK: KDV dâhil toplam]</span></td>
+          </tr>
+          <tr>
+            <td><b>Profesyonel</b><br><span class="kucuk">ayda 2.000 soru taslağı</span></td>
+            <td>₺1.399,99</td>
+            <td><span class="doldur">[DOLDURULACAK: KDV oranı ve tutarı]</span></td>
+            <td><span class="doldur">[DOLDURULACAK: KDV dâhil toplam]</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Yönetmelik, fiyatın <b>tüm vergiler dâhil toplam tutar</b> olarak gösterilmesini arar.
+    Sadece "₺499,99" yazmak yetmez; KDV dâhil rakamın da görünmesi gerekir.</p>
+    <p>Paketler arasında özellik farkı yoktur; üç pakette de dört uygulamanın tamamı açıktır.
+    Fark yalnız <b>aylık yapay zekâ hakkıdır</b> — tabloda yazan soru taslağı adedi.
+    <b>Sınırsız paket yoktur</b>, her paketin rakamı bellidir. Aylık hak bittiğinde panel
+    çalışmaya devam eder, yalnız yeni soru taslağı yazılmaz; hak ay başında yenilenir veya
+    üst pakete geçersiniz. <b>Paket ücreti dışında sizden başka bir tutar tahsil
+    edilmez</b> — hak aşımı için ek ücretlendirme yoktur.</p>
+    <p>Fiyat dışında sizden alınan <b>başka hiçbir ücret yoktur</b>: kurulum ücreti, açılış
+    bedeli, kargo bedeli, aracılık bedeli yoktur. Bankanızın uyguladığı taksit farkı varsa o
+    banka ile aranızdadır.</p>
+    <div class="soru">
+      <b>Karar bekleyen:</b> Taksit imkânı olacak mı, yıllık ödemede indirim olacak mı,
+      fiyat artışı olursa mevcut aboneler ne kadar süre eski fiyattan devam edecek. Üçü de
+      bu forma yazılmak zorunda — sözlü söz burada geçersizdir.
+    </div>
+  </section>
+
+  <section class="madde" id="m4">
+    <h2>4. Ödeme şekli ve tahsilat</h2>
+    <p>Ödeme, <span class="doldur">[DOLDURULACAK: ödeme kuruluşu adı]</span> altyapısı
+    üzerinden kredi kartı / banka kartı ile yapılır.
+    <b>Kart bilgileriniz bize hiçbir zaman ulaşmaz</b>, ödeme kuruluşunun kendi ekranında
+    girilir ve orada saklanır.</p>
+    <p>Abonelik <b>peşin ve dönem başında</b> tahsil edilir. İptal edilmediği sürece her dönem
+    başında aynı tutar aynı karttan çekilir. Her tahsilattan sonra e-posta ile bilgi verilir ve
+    fatura düzenlenir.</p>
+    <p>Ücretsiz deneme süresi
+    <span class="doldur">[DOLDURULACAK: deneme süresi ve kart isteniyor mu — karar verilmedi]</span>.</p>
+  </section>
+
+  <section class="madde" id="m5">
+    <h2>5. Hizmetin ifası — ne zaman başlar</h2>
+    <p>Ödemeniz onaylandığı anda hesabınız açılır ve hizmeti <b>hemen</b> kullanmaya
+    başlarsınız. Beklenecek bir teslim süresi yoktur.</p>
+    <p>Bu "anında ifa" durumu, aşağıdaki 6. maddedeki cayma hakkı sonucunun sebebidir. Bu
+    yüzden ödeme ekranında ayrıca <b>"hizmetin hemen başlamasını istiyorum"</b> onayı alınır.</p>
+  </section>
+
+  <section class="madde" id="m6">
+    <h2>6. Cayma hakkı ve neden kullanılamadığı</h2>
+    <p>Mesafeli Sözleşmeler Yönetmeliği'nin <b>15. maddesinin (ğ) bendi</b>, "elektronik
+    ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi
+    mallara ilişkin sözleşmeler" için cayma hakkını istisna tutar.</p>
+    <p>STOKVIN aboneliği bu tanıma girer: ödeme anında hizmet açılır ve kullanılmaya başlanır.
+    Bu nedenle <b>14 günlük yasal cayma hakkı bu satışta kullanılamaz.</b></p>
+    <div class="onemli">
+      <h3>Bunu size burada söylememiz zorunlu</h3>
+      <p>Aynı Yönetmelik, cayma hakkının kullanılamadığı hâllerde <b>tüketicinin bu haktan
+      yararlanamayacağının ön bilgilendirmede açıkça bildirilmesini</b> arar. Söylenmezse
+      istisna işlemez ve cayma hakkı doğar.</p>
+      <p>Bu satırı okuyup ödeme ekranında onayladığınızda, hizmetin hemen başlamasını istediğinizi
+      ve bu nedenle cayma hakkınızın bulunmadığını bildiğinizi kabul etmiş olursunuz.</p>
+    </div>
+    <p><b>Şirket olarak satın alıyorsanız</b> zaten "tüketici" sayılmayabilirsiniz; bu durumda
+    Tüketicinin Korunması Hakkında Kanun'un cayma hükümleri baştan uygulanmaz. Hangi durumda
+    olduğunuzu satın alma anında biz bilemediğimiz için bu form her iki ihtimale göre yazılmıştır.</p>
+  </section>
+
+  <section class="madde" id="m7">
+    <h2>7. Kendi irademizle verdiğimiz 14 günlük iade</h2>
+    <p>6. maddede yazılı olduğu üzere yasal cayma hakkınız yoktur. Buna rağmen:</p>
+    <div class="onemli">
+      <h3>İlk 14 gün içinde memnun kalmazsanız ödediğinizi iade ederiz</h3>
+      <p>Sebep bildirmeniz gerekmez. Talebinizi
+      <span class="doldur">[DOLDURULACAK: iptal/destek e-posta adresi]</span> adresine yazmanız
+      veya panelin içindeki iptal düğmesini kullanmanız yeterlidir.</p>
+      <p>Bu <b>yasal bir zorunluluk değil</b>, bizim verdiğimiz sözdür. Bu formda yazılı
+      olduğu için bağlayıcıdır ve tek taraflı olarak geri alınamaz.</p>
+    </div>
+    <p>İade, ödemenin yapıldığı karta ve aynı yoldan yapılır. Ödeme kuruluşuna ilettikten sonra
+    paranın kartınıza geçmesi bankanıza bağlıdır; genellikle birkaç iş günü sürer.
+    Ayrıntı: <a href="iptal-iade.html">İptal ve İade</a>.</p>
+  </section>
+
+  <section class="madde" id="m8">
+    <h2>8. Sözleşmenin süresi ve fesih</h2>
+    <p>Abonelik <b>belirsiz sürelidir</b>: iptal edilmediği sürece dönem dönem yenilenir.
+    Asgari taahhüt süresi <b>yoktur</b> — "en az 12 ay kalacaksın" gibi bir şart uygulanmaz.</p>
+    <div class="onemli">
+      <h3>İptal, abone olmaktan daha zor olamaz</h3>
+      <p>Abonelik Sözleşmeleri Yönetmeliği, sağlayıcının feshi zorlaştıran bir yöntem
+      belirlemesini yasaklar. Üyeliği bir formla açtıysanız, kapatmak da o kadar kolay olmak
+      zorundadır.</p>
+      <p>Bu yüzden iptal <b>panelin içinde tek tıkla</b> yapılır. Bizi aramanız, sebep
+      açıklamanız, "vazgeç" ekranlarından geçmeniz istenmez.</p>
+      <p>Fesih talebiniz bize ulaştığı tarihten itibaren <b>en geç 7 gün içinde</b> yerine
+      getirilir. Bu süre içinde yerine getirilmezse, hizmeti kullanmaya devam etmiş olsanız
+      bile sizden ücret talep edilemez.</p>
+    </div>
+    <p>İptal ettiğinizde ödemesini yaptığınız dönemin sonuna kadar hizmeti kullanmaya devam
+    edersiniz; bir sonraki dönemde tahsilat yapılmaz. Verilerinizin ne zaman silineceği
+    <a href="gizlilik.html">Gizlilik Politikası</a>'nda yazılıdır.</p>
+  </section>
+
+  <section class="madde" id="m9">
+    <h2>9. Şikâyet ve uyuşmazlık — nereye başvurulur</h2>
+    <p>Önce bize yazın: <span class="doldur">[DOLDURULACAK: destek e-postası]</span>.
+    Çözemezsek, tüketici sıfatıyla satın aldıysanız
+    <b>Tüketici Hakem Heyetleri</b> ve <b>Tüketici Mahkemeleri</b>'ne başvurabilirsiniz.</p>
+    <p>Başvurunun hangi mercie yapılacağı, uyuşmazlığın parasal değerine göre değişir ve
+    bu sınırlar <b>her yıl yeniden belirlenir</b>:
+    <span class="doldur">[DOLDURULACAK: yürürlükteki parasal sınırlar — yayına almadan önce
+    Ticaret Bakanlığı'nın güncel tebliğinden bakılacak, ezberden yazılmayacak]</span>.</p>
+    <p>Şirket sıfatıyla satın aldıysanız tüketici mercileri kapalıdır; yetkili mahkeme ve icra
+    daireleri <span class="doldur">[DOLDURULACAK: yetkili mahkeme ve icra daireleri]</span>.</p>
+  </section>
+
+  <section class="madde" id="m10">
+    <h2>10. Kişisel veriler ve Trendyol anahtarınız</h2>
+    <p>Hizmetin çalışması için Trendyol satıcı panelinizden aldığınız API anahtarını bize
+    vermeniz gerekir. Bu anahtar <b>sunucumuzda şifreli olarak saklanır</b>; nasıl saklandığı,
+    kimin erişebildiği ve iptal ettiğinizde ne olduğu
+    <a href="gizlilik.html">Gizlilik Politikası</a>'nda ayrıntısıyla yazılıdır.</p>
+    <p>Anahtarı <b>istediğiniz an Trendyol panelinizden iptal edebilirsiniz.</b> İptal ettiğiniz
+    anda bizim erişimimiz de biter — bunun için bizden izin almanız gerekmez.</p>
+    <p>Müşterilerinizin ad, adres ve telefon bilgileri <b>çekilmez ve saklanmaz.</b>
+    Hesaplama için gerekli olan tutar, komisyon, kargo ve ürün bilgileridir.</p>
+  </section>
+
+  <section class="madde" id="m11">
+    <h2>11. Cayma hakkı formu</h2>
+    <p>6. maddede açıkladığımız gibi bu satışta yasal cayma hakkı doğmaz. Yönetmelik yine de
+    formun bilgilendirmeye eklenmesini ister; 7. maddedeki 14 günlük iade talebiniz için de
+    aşağıdaki metni kullanabilirsiniz.</p>
+    <div class="onemli">
+      <p><b>Kime:</b> <span class="doldur">[DOLDURULACAK: unvan]</span>,
+      <span class="doldur">[DOLDURULACAK: açık adres]</span>,
+      <span class="doldur">[DOLDURULACAK: iletişim e-postası]</span></p>
+      <p>Aşağıdaki hizmete ilişkin sözleşmeden cayma hakkımı / iade hakkımı kullanıyorum:</p>
+      <p>Sözleşme tarihi: …………………<br>
+      Abone e-posta adresi: …………………<br>
+      Plan: …………………<br>
+      Ad soyad / unvan: …………………<br>
+      Tarih ve imza (kâğıt üzerinde gönderiliyorsa): …………………</p>
+    </div>
+    <p>Bu formu doldurmak zorunda değilsiniz. Panelin içindeki iptal düğmesi veya bize
+    yazacağınız düz bir e-posta da geçerlidir.</p>
+  </section>
+
+  <section class="madde">
+    <h2>Bu formu onaylamadan satış yapılamaz</h2>
+    <p>Ödeme ekranında bu form ayrı bir onay kutusuyla sunulur ve onayladığınız an, tarihiyle
+    birlikte kaydedilir. Ayrıca formun bir kopyası e-posta ile size gönderilir — Yönetmelik,
+    bilgilendirmenin <b>kalıcı veri saklayıcısı</b> ile verilmesini arar; ekranda göstermek
+    tek başına yetmez.</p>
+    <div class="soru">
+      <b>Henüz kurulmadı:</b> Onayın kaydedilmesi ve formun e-posta ile gönderilmesi ödeme
+      ekranıyla birlikte yazılacak. Bu iki parça çalışmadan tahsilat başlatılamaz.
+    </div>
+    <p class="tarih">Son güncelleme: <span class="doldur">[DOLDURULACAK: güncelleme tarihi]</span></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="kap">
+    <div class="altizgara">
+      <div>
+        <a class="logo" href="index.html">
+          <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+            <g fill="none" stroke="currentColor" stroke-linecap="butt">
+              <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+              <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+                <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+              </g>
+            </g>
+          </svg>
+          <span class="logoyazi">STOKVIN</span>
+        </a>
+        <p class="tanitimcumle">
+          Trendyol satıcıları için net kâr, komisyon ve kargo analizi. Çalışan bir mağazanın
+          kendi ihtiyacından çıktı.
+        </p>
+      </div>
+      <div>
+        <h4>Panel</h4>
+        <ul>
+          <li><a href="index.html">Ana sayfa</a></li>
+          <li><a href="index.html#fark">Farkı ne?</a></li>
+          <li><a href="index.html#yontem">Nasıl hesaplıyor?</a></li>
+          <li><a href="index.html#eklenti">Chrome eklentisi</a></li>
+          <li><a href="index.html#fiyat">Fiyat</a></li>
+          <li><a href="giris.html">Giriş</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yasal</h4>
+        <ul>
+          <li><a href="gizlilik.html">Gizlilik politikası</a></li>
+          <li><a href="kullanim-kosullari.html">Kullanım koşulları</a></li>
+          <li><a href="on-bilgilendirme.html">Ön bilgilendirme formu</a></li>
+          <li><a href="mesafeli-satis.html">Mesafeli satış sözleşmesi</a></li>
+          <li><a href="iptal-iade.html">İptal ve iade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="altson">
+      <span>© 2026 STOKVIN</span>
+      <span>Trendyol, Trendyol'un tescilli markasıdır. STOKVIN bağımsız bir üründür, Trendyol ile bir bağı yoktur.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mesafeli Satış Sözleşmesi — STOKVIN</title>
+<meta name="description" content="STOKVIN abonelik hizmeti için mesafeli satış sözleşmesi. Taraflar, hizmetin konusu, ücret, ödeme, cayma hakkı ve uyuşmazlık.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230D3B66' stroke-linecap='butt'%3E%3Crect x='5.5' y='5.5' width='53' height='53' rx='12.5' stroke-width='7'/%3E%3Cg transform='translate(15.5,10) scale(0.61111)' stroke-width='13'%3E%3Cpath d='M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --murekkep:#0D3B66;
+  --zemin:#F7F9FB;
+  --kart:#FFFFFF;
+  --yazi:#12222F;
+  --soluk:#5A6B7A;
+  --cizgi:#DCE4EC;
+  --kar:#2E8F65;
+  --zarar:#C63A31;
+  --uyari:#96610F;
+  --olcu:1120px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+    --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+  }
+}
+:root[data-theme="dark"]{
+  --murekkep:#E8EEF4;--zemin:#0A1A2A;--kart:#10263A;--yazi:#E8EEF4;
+  --soluk:#9DB0C0;--cizgi:#1E3B54;--kar:#4FC492;--zarar:#F0716A;--uyari:#E0A54A;
+}
+:root[data-theme="light"]{
+  --murekkep:#0D3B66;--zemin:#F7F9FB;--kart:#FFFFFF;--yazi:#12222F;
+  --soluk:#5A6B7A;--cizgi:#DCE4EC;--kar:#2E8F65;--zarar:#C63A31;--uyari:#96610F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--zemin);color:var(--yazi);
+  font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.kap{max-width:var(--olcu);margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.25;margin:0;letter-spacing:-.02em;font-weight:700}
+h1{font-size:clamp(28px,4.4vw,42px)}
+h2{font-size:clamp(21px,2.6vw,26px)}
+h3{font-size:18px}
+p{margin:0}
+a{color:inherit}
+
+header{
+  position:sticky;top:0;z-index:50;background:var(--zemin);
+  border-bottom:1px solid var(--cizgi);
+}
+.ustsatir{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.logo svg{display:block;height:30px;width:auto;color:var(--murekkep)}
+.logoyazi{font-weight:700;font-size:18px;letter-spacing:.06em;display:block}
+.logoalt{font-size:11px;color:var(--soluk);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:-3px}
+nav{margin-inline-start:auto;display:flex;align-items:center;gap:24px}
+nav a{color:var(--soluk);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--murekkep)}
+.dugme{
+  display:inline-block;padding:11px 22px;border-radius:10px;text-decoration:none;
+  font-weight:600;font-size:15px;border:1.5px solid var(--murekkep);white-space:nowrap;
+}
+.dolu{background:var(--murekkep);color:var(--zemin)}
+.bos{background:transparent;color:var(--murekkep)}
+@media (max-width:900px){nav .gizlekucuk{display:none}}
+
+.etiket{
+  display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soluk);margin-bottom:14px;font-weight:600;
+}
+.altyazi{color:var(--soluk);margin-top:16px;max-width:70ch;font-size:17px}
+
+.yasal{max-width:820px;margin:0 auto;padding:0 24px}
+.bas{padding:56px 0 8px}
+.taslakkutu{
+  border:2px dashed var(--uyari);border-radius:12px;padding:18px 22px;margin:26px 0 0;
+  background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
+}
+.taslakkutu strong{color:var(--uyari)}
+.taslakkutu p+p{margin-top:9px}
+.doldur{
+  display:inline-block;padding:2px 10px;border-radius:6px;
+  border:1.5px dashed var(--uyari);background:color-mix(in srgb,var(--uyari) 15%,transparent);
+  color:var(--uyari);font-weight:700;font-size:14.5px;line-height:1.5;
+}
+.ozet{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:24px 26px;margin-top:30px;
+}
+.ozet h2{font-size:19px;margin-bottom:12px}
+.ozet ul{margin:0;padding-inline-start:20px;color:var(--soluk);font-size:15.5px}
+.ozet li{margin-bottom:8px}
+.ozet li b{color:var(--yazi)}
+.icindekiler{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;
+  padding:22px 26px;margin-top:20px;
+}
+.icindekiler h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin-bottom:12px}
+.icindekiler ol{margin:0;padding-inline-start:22px;font-size:15.5px;column-width:250px;column-gap:32px}
+.icindekiler li{margin-bottom:7px;break-inside:avoid}
+.icindekiler a{color:var(--soluk);text-decoration:none}
+.icindekiler a:hover{color:var(--murekkep)}
+
+.madde{padding:34px 0;border-top:1px solid var(--cizgi)}
+.madde h2{margin-bottom:14px}
+.madde h3{margin:22px 0 9px}
+.madde p{color:var(--soluk);font-size:16px;margin-bottom:13px;max-width:74ch}
+.madde p b,.madde li b,.madde p strong,.madde li strong{color:var(--yazi)}
+.madde ul,.madde ol{color:var(--soluk);font-size:16px;padding-inline-start:22px;margin:0 0 14px;max-width:74ch}
+.madde li{margin-bottom:9px}
+.madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+th{
+  text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
+  border-bottom:1px solid var(--cizgi);
+}
+td{padding:12px 14px;border-bottom:1px solid var(--cizgi);color:var(--soluk);vertical-align:top}
+td b{color:var(--yazi)}
+.kunye{
+  background:var(--kart);border:1px solid var(--cizgi);border-radius:14px;overflow:hidden;margin-bottom:16px;
+}
+.kunye table{min-width:420px}
+.kunye td:first-child{white-space:nowrap;color:var(--yazi);font-weight:600;width:40%}
+.kunye tr:last-child td{border-bottom:0}
+.soru{
+  border-inline-start:3px solid var(--uyari);padding:2px 0 2px 16px;margin:16px 0;
+  font-size:15.5px;color:var(--yazi);
+}
+.soru b{color:var(--uyari)}
+.onemli{
+  background:var(--kart);border:1px solid var(--cizgi);border-inline-start:4px solid var(--murekkep);
+  border-radius:12px;padding:20px 24px;margin:18px 0;
+}
+.onemli h3{margin:0 0 10px}
+.onemli p{color:var(--soluk);font-size:16px;margin-bottom:11px}
+.onemli p:last-child{margin-bottom:0}
+.tarih{font-size:14px;color:var(--soluk);margin-top:18px}
+
+footer{border-top:1px solid var(--cizgi);padding:52px 0 34px;font-size:14.5px;margin-top:40px}
+.altizgara{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media (max-width:760px){.altizgara{grid-template-columns:1fr}}
+footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin-bottom:9px}
+footer a{color:var(--soluk);text-decoration:none}
+footer a:hover{color:var(--murekkep)}
+.altson{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--cizgi);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  font-size:13px;color:var(--soluk);
+}
+.tanitimcumle{color:var(--soluk);max-width:44ch;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kap ustsatir">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+        <g fill="none" stroke="currentColor" stroke-linecap="butt">
+          <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+          <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+            <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+          </g>
+        </g>
+      </svg>
+      <span>
+        <span class="logoyazi">STOKVIN</span>
+        <span class="logoalt">Kâr Paneli</span>
+      </span>
+    </a>
+    <nav>
+      <a class="gizlekucuk" href="index.html">Ana sayfa</a>
+      <a class="gizlekucuk" href="gizlilik.html">Gizlilik</a>
+      <a class="gizlekucuk" href="kullanim-kosullari.html">Kullanım koşulları</a>
+      <a class="dugme bos" href="giris.html">Giriş</a>
+    </nav>
+  </div>
+</header>
+
+<main class="yasal">
+
+  <div class="taslakkutu" style="margin-top:26px">
+    <strong>TASLAK — YAYINA ALINMADAN ÖNCE DOLDURULACAK VE AVUKATA OKUTULACAK.</strong>
+    <p>Bu metin bir yapay zekâ tarafından yazılmıştır. <b>Avukat kontrolünden geçmemiştir.</b>
+    Tek kuruş tahsilat yapılmadan önce bir avukatın okuması gerekir.</p>
+    <p>Sayfada <span class="doldur">[DOLDURULACAK: …]</span> şeklinde işaretlenmiş her kutu
+    gerçek bir bilgiyle değiştirilmelidir. Bir tanesi bile doluysa bu sayfa yayına alınmaz.</p>
+    <p><b>Ayrıca:</b> Mesafeli Sözleşmeler Yönetmeliği, sözleşmeden ayrı bir
+    <b>ön bilgilendirme formu</b> da arar. O form yazıldı:
+    <a href="on-bilgilendirme.html">Ön Bilgilendirme Formu</a>. Ödeme ekranında bu sözleşmeden
+    <b>önce</b> ve ayrı bir onay kutusuyla gösterilmesi gerekir.</p>
+  </div>
+
+  <div class="bas">
+    <span class="etiket">Yasal</span>
+    <h1>Mesafeli Satış Sözleşmesi</h1>
+    <p class="altyazi">
+      Bu sözleşme, STOKVIN abonelik hizmetinin internet üzerinden satışına ilişkindir.
+      Ödeme ekranında "okudum, kabul ediyorum" kutusunu işaretlediğinizde kurulur.
+    </p>
+    <p class="tarih">Yürürlük tarihi: <span class="doldur">[DOLDURULACAK: yürürlük tarihi]</span></p>
+  </div>
+
+  <div class="ozet">
+    <h2>Kısaca ne diyor?</h2>
+    <ul>
+      <li>Satın aldığınız şey <b>bir internet hizmetine aylık abonelik</b>tir. Kargoyla gelen
+        bir ürün yoktur.</li>
+      <li>Ücret <b>peşin ve aylık</b> tahsil edilir, her ay otomatik yenilenir.</li>
+      <li>Ödemenizin ardından hizmet <b>hemen açılır.</b></li>
+      <li>Aboneliği <b>istediğiniz an iptal edebilirsiniz;</b> bir sonraki ay ücret çekilmez.</li>
+      <li><b>Şirket olarak alıyorsanız</b> tüketici kanunundaki cayma hakkı büyük ihtimalle
+        uygulanmaz; sebebini aşağıda 6. maddede yazdık. Buna rağmen kendi
+        irademizle 14 günlük bir iade imkânı tanıyoruz.</li>
+    </ul>
+  </div>
+
+  <div class="icindekiler">
+    <h2>İçindekiler</h2>
+    <ol>
+      <li><a href="#m1">Taraflar</a></li>
+      <li><a href="#m2">Sözleşmenin konusu</a></li>
+      <li><a href="#m3">Hizmetin nitelikleri ve ücreti</a></li>
+      <li><a href="#m4">Ödeme ve faturalandırma</a></li>
+      <li><a href="#m5">Hizmetin başlaması ve süresi</a></li>
+      <li><a href="#m6">Cayma hakkı — ve bunun sınırları</a></li>
+      <li><a href="#m7">Tarafların yükümlülükleri</a></li>
+      <li><a href="#m8">Temerrüt hâli</a></li>
+      <li><a href="#m9">Kişisel veriler</a></li>
+      <li><a href="#m10">Şikâyet ve uyuşmazlık çözümü</a></li>
+      <li><a href="#m11">Delil sözleşmesi</a></li>
+      <li><a href="#m12">Yürürlük</a></li>
+    </ol>
+  </div>
+
+  <section class="madde" id="m1">
+    <h2>Madde 1 — Taraflar</h2>
+    <h3>1.1 SATICI (Hizmet sağlayıcı)</h3>
+    <div class="kunye">
+      <div class="kaydir">
+        <table>
+          <tbody>
+            <tr><td>Unvan</td><td><span class="doldur">[DOLDURULACAK: şirket / şahıs firması tam unvanı]</span></td></tr>
+            <tr><td>Adres</td><td><span class="doldur">[DOLDURULACAK: açık adres]</span></td></tr>
+            <tr><td>Vergi dairesi / no</td><td><span class="doldur">[DOLDURULACAK: vergi dairesi ve numarası]</span></td></tr>
+            <tr><td>MERSİS no</td><td><span class="doldur">[DOLDURULACAK: MERSİS no — yoksa "yok"]</span></td></tr>
+            <tr><td>Telefon</td><td><span class="doldur">[DOLDURULACAK: telefon]</span></td></tr>
+            <tr><td>E-posta</td><td><span class="doldur">[DOLDURULACAK: iletişim e-postası]</span></td></tr>
+            <tr><td>KEP adresi</td><td><span class="doldur">[DOLDURULACAK: KEP adresi — yoksa "yok"]</span></td></tr>
+            <tr><td>İnternet adresi</td><td><span class="doldur">[DOLDURULACAK: alan adı]</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>1.2 ALICI (Abone)</h3>
+    <p>Kayıt ve ödeme sırasında girdiğiniz bilgiler bu sözleşmenin ALICI bilgileridir: ad soyad
+      veya firma unvanı, adres, e-posta, telefon, vergi dairesi ve vergi/TC kimlik numarası.
+      Bu bilgilerin doğruluğundan ALICI sorumludur.</p>
+  </section>
+
+  <section class="madde" id="m2">
+    <h2>Madde 2 — Sözleşmenin konusu</h2>
+    <p>Bu sözleşmenin konusu, ALICI'nın SATICI'ya ait internet sitesi üzerinden elektronik
+      ortamda sipariş verdiği, aşağıda nitelikleri ve ücreti belirtilen <b>STOKVIN abonelik
+      hizmetinin</b> satışı ve ifasıdır.</p>
+    <p>Sözleşme, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler
+      Yönetmeliği hükümleri dikkate alınarak düzenlenmiştir. ALICI'nın tacir sıfatını haiz
+      olması hâlinde bu mevzuatın uygulanmayabileceği hususunda 6. maddedeki açıklama
+      saklıdır.</p>
+    <p>ALICI, siparişi tamamlamadan önce SATICI'nın adı, unvanı, adresi, hizmetin temel
+      nitelikleri, vergiler dâhil toplam fiyatı, ödeme ve ifa şekli ile cayma hakkına ilişkin
+      bilgileri edindiğini ve elektronik ortamda teyit ettiğini kabul eder.</p>
+  </section>
+
+  <section class="madde" id="m3">
+    <h2>Madde 3 — Hizmetin nitelikleri ve ücreti</h2>
+    <p>Hizmet, Trendyol satıcılarına yönelik <b>dört uygulamalı bir mağaza panelidir</b>
+      (Kâr Analizi, Günlük Rapor, Sorular ve Üretim, Fatura iptali). Fiziksel bir ürün
+      teslimi yoktur; hizmet tamamen elektronik ortamda sunulur.</p>
+
+    <h3>3.1 Hizmetin kapsamı</h3>
+    <ul>
+      <li>Trendyol mağazanızdan sipariş, ürün, soru ve hakediş verilerinin okunması</li>
+      <li>Komisyon, kargo, hizmet bedeli, stopaj ve KDV kalemlerinin ayrıştırılması</li>
+      <li>Ürün, sipariş ve mağaza bazında net kâr hesabı</li>
+      <li>Görünmeyen gider dökümü, fiyat denemesi ve başabaş fiyat hesabı</li>
+      <li>Günlük yazılı rapor</li>
+      <li>Müşteri sorularına yapay zekâ destekli taslak cevap ve <b>onayladığınız</b>
+        cevabın mağazanızdan gönderilmesi</li>
+      <li>Üretim listesi — kategorilerini ve şartlarını siz ayarlarsınız</li>
+      <li>İade faturalarının fatura programınızda iptali (yalnız BIEN, siz açmadıkça
+        kapalıdır) ve kesilmesi gereken faturaların <b>yalnız listelenmesi</b></li>
+      <li>Trendyol satıcı panelinde çalışan Chrome eklentisi</li>
+      <li>Siz açarsanız, belirlediğiniz taban fiyatın üstünde kalmak şartıyla otomatik fiyat
+        güncelleme (varsayılan olarak kapalıdır)</li>
+    </ul>
+    <p><b>Stoğunuza dokunulmaz.</b> Stok güncelleme, ürün açma ve sipariş onaylama hizmette
+      hiç yoktur; hiçbir ayarla açılamaz.</p>
+    <p>Mağazanıza giden işlemler üçtür ve <b>üçü de sizin açtığınız bir anahtara bağlıdır</b>:
+      onayladığınız cevabın gönderilmesi, (açtıysanız) iade faturasının iptali ve (açtıysanız)
+      fiyat güncelleme. Üçü de varsayılan olarak kapalıdır. Fiyat güncellemenin şartları —
+      taban ve tavan fiyat, maliyeti girilmemiş üründe çalışmaması, her yazılan fiyatın
+      listelenmesi ve istediğiniz an kapatabilmeniz —
+      <a href="kullanim-kosullari.html#m3-1">Kullanım Koşulları'nın 3.1 maddesinde</a>
+      düzenlenmiştir. Anahtar <b>ancak siz açma ekranında taban fiyatlarınızı görüp ayrıca
+      onayladığınızda</b> açılır; bu onay kim, ne zaman ve hangi sürüm koşullarla verdi
+      diye kaydedilir. Hizmetin ne yapmadığı — muhasebe, beyanname, mali tavsiye, fatura kesme,
+      stok değiştirme — <a href="kullanim-kosullari.html#m3">3. maddede</a> tek tek sayılmıştır
+      ve bu sözleşmenin ayrılmaz parçasıdır.</p>
+
+    <h3>3.2 Ücret</h3>
+    <div class="kaydir">
+      <table>
+        <thead><tr><th>Paket</th><th>Kapsam</th><th>Aylık ücret</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><b>Başlangıç</b></td>
+            <td>Dört uygulama · ayda 300 soru taslağı · günlük rapor</td>
+            <td><b>₺499,99</b></td>
+          </tr>
+          <tr>
+            <td><b>Gelişmiş</b></td>
+            <td>Dört uygulama · ayda 1.000 soru taslağı · günlük rapor</td>
+            <td><b>₺999,99</b></td>
+          </tr>
+          <tr>
+            <td><b>Profesyonel</b></td>
+            <td>Dört uygulama · ayda 2.000 soru taslağı · günlük rapor</td>
+            <td><b>₺1.399,99</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Fiyatlar <span class="doldur">[DOLDURULACAK: KDV dâhil mi hariç mi — dâhilse oran
+      yazılacak]</span>. Sipariş anında ödeme ekranında görünen tutar, o dönem için geçerli
+      toplam tutardır.</p>
+    <p><b>Sipariş adedine göre bir sınır yoktur</b>; paketleri ayıran şey aylık yapay
+      zekâ soru taslağı hakkıdır. Hak dolduğunda panel çalışmaya devam eder, yalnız yeni
+      taslak yazılmaz; hak her ayın başında yenilenir. <b>Paket ücretinin dışında ek
+      tahsilat yapılmaz</b>, üst pakete otomatik geçirilmezsiniz.</p>
+    <p>Bu hizmet elektronik ortamda sunulduğu için <b>kargo, teslimat veya kurulum bedeli
+      yoktur.</b></p>
+  </section>
+
+  <section class="madde" id="m4">
+    <h2>Madde 4 — Ödeme ve faturalandırma</h2>
+    <ul>
+      <li>Ödeme, kredi/banka kartı ile
+        <span class="doldur">[DOLDURULACAK: ödeme kuruluşu adı]</span> altyapısı üzerinden
+        alınır. Kart bilgileriniz SATICI'da saklanmaz.</li>
+      <li>Ücret <b>peşin</b> tahsil edilir ve <b>abonelik dönemi başında</b> alınır.</li>
+      <li>Abonelik, ALICI iptal etmedikçe her dönem sonunda <b>kendiliğinden yenilenir</b> ve
+        aynı karttan tahsilat yapılır.</li>
+      <li>Her tahsilat için <b>fatura düzenlenir</b> ve ALICI'nın kayıtlı e-posta adresine
+        gönderilir.</li>
+      <li>Taksit imkânı:
+        <span class="doldur">[DOLDURULACAK: taksit olacak mı — ödeme kuruluşuna sorulacak]</span></li>
+      <li>Ödemenin bankaca reddedilmesi hâlinde SATICI hizmeti askıya alabilir.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m5">
+    <h2>Madde 5 — Hizmetin başlaması ve süresi</h2>
+    <p>Ödeme onaylandığı anda hizmet <b>derhâl açılır</b> ve ALICI panele giriş yapabilir.
+      Elektronik ortamda anında ifa edilen bir hizmet olduğu için ayrı bir teslimat süresi
+      yoktur.</p>
+    <p>Abonelik süresi <b>bir aydır</b> ve iptal edilmedikçe otomatik olarak yenilenir.</p>
+    <p>Deneme süresi:
+      <span class="doldur">[DOLDURULACAK: deneme süresi var mı, kaç gün, sonunda otomatik
+      ücretlendirme olacak mı — karar verilmedi. Otomatik ücretlendirme olacaksa bu sözleşmede
+      açıkça yazılması zorunludur.]</span></p>
+  </section>
+
+  <section class="madde" id="m6">
+    <h2>Madde 6 — Cayma hakkı ve bunun sınırları</h2>
+
+    <div class="onemli">
+      <h3>Önce dürüst olalım: bu madde herkese aynı uygulanmıyor</h3>
+      <p><b>Ticari faaliyeti kapsamında satın alan bir satıcı "tüketici" sayılmaz.</b> 6502
+        sayılı Kanun tüketiciyi, ticari veya mesleki olmayan amaçla hareket eden kişi olarak
+        tanımlar. STOKVIN'i mağazanızı yönetmek için alıyorsanız bu bir <b>ticari alımdır</b>
+        ve kanundaki 14 günlük cayma hakkı büyük ihtimalle <b>uygulanmaz.</b></p>
+      <p>Ayrıca, tüketici olsanız bile Mesafeli Sözleşmeler Yönetmeliği <b>elektronik ortamda
+        anında ifa edilen hizmetleri</b> cayma hakkının istisnaları arasında sayar. Ödeme
+        sonrası panel hemen açıldığı için bu istisna da gündeme gelebilir.</p>
+      <p><b>Bu belirsizliği size yüklemek istemiyoruz.</b> Bu yüzden kanunun ne dediğinden
+        bağımsız olarak, kendi irademizle aşağıdaki iade imkânını tanıyoruz.</p>
+    </div>
+
+    <h3>6.1 Kendi irademizle tanıdığımız iade hakkı</h3>
+    <p>İlk aboneliğinizin başladığı tarihten itibaren <b>14 gün içinde</b> hizmetten memnun
+      kalmazsanız, sebep göstermeden iptal edebilirsiniz ve <b>ödediğiniz ilk dönem ücretinin
+      tamamını iade ederiz.</b></p>
+    <p>Ayrıntılar ve iade süresi: <a href="iptal-iade.html">İptal ve İade Koşulları</a>.</p>
+
+    <h3>6.2 Tüketici sıfatını haiz ALICI için kanuni cayma hakkı</h3>
+    <p>ALICI'nın 6502 sayılı Kanun anlamında tüketici sayılması hâlinde, sözleşmenin
+      kurulmasından itibaren <b>14 gün içinde</b> hiçbir gerekçe göstermeden ve cezai şart
+      ödemeden cayma hakkı vardır.</p>
+    <p>Cayma bildirimi, <span class="doldur">[DOLDURULACAK: cayma bildirimi hangi adrese
+      yapılacak — e-posta ve posta adresi]</span> adresine yazılı olarak veya kalıcı veri
+      saklayıcısı ile yapılır.</p>
+    <p>Cayma bildiriminin SATICI'ya ulaşmasından itibaren <b>14 gün içinde</b> tahsil edilen
+      bedel, ALICI'nın ödeme yaptığı araca iade edilir.</p>
+    <p><b>Cayma hakkının kullanılamayacağı hâl:</b> ALICI'nın onayı ile hizmetin ifasına
+      başlanmışsa ve hizmet elektronik ortamda anında ifa edilmişse, mevzuat gereği cayma
+      hakkı kullanılamayabilir. Ödeme ekranında bu duruma ilişkin ayrı bir onay kutusu
+      bulunur.</p>
+
+    <div class="soru">
+      <b>Avukata sorulacak — bu maddenin tamamı için:</b>
+      <br>1. Müşterilerimiz şirket/esnaf. 6502 ve Mesafeli Sözleşmeler Yönetmeliği bu satışa
+      hiç uygulanmıyorsa, bu sözleşmeyi "mesafeli satış sözleşmesi" adıyla yayımlamak doğru mu,
+      yoksa adı ve içeriği ticari bir abonelik sözleşmesi olarak mı değişmeli?
+      <br>2. Hem tüketici hem tacir müşteri gelebileceği için iki ayrı sözleşme mi tutulmalı,
+      yoksa tek metin iki hâli de kapsayabilir mi?
+      <br>3. Ödeme ekranındaki "hizmetin hemen başlamasını istiyorum, cayma hakkımı
+      kaybedebileceğimi biliyorum" onayı hangi kelimelerle yazılmalı?
+      <br>4. Otomatik yenilenen abonelikte her yenileme için ayrı bir mesafeli sözleşme
+      kurulması ve ön bilgilendirme yapılması gerekiyor mu?
+    </div>
+  </section>
+
+  <section class="madde" id="m7">
+    <h2>Madde 7 — Tarafların yükümlülükleri</h2>
+    <h3>7.1 SATICI</h3>
+    <ul>
+      <li>Hizmeti sözleşmede belirtilen niteliklerde sunmak.</li>
+      <li>ALICI'nın Trendyol API anahtarını yalnızca okuma amacıyla kullanmak, güvenli
+        saklamak, abonelik bitince silmek.</li>
+      <li>Ayıplı veya sözleşmeye aykırı bir durumda ALICI'yı bilgilendirmek.</li>
+      <li>Hizmetin ifasının imkânsızlaşması hâlinde ALICI'yı <b>3 gün içinde</b> bilgilendirmek
+        ve tahsil edilen bedeli <b>14 gün içinde</b> iade etmek.</li>
+    </ul>
+    <h3>7.2 ALICI</h3>
+    <ul>
+      <li>Sözleşmeyi ve Kullanım Koşulları'nı okuyup kabul etmek.</li>
+      <li>Doğru ve güncel bilgi vermek.</li>
+      <li>Ücreti zamanında ödemek.</li>
+      <li>Bağladığı Trendyol mağazasının sahibi veya yetkilisi olmak.</li>
+      <li>Hizmeti Kullanım Koşulları'na aykırı kullanmamak.</li>
+    </ul>
+  </section>
+
+  <section class="madde" id="m8">
+    <h2>Madde 8 — Temerrüt hâli</h2>
+    <p>ALICI'nın kredi kartıyla yaptığı ödemede kartın borcunu bankaya ödememesi hâlinde,
+      SATICI ile ALICI arasındaki bu sözleşmeden doğan alacak için SATICI'nın hakları
+      saklıdır. Bu durumda SATICI hizmeti askıya alabilir veya sözleşmeyi feshedebilir.</p>
+    <p>SATICI'nın hizmeti sunmakta temerrüde düşmesi hâlinde ALICI sözleşmeyi feshedebilir ve
+      ödediği bedelin iadesini talep edebilir.</p>
+  </section>
+
+  <section class="madde" id="m9">
+    <h2>Madde 9 — Kişisel veriler</h2>
+    <p>ALICI'nın kişisel verilerinin işlenmesine ilişkin bilgilendirme
+      <a href="gizlilik.html">Gizlilik Politikası ve KVKK Aydınlatma Metni</a> ile yapılmıştır
+      ve bu sözleşmenin ekidir.</p>
+  </section>
+
+  <section class="madde" id="m10">
+    <h2>Madde 10 — Şikâyet ve uyuşmazlık çözümü</h2>
+    <p>Önce bize yazmanızı rica ederiz; çoğu konu doğrudan çözülür:
+      <span class="doldur">[DOLDURULACAK: destek e-postası]</span></p>
+    <p><b>ALICI tüketici ise:</b> Uyuşmazlıklarda, Ticaret Bakanlığı'nca her yıl ilan edilen
+      parasal sınırlar dâhilinde ALICI'nın veya SATICI'nın yerleşim yerindeki <b>Tüketici
+      Hakem Heyetleri</b> ile <b>Tüketici Mahkemeleri</b> yetkilidir. Güncel parasal sınırlar
+      Ticaret Bakanlığı tarafından ilan edilir.</p>
+    <p><b>ALICI tacir ise:</b> Uyuşmazlıklarda
+      <span class="doldur">[DOLDURULACAK: yetkili mahkeme ve icra daireleri]</span> yetkilidir.
+      Ticari davalarda dava şartı olarak <b>arabuluculuğa başvurulması</b> gerekebilir.</p>
+    <div class="soru">
+      <b>Avukata sorulacak:</b> Parasal sınırlar her yıl değiştiği için sayfaya rakam
+      yazmadık. Yönetmelik, sözleşmede bu rakamların açıkça yazılmasını zorunlu tutuyor mu,
+      yoksa "Bakanlıkça ilan edilen sınırlar" demek yeterli mi?
+    </div>
+  </section>
+
+  <section class="madde" id="m11">
+    <h2>Madde 11 — Delil sözleşmesi</h2>
+    <p>Taraflar arasındaki uyuşmazlıklarda SATICI'nın veri tabanı, sunucu ve sistem kayıtları,
+      e-posta yazışmaları ve elektronik ödeme kayıtları <b>delil olarak kabul edilir.</b>
+      ALICI, bu kayıtlara itiraz etmesi hâlinde kendi delillerini sunma hakkını saklı tutar.</p>
+  </section>
+
+  <section class="madde" id="m12">
+    <h2>Madde 12 — Yürürlük</h2>
+    <p>12 maddeden oluşan bu sözleşme, ALICI'nın ödeme ekranında elektronik ortamda onay
+      vermesiyle kurulur ve yürürlüğe girer. Sözleşmenin bir örneği ALICI'nın kayıtlı e-posta
+      adresine gönderilir ve hesabından her zaman görüntülenebilir.</p>
+    <p class="tarih">SATICI: <span class="doldur">[DOLDURULACAK: unvan]</span> &nbsp;·&nbsp;
+      ALICI: ödeme ekranında girilen bilgiler &nbsp;·&nbsp; Tarih: onay anı</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="kap">
+    <div class="altizgara">
+      <div>
+        <a class="logo" href="index.html">
+          <svg viewBox="0 0 64 64" aria-label="STOKVIN">
+            <g fill="none" stroke="currentColor" stroke-linecap="butt">
+              <rect x="5.5" y="5.5" width="53" height="53" rx="12.5" stroke-width="7"/>
+              <g transform="translate(15.5,10) scale(0.61111)" stroke-width="13">
+                <path d="M35.5 21 A14.5 14.5 0 1 0 21 35.5 L33 36.5 A14.5 14.5 0 1 1 18.5 51"/>
+              </g>
+            </g>
+          </svg>
+          <span class="logoyazi">STOKVIN</span>
+        </a>
+        <p class="tanitimcumle">
+          Trendyol satıcıları için net kâr, komisyon ve kargo analizi. Çalışan bir mağazanın
+          kendi ihtiyacından çıktı.
+        </p>
+      </div>
+      <div>
+        <h4>Panel</h4>
+        <ul>
+          <li><a href="index.html">Ana sayfa</a></li>
+          <li><a href="index.html#fark">Farkı ne?</a></li>
+          <li><a href="index.html#yontem">Nasıl hesaplıyor?</a></li>
+          <li><a href="index.html#eklenti">Chrome eklentisi</a></li>
+          <li><a href="index.html#fiyat">Fiyat</a></li>
+          <li><a href="giris.html">Giriş</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Yasal</h4>
+        <ul>
+          <li><a href="gizlilik.html">Gizlilik politikası</a></li>
+          <li><a href="kullanim-kosullari.html">Kullanım koşulları</a></li>
+          <li><a href="on-bilgilendirme.html">Ön bilgilendirme formu</a></li>
+          <li><a href="mesafeli-satis.html">Mesafeli satış sözleşmesi</a></li>
+          <li><a href="iptal-iade.html">İptal ve iade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="altson">
+      <span>© 2026 STOKVIN</span>
+      <span>Trendyol, Trendyol'un tescilli markasıdır. STOKVIN bağımsız bir üründür, Trendyol ile bir bağı yoktur.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
