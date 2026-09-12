@@ -117,6 +117,13 @@ nav a:hover{color:var(--murekkep)}
 .madde li{margin-bottom:9px}
 .madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
 .kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+@media (max-width:760px){
+  .kaydir{box-shadow:inset -28px 0 22px -22px rgba(0,0,0,.28)}
+  .kaydir::after{
+    content:"→ Kaydırarak devamını gör";display:block;position:sticky;inset-inline-start:0;
+    width:max-content;font-size:12.5px;color:var(--soluk);padding:8px 0 2px;
+  }
+}
 th{
   text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
@@ -319,20 +326,26 @@ footer a:hover{color:var(--murekkep)}
         </thead>
         <tbody>
           <tr>
-            <td><b>Başlangıç</b><br><span class="kucuk">ayda 300 soru taslağı</span></td>
+            <td><b>Ücretsiz</b><br><span class="kucuk">ayda 100 sipariş · 20 soru taslağı</span></td>
+            <td>₺0</td>
+            <td>—</td>
+            <td>₺0</td>
+          </tr>
+          <tr>
+            <td><b>Başlangıç</b><br><span class="kucuk">ayda 3.500 sipariş · 400 soru taslağı</span></td>
             <td>₺499,99</td>
             <td><span class="doldur">[DOLDURULACAK: KDV oranı ve tutarı]</span></td>
             <td><span class="doldur">[DOLDURULACAK: KDV dâhil toplam]</span></td>
           </tr>
           <tr>
-            <td><b>Gelişmiş</b><br><span class="kucuk">ayda 1.000 soru taslağı</span></td>
-            <td>₺999,99</td>
+            <td><b>Gelişmiş</b><br><span class="kucuk">ayda 12.000 sipariş · 2.000 soru taslağı</span></td>
+            <td>₺1.099,99</td>
             <td><span class="doldur">[DOLDURULACAK: KDV oranı ve tutarı]</span></td>
             <td><span class="doldur">[DOLDURULACAK: KDV dâhil toplam]</span></td>
           </tr>
           <tr>
-            <td><b>Profesyonel</b><br><span class="kucuk">ayda 2.000 soru taslağı</span></td>
-            <td>₺1.399,99</td>
+            <td><b>Profesyonel</b><br><span class="kucuk">ayda 30.000 sipariş · 3.000 soru taslağı</span></td>
+            <td>₺1.599,99</td>
             <td><span class="doldur">[DOLDURULACAK: KDV oranı ve tutarı]</span></td>
             <td><span class="doldur">[DOLDURULACAK: KDV dâhil toplam]</span></td>
           </tr>
@@ -341,8 +354,9 @@ footer a:hover{color:var(--murekkep)}
     </div>
     <p>Yönetmelik, fiyatın <b>tüm vergiler dâhil toplam tutar</b> olarak gösterilmesini arar.
     Sadece "₺499,99" yazmak yetmez; KDV dâhil rakamın da görünmesi gerekir.</p>
-    <p>Paketler arasında özellik farkı yoktur; üç pakette de dört uygulamanın tamamı açıktır.
-    Fark yalnız <b>aylık yapay zekâ hakkıdır</b> — tabloda yazan soru taslağı adedi.
+    <p>Dört pakette de dört uygulamanın tamamı açıktır. <b>Paketi aylık sipariş adedi
+    belirler</b>; yapay zekâ soru taslağı hakkı, buybox takibindeki ürün sayısı ve mağaza
+    sayısı paketle birlikte artar. Yıllık ödemede %20 indirim uygulanır.
     <b>Sınırsız paket yoktur</b>, her paketin rakamı bellidir. Aylık hak bittiğinde panel
     çalışmaya devam eder, yalnız yeni soru taslağı yazılmaz; hak ay başında yenilenir veya
     üst pakete geçersiniz. <b>Paket ücreti dışında sizden başka bir tutar tahsil
