@@ -117,6 +117,13 @@ nav a:hover{color:var(--murekkep)}
 .madde li{margin-bottom:9px}
 .madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
 .kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+@media (max-width:760px){
+  .kaydir{box-shadow:inset -28px 0 22px -22px rgba(0,0,0,.28)}
+  .kaydir::after{
+    content:"→ Kaydırarak devamını gör";display:block;position:sticky;inset-inline-start:0;
+    width:max-content;font-size:12.5px;color:var(--soluk);padding:8px 0 2px;
+  }
+}
 th{
   text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
@@ -451,11 +458,15 @@ footer a:hover{color:var(--murekkep)}
   <section class="madde" id="m7">
     <h2>7. Ücret, ödeme ve fatura</h2>
     <ul>
-      <li>Hizmet <b>aylık abonelik</b> ile verilir. Üç paket vardır:
-        <b>Başlangıç ₺499,99</b> (ayda 300 soru taslağı), <b>Gelişmiş ₺999,99</b>
-        (ayda 1.000 soru taslağı) ve <b>Profesyonel ₺1.399,99</b> (ayda 2.000 soru taslağı).
-        Paketler arasında özellik farkı yoktur; fark yalnız aylık yapay zekâ hakkıdır.
-        Güncel fiyatlar <a href="index.html#fiyat">fiyat bölümünde</a> yayımlanır.</li>
+      <li>Hizmet <b>aylık abonelik</b> ile verilir. Süresiz ücretsiz paketin (ayda 100
+        sipariş, 20 soru taslağı) yanında üç ücretli paket vardır:
+        <b>Başlangıç ₺499,99</b> (ayda 3.500 sipariş, 400 soru taslağı), <b>Gelişmiş
+        ₺1.099,99</b> (ayda 12.000 sipariş, 2.000 soru taslağı) ve <b>Profesyonel
+        ₺1.599,99</b> (ayda 30.000 sipariş, 3.000 soru taslağı). Dört pakette de dört
+        uygulamanın tamamı açıktır; paketi aylık sipariş adedi belirler, yapay zekâ hakkı,
+        buybox takibindeki ürün sayısı ve mağaza sayısı paketle birlikte artar. Yıllık
+        ödemede %20 indirim uygulanır. Güncel fiyatlar
+        <a href="index.html#fiyat">fiyat bölümünde</a> yayımlanır.</li>
       <li>Ücretler <b>KDV dâhil / hariç:</b>
         <span class="doldur">[DOLDURULACAK: fiyatlar KDV dâhil mi hariç mi]</span></li>
       <li>Ödeme, kayıtlı kartınızdan <b>her dönem başında otomatik</b> tahsil edilir.</li>
