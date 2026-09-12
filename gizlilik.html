@@ -118,6 +118,13 @@ nav a:hover{color:var(--murekkep)}
 .madde li{margin-bottom:9px}
 .madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
 .kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+@media (max-width:760px){
+  .kaydir{box-shadow:inset -28px 0 22px -22px rgba(0,0,0,.28)}
+  .kaydir::after{
+    content:"→ Kaydırarak devamını gör";display:block;position:sticky;inset-inline-start:0;
+    width:max-content;font-size:12.5px;color:var(--soluk);padding:8px 0 2px;
+  }
+}
 th{
   text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
