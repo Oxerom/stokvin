@@ -115,6 +115,13 @@ section:first-of-type{border-top:0}
 .kirmizi{color:var(--zarar)}
 
 .kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:760px){
+  .kaydir{box-shadow:inset -28px 0 22px -22px rgba(0,0,0,.28)}
+  .kaydir::after{
+    content:"→ Kaydırarak devamını gör";display:block;position:sticky;inset-inline-start:0;
+    width:max-content;font-size:12.5px;color:var(--soluk);padding:8px 0 2px;
+  }
+}
 table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
 th{
   text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
@@ -717,49 +724,66 @@ footer a:hover{color:var(--murekkep)}
 <section id="fiyat">
   <div class="kap">
     <span class="etiket">Fiyat</span>
-    <h2>Üç paket, fark yalnız aylık yapay zekâ hakkı.</h2>
+    <h2>Dört paket, ölçü aylık sipariş adedin.</h2>
     <p class="altyazi">
-      Hangi paketi alırsan al dört uygulama, panelin tamamı ve eklenti açık. Paketleri ayıran
-      tek şey yapay zekânın aylık kullanım hakkı: soru taslakları, rapor yorumu ve metin çıkarma bu haktan harcar.
+      Hangi paketi alırsan al dört uygulama, panelin tamamı ve eklenti açık. Paketi aylık
+      sipariş adedin belirler; yapay zekâ soru hakkı, buybox takibindeki ürün sayısı ve
+      mağaza sayısı paketle birlikte büyür. Yıllık ödeyene %20 indirim.
     </p>
 
-    <div class="taslakkutu">
-      <strong>Yayın öncesi not.</strong>
-      Deneme süresi, kart isteyip istemediğimiz ve yıllık indirim kararı verilmeden bu bölüm
-      yayına alınmaz.
-    </div>
-
-    <div class="izgara uc">
+    <div class="izgara dort">
+      <div class="paket">
+        <div class="paketad">Ücretsiz</div>
+        <div class="paketfiyat">₺0 <small>/ ay</small></div>
+        <div class="paketkime">Ayda 100 siparişe kadar · süresiz, kart istenmez</div>
+        <ul>
+          <li>Dört uygulamanın tamamı</li>
+          <li>Ayda <b>20 soru taslağı</b></li>
+          <li><b>50 üründe</b> buybox takibi, günde 2 kez</li>
+          <li>Otomatik fiyat güncelleme 3 üründe, kapalı gelir</li>
+          <li>1 mağaza</li>
+        </ul>
+        <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
+      </div>
       <div class="paket">
         <div class="paketad">Başlangıç</div>
         <div class="paketfiyat">₺499,99 <small>/ ay</small></div>
-        <div class="paketkime">Soru trafiği az mağazalar için</div>
+        <div class="paketkime">Ayda 3.500 siparişe kadar · yıllık ödemede ₺399,99/ay</div>
         <ul>
           <li>Dört uygulamanın tamamı</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
           <li>Günlük rapor yorumu her gün</li>
-          <li>Ayda <b>300 soru taslağı</b> (~günde 10)</li>
+          <li>Ayda <b>400 soru taslağı</b></li>
+          <li><b>2.000 üründe</b> buybox takibi günde 2 kez, <b>25 ürün</b> yarım saatte bir</li>
+          <li>Ayda 500 yorum analizi</li>
+          <li>1 mağaza</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
       <div class="paket">
         <div class="paketad">Gelişmiş</div>
-        <div class="paketfiyat">₺999,99 <small>/ ay</small></div>
-        <div class="paketkime">Soru trafiği yoğun mağazalar için</div>
+        <div class="paketfiyat">₺1.099,99 <small>/ ay</small></div>
+        <div class="paketkime">Ayda 12.000 siparişe kadar · yıllık ödemede ₺879,99/ay</div>
         <ul>
           <li>Başlangıç paketindeki her şey</li>
-          <li>Ayda <b>1.000 soru taslağı</b> (~günde 33)</li>
+          <li>Ayda <b>2.000 soru taslağı</b></li>
+          <li><b>4.000 üründe</b> buybox takibi günde 2 kez, <b>100 ürün</b> yarım saatte bir</li>
+          <li>Ayda 1.500 yorum analizi</li>
+          <li>3 mağaza</li>
         </ul>
         <a class="dugme dolu" href="giris.html" style="text-align:center">Başla</a>
       </div>
       <div class="paket">
         <div class="paketad">Profesyonel</div>
-        <div class="paketfiyat">₺1.399,99 <small>/ ay</small></div>
-        <div class="paketkime">En büyük mağazalar için</div>
+        <div class="paketfiyat">₺1.599,99 <small>/ ay</small></div>
+        <div class="paketkime">Ayda 30.000 siparişe kadar · yıllık ödemede ₺1.279,99/ay</div>
         <ul>
           <li>Başlangıç paketindeki her şey</li>
-          <li>Ayda <b>2.000 soru taslağı</b> (~günde 66)</li>
+          <li>Ayda <b>3.000 soru taslağı</b></li>
+          <li><b>5.000 üründe</b> buybox takibi günde 2 kez, <b>300 ürün</b> yarım saatte bir</li>
+          <li>Ayda 3.000 yorum analizi</li>
+          <li>5 mağaza</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -770,6 +794,7 @@ footer a:hover{color:var(--murekkep)}
       biterse panel çalışmaya devam eder; kâr rakamların ve raporun aynen gelir, yalnız yeni
       taslak yazılmaz. Ay başında hakkın yenilenir, beklemek istemezsen üst pakete geçersin.
       <b>Paket ücretinin dışında ek ücret yok.</b> Hak aşımı ücreti almıyoruz.
+      Ayda 30.000 siparişin üstündeysen <b>Kurumsal</b> paket için bize yaz, fiyatı birlikte belirleriz.
     </p>
   </div>
 </section>
@@ -781,7 +806,7 @@ footer a:hover{color:var(--murekkep)}
     <div style="margin-top:30px;max-width:860px">
       <details>
         <summary>Trendyol API bilgimi vermek güvenli mi?</summary>
-        <p>Anahtarı bize veriyorsun ve sunucumuzda saklanıyor; hizmetin siparişlerini kendi başına çekebilmesi için bu gerekli. STOKVIN o anahtarla mağazanı okur; mağazana giden tek şey, senin onayladığın soru cevabıdır. Fiyat değiştirmez, stok güncellemez, ürün göndermez, o modüller üründe yok. Rahat etmezsen Trendyol panelinden anahtarı istediğin an yenilersin, erişimimiz o anda biter. Nasıl sakladığımız ve ne zaman sildiğimiz <a href="gizlilik.html">gizlilik politikasında</a> yazıyor.</p>
+        <p>Anahtarı bize veriyorsun ve sunucumuzda saklanıyor; hizmetin siparişlerini kendi başına çekebilmesi için bu gerekli. STOKVIN o anahtarla mağazanı okur. Mağazana giden iki şey var: senin onayladığın soru cevabı ve, sen açarsan, koyduğun taban fiyatın üstünde kalan fiyat güncellemesi. Otomatik fiyat güncelleme kapalı gelir. Stoğa hiç dokunulmaz, ürün gönderilmez; o modüller üründe yok. Rahat etmezsen Trendyol panelinden anahtarı istediğin an yenilersin, erişimimiz o anda biter. Nasıl sakladığımız ve ne zaman sildiğimiz <a href="gizlilik.html">gizlilik politikasında</a> yazıyor.</p>
       </details>
       <details>
         <summary>Kâr hesabı neden başka programlardan farklı çıkıyor?</summary>
