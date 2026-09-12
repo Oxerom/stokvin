@@ -117,6 +117,13 @@ nav a:hover{color:var(--murekkep)}
 .madde li{margin-bottom:9px}
 .madde table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
 .kaydir{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px}
+@media (max-width:760px){
+  .kaydir{box-shadow:inset -28px 0 22px -22px rgba(0,0,0,.28)}
+  .kaydir::after{
+    content:"→ Kaydırarak devamını gör";display:block;position:sticky;inset-inline-start:0;
+    width:max-content;font-size:12.5px;color:var(--soluk);padding:8px 0 2px;
+  }
+}
 th{
   text-align:start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--soluk);font-weight:600;padding:12px 14px;border-top:1px solid var(--cizgi);
@@ -322,33 +329,27 @@ footer a:hover{color:var(--murekkep)}
     <h3>3.2 Ücret</h3>
     <div class="kaydir">
       <table>
-        <thead><tr><th>Paket</th><th>Kapsam</th><th>Aylık ücret</th></tr></thead>
+        <thead><tr><th>Paket</th><th>Aylık sipariş</th><th>Yapay zekâ soru taslağı / ay</th><th>Aylık ücret</th><th>Yıllık ödemede aylık karşılığı</th></tr></thead>
         <tbody>
-          <tr>
-            <td><b>Başlangıç</b></td>
-            <td>Dört uygulama · ayda 300 soru taslağı · günlük rapor</td>
-            <td><b>₺499,99</b></td>
-          </tr>
-          <tr>
-            <td><b>Gelişmiş</b></td>
-            <td>Dört uygulama · ayda 1.000 soru taslağı · günlük rapor</td>
-            <td><b>₺999,99</b></td>
-          </tr>
-          <tr>
-            <td><b>Profesyonel</b></td>
-            <td>Dört uygulama · ayda 2.000 soru taslağı · günlük rapor</td>
-            <td><b>₺1.399,99</b></td>
-          </tr>
+          <tr><td><b>Ücretsiz</b></td><td>100</td><td>20</td><td><b>₺0</b></td><td>—</td></tr>
+          <tr><td><b>Başlangıç</b></td><td>3.500</td><td>400</td><td><b>₺499,99</b></td><td>₺399,99</td></tr>
+          <tr><td><b>Gelişmiş</b></td><td>12.000</td><td>2.000</td><td><b>₺1.099,99</b></td><td>₺879,99</td></tr>
+          <tr><td><b>Profesyonel</b></td><td>30.000</td><td>3.000</td><td><b>₺1.599,99</b></td><td>₺1.279,99</td></tr>
         </tbody>
       </table>
     </div>
+    <p>Dört pakette de dört uygulamanın tamamı açıktır. Her paket, buybox takibindeki ürün
+      sayısı ve bağlanabilen mağaza sayısı bakımından da tabloda yazan sırayla büyür; güncel
+      rakamlar <a href="index.html#fiyat">fiyat bölümünde</a> yayımlanır. Ayda 30.000
+      siparişin üstündeki mağazalar için fiyat ayrıca belirlenir (Kurumsal).</p>
     <p>Fiyatlar <span class="doldur">[DOLDURULACAK: KDV dâhil mi hariç mi — dâhilse oran
       yazılacak]</span>. Sipariş anında ödeme ekranında görünen tutar, o dönem için geçerli
       toplam tutardır.</p>
-    <p><b>Sipariş adedine göre bir sınır yoktur</b>; paketleri ayıran şey aylık yapay
-      zekâ soru taslağı hakkıdır. Hak dolduğunda panel çalışmaya devam eder, yalnız yeni
-      taslak yazılmaz; hak her ayın başında yenilenir. <b>Paket ücretinin dışında ek
-      tahsilat yapılmaz</b>, üst pakete otomatik geçirilmezsiniz.</p>
+    <p><b>Paketi aylık sipariş adedi belirler</b>; yapay zekâ soru taslağı hakkı, takipteki
+      ürün sayısı ve mağaza sayısı paketle birlikte artar. Hak dolduğunda panel çalışmaya
+      devam eder, yalnız yeni taslak yazılmaz; hak her ayın başında yenilenir. Yıllık ödemede
+      on iki aylık tutar <b>%20 indirimle</b> peşin tahsil edilir. <b>Paket ücretinin dışında
+      ek tahsilat yapılmaz</b>, üst pakete otomatik geçirilmezsiniz.</p>
     <p>Bu hizmet elektronik ortamda sunulduğu için <b>kargo, teslimat veya kurulum bedeli
       yoktur.</b></p>
   </section>
