@@ -51,6 +51,9 @@ h1{font-size:25px;margin:0 0 8px;letter-spacing:-.02em}
 }
 .sekme[aria-selected="true"]{background:var(--kart);color:var(--yazi);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 
+.onay{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13.5px;line-height:1.5;margin:6px 0 4px}
+.onay input{width:18px;height:18px;margin:2px 0 0;padding:0;flex:none}
+#onayAlani .hata{margin-top:8px;position:static}
 label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}
 input{
   width:100%;padding:12px 14px;border:1.5px solid var(--cizgi);border-radius:10px;
@@ -120,6 +123,17 @@ button.gonder{
     <input type="password" id="sifre" autocomplete="current-password">
     <div class="hata" id="hataSifre">Şifre en az 8 karakter olmalı.</div>
 
+    <div id="onayAlani" hidden>
+      <label class="onay" for="onay">
+        <input type="checkbox" id="onay">
+        <span><a href="kullanim-kosullari.html">Kullanım Koşulları</a>'nı ve
+          <a href="gizlilik.html">Gizlilik Politikası</a>'nı okudum, kabul ediyorum. Aynı mağaza
+          ücretsiz paketi ikinci kez kullanamasın diye, ücretsiz paketi kullandığım mağazanın satıcı
+          numarasının 1 yıl saklanacağını biliyorum.</span>
+      </label>
+      <div class="hata" id="hataOnay">Hesap açmak için koşulları kabul etmelisin.</div>
+    </div>
+
     <button class="gonder" type="submit" id="gonder">Giriş yap</button>
   </form>
 
@@ -133,9 +147,7 @@ button.gonder{
     <p>Trendyol anahtarın burada istenmez. Hesabın açıldıktan sonra panelin içinden bağlanır.</p>
     <p>Stoğuna dokunulmaz. Mağazana giden her işlem senin açtığın bir anahtara bağlı —
       otomatik fiyat güncelleme dâhil, hepsi kapalı gelir.</p>
-    <p>Hesap açtığında <a href="kullanim-kosullari.html">Kullanım Koşulları</a>'nı kabul etmiş,
-      <a href="gizlilik.html">Gizlilik Politikası</a>'nı okumuş olursun.
-      Ücretli plana geçmeden önce ayrıca <a href="on-bilgilendirme.html">Ön Bilgilendirme
+    <p>Ücretli plana geçmeden önce ayrıca <a href="on-bilgilendirme.html">Ön Bilgilendirme
       Formu</a> ve <a href="mesafeli-satis.html">Mesafeli Satış Sözleşmesi</a> gösterilir.</p>
   </div>
 </div>
@@ -154,6 +166,7 @@ button.gonder{
     document.getElementById("sekmeGiris").setAttribute("aria-selected", String(!kayit));
     document.getElementById("sekmeKayit").setAttribute("aria-selected", String(kayit));
     adAlani.hidden = !kayit;
+    document.getElementById("onayAlani").hidden = !kayit;
     document.getElementById("baslik").textContent = kayit ? "Hesap aç" : "Tekrar hoş geldin";
     document.getElementById("altyazi").textContent = kayit
       ? "Mağaza adını, e-postanı ve bir şifre yaz."
@@ -176,6 +189,7 @@ button.gonder{
     isaretle("ad","hataAd",false);
     isaretle("eposta","hataEposta",false);
     isaretle("sifre","hataSifre",false);
+    isaretle("onay","hataOnay",false);
   }
 
   form.addEventListener("submit", function(olay){
@@ -192,6 +206,10 @@ button.gonder{
     }
     if (document.getElementById("sifre").value.length < 8){
       isaretle("sifre","hataSifre",true); tamam = false;
+    }
+
+    if (kayitMi && !document.getElementById("onay").checked){
+      isaretle("onay","hataOnay",true); tamam = false;
     }
 
     sonuc.classList.toggle("acik", tamam);
