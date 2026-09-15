@@ -203,6 +203,11 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
   background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
 }
 .taslakkutu strong{color:var(--uyari)}
+.donem{display:inline-flex;gap:4px;margin-top:28px;padding:4px;border:1px solid var(--cizgi);border-radius:999px;background:var(--kart)}
+.donem[hidden]{display:none}
+.donemdugme{font:inherit;font-size:15px;font-weight:600;padding:8px 18px;border:0;border-radius:999px;background:transparent;color:var(--soluk);cursor:pointer}
+.donemdugme[aria-pressed="true"]{background:var(--yazi);color:var(--kart)}
+.donemdugme:focus-visible{outline:2px solid var(--yazi);outline-offset:2px}
 .paket{
   background:var(--kart);border:1px solid var(--cizgi);border-radius:16px;padding:30px;
   display:flex;flex-direction:column;
@@ -217,7 +222,7 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
    differences read side by side (Emre 15.09.2026). Each card spans 13 rows of the
    shared grid: name, price, order line, nine features, button. */
 @supports (grid-template-rows:subgrid){
-  .paketler .paket{display:grid;grid-row:span 20;grid-template-rows:subgrid;row-gap:0}
+  .paketler .paket{display:grid;grid-row:span 21;grid-template-rows:subgrid;row-gap:0}
   .paketler .paket ul{display:contents}
   .paketler .paket li{margin:0 0 11px}
   .paketler .paket li:first-child{margin-top:24px}
@@ -478,18 +483,15 @@ footer a:hover{color:var(--murekkep)}
         <p>
           Müşteri soruları tek kuyrukta. Yapay zekâ cevabı taslak olarak yazar; sen onaylarsın,
           sistem gönderir. İstersen yüksek güvenli cevaplar için otomatik göndermeyi açarsın,
-          istediğin an kapatırsın. Üretim yapan mağazada sorulardan ve siparişlerden üretim listesi de
-          çıkar; hangi kategorinin üretim sayılacağını ve hangi bilginin çıkarılacağını
+          istediğin an kapatırsın. Gelişmiş ve Profesyonel pakette, üretim yapan mağazada sorulardan ve siparişlerden üretim listesi de çıkar; hangi kategorinin üretim sayılacağını ve hangi bilginin çıkarılacağını
           <b>kendin ayarlarsın</b>.
         </p>
       </div>
       <div class="kartkutu">
         <h3>Fatura iptali</h3>
         <p>
-          İade gelen siparişin faturası panelde listelenir; onayladığında fatura programında
-          iptal edilir. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Şimdilik
-          yalnız <b>BIEN</b> kullanan mağazalarda çalışır. Ayrıca teslim edilmiş ama faturası
-          kesilmemiş siparişler ayrı bir listede gösterilir. Panel fatura <b>kesmez</b>,
+          İade gelen siparişin faturası panelde listelenir; onayladığında fatura programında iptal edilir. İptal Gelişmiş ve Profesyonel pakette var. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Şimdilik
+          yalnız <b>BIEN</b> kullanan mağazalarda çalışır. Teslim edilmiş ama faturası kesilmemiş siparişlerin listesi her pakette var. Panel fatura <b>kesmez</b>,
           sadece hatırlatır.
         </p>
       </div>
@@ -774,7 +776,7 @@ footer a:hover{color:var(--murekkep)}
       <li><strong>Maliyet girmediğin üründe kâr hesabı yapılmaz.</strong> Tahmin edilmez, "maliyet gir" yazar.</li>
       <li><strong>Stok ve ürün gönderme yok.</strong> Stok güncellemek, ürün açmak, sipariş onaylamak bu programda hiç yok; hiçbir ayarla açılmaz.</li>
       <li><strong>Fiyatı kendiliğinden değiştirmez.</strong> Otomatik fiyat güncelleme kapalı gelir. Sen açarsan, yalnız koyduğun taban fiyatın üstünde çalışır.</li>
-      <li><strong>Fatura kesme yok.</strong> Kesilmesi gerekenler listelenir ama kesilmez; iade faturası iptali de şimdilik yalnız BIEN kullananlarda ve sen açarsan.</li>
+      <li><strong>Fatura kesme yok.</strong> Kesilmesi gerekenler listelenir ama kesilmez; iade faturası iptali de Gelişmiş ve Profesyonel pakette, şimdilik yalnız BIEN kullananlarda ve sen açarsan.</li>
     </ul>
   </div>
 </section>
@@ -786,18 +788,22 @@ footer a:hover{color:var(--murekkep)}
     <p class="altyazi">
       Kâr analizi, hakediş, desi ve stok denetimi, kampanya hesabı, uyarılar ve eklenti her pakette açık. Paketler
       rakamlarla ayrılır: aylık sipariş, soru taslağı, yorum analizi, buybox takibindeki ürün
-      ve mağaza sayısı. Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve kopya ilan takibi yok;
-      bunlar Başlangıç'tan itibaren gelir. Ücretsiz ve Başlangıç paketlerinde
+      ve mağaza sayısı. Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve kopya ilan takibi yok; bunlar Başlangıç'tan itibaren gelir. Üretim listesi ve BIEN ile fatura iptali Gelişmiş ve Profesyonel pakette var. Ücretsiz ve Başlangıç paketlerinde
       günlük raporun rakamları gelir, yazılı yorumu gelmez. Otomatik fiyat güncelleme Gelişmiş
       ve Profesyonel pakette var. Ücretsiz ve Başlangıç'ta rakibin fiyat hareketlerini görürsün, fiyatı
-      Trendyol'a sen girersin. Yıllık ödeyene %20 indirim. Fiyatlara %20 KDV dahildir.
+      Trendyol'a sen girersin. Ücretsiz paket, hesabın açıldığı günden itibaren 30 gün kullanılır; süre bitince devam etmek için bir paket seçersin. Bir mağaza ücretsiz paketi yalnız bir kez kullanabilir. Yıllık ödeyene %20 indirim. Fiyatlara %20 KDV dahildir.
     </p>
+
+    <div class="donem" role="group" aria-label="Ödeme dönemi" hidden>
+      <button type="button" class="donemdugme" data-donem="aylik" aria-pressed="true">Aylık</button>
+      <button type="button" class="donemdugme" data-donem="yillik" aria-pressed="false">Yıllık %20 indirimli</button>
+    </div>
 
     <div class="izgara dort paketler">
       <div class="paket">
         <div class="paketad">Ücretsiz</div>
         <div class="paketfiyat">₺0 <small>/ ay</small></div>
-        <div class="paketkime">Ayda 100 siparişe kadar · süresiz, kart istenmez</div>
+        <div class="paketkime">Ayda 100 siparişe kadar · 30 gün, kart istenmez</div>
         <ul>
           <li>Soru taslağı yok</li>
           <li>Yorum analizi yok</li>
@@ -812,7 +818,8 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi ve BIEN fatura iptali</li>
+          <li>Üretim listesi yok</li>
+          <li>Fatura iptali yok</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
         </ul>
@@ -820,8 +827,8 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="paket">
         <div class="paketad">Başlangıç</div>
-        <div class="paketfiyat">₺499,99 <small>/ ay</small></div>
-        <div class="paketkime">Ayda 3.000 siparişe kadar · yıllık ödemede ₺399,99/ay</div>
+        <div class="paketfiyat"><span data-aylik="₺499,99" data-yillik="₺399,99">₺499,99</span> <small>/ ay</small></div>
+        <div class="paketkime">Ayda 3.000 siparişe kadar · <span data-aylik="yıllık ödemede ₺399,99/ay" data-yillik="yıllık ₺4.799,88 tek seferde">yıllık ödemede ₺399,99/ay</span></div>
         <ul>
           <li>Ayda <b>200 soru taslağı</b></li>
           <li>500 yorum analizi/ay</li>
@@ -836,7 +843,8 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi ve BIEN fatura iptali</li>
+          <li>Üretim listesi yok</li>
+          <li>Fatura iptali yok</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
         </ul>
@@ -844,8 +852,8 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="paket">
         <div class="paketad">Gelişmiş</div>
-        <div class="paketfiyat">₺1.099,99 <small>/ ay</small></div>
-        <div class="paketkime">Ayda 10.000 siparişe kadar · yıllık ödemede ₺879,99/ay</div>
+        <div class="paketfiyat"><span data-aylik="₺1.099,99" data-yillik="₺879,99">₺1.099,99</span> <small>/ ay</small></div>
+        <div class="paketkime">Ayda 10.000 siparişe kadar · <span data-aylik="yıllık ödemede ₺879,99/ay" data-yillik="yıllık ₺10.559,88 tek seferde">yıllık ödemede ₺879,99/ay</span></div>
         <ul>
           <li>Ayda <b>800 soru taslağı</b></li>
           <li>1.500 yorum analizi/ay</li>
@@ -860,7 +868,8 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi ve BIEN fatura iptali</li>
+          <li>Üretim listesi</li>
+          <li>BIEN ile fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
         </ul>
@@ -868,8 +877,8 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="paket">
         <div class="paketad">Profesyonel</div>
-        <div class="paketfiyat">₺1.999,99 <small>/ ay</small></div>
-        <div class="paketkime">Ayda 30.000 siparişe kadar · yıllık ödemede ₺1.599,99/ay</div>
+        <div class="paketfiyat"><span data-aylik="₺1.999,99" data-yillik="₺1.599,99">₺1.999,99</span> <small>/ ay</small></div>
+        <div class="paketkime">Ayda 30.000 siparişe kadar · <span data-aylik="yıllık ödemede ₺1.599,99/ay" data-yillik="yıllık ₺19.199,88 tek seferde">yıllık ödemede ₺1.599,99/ay</span></div>
         <ul>
           <li>Ayda <b>1.500 soru taslağı</b></li>
           <li>3.000 yorum analizi/ay</li>
@@ -884,7 +893,8 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi ve BIEN fatura iptali</li>
+          <li>Üretim listesi</li>
+          <li>BIEN ile fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
         </ul>
@@ -911,6 +921,25 @@ footer a:hover{color:var(--murekkep)}
       paket için bize yaz, fiyatı birlikte belirleriz.
     </p>
   </div>
+<script>
+(function () {
+  var kutu = document.querySelector("#fiyat .donem");
+  if (!kutu) return;
+  kutu.hidden = false;
+  var dugmeler = kutu.querySelectorAll(".donemdugme");
+  function sec(donem) {
+    dugmeler.forEach(function (d) {
+      d.setAttribute("aria-pressed", d.getAttribute("data-donem") === donem ? "true" : "false");
+    });
+    document.querySelectorAll("#fiyat [data-aylik]").forEach(function (el) {
+      el.textContent = el.getAttribute(donem === "yillik" ? "data-yillik" : "data-aylik");
+    });
+  }
+  dugmeler.forEach(function (d) {
+    d.addEventListener("click", function () { sec(d.getAttribute("data-donem")); });
+  });
+})();
+</script>
 </section>
 
 <section>
@@ -956,7 +985,7 @@ footer a:hover{color:var(--murekkep)}
       </details>
       <details>
         <summary>Fatura iptali nasıl çalışıyor?</summary>
-        <p>Şimdilik yalnız BIEN kullanan mağazalarda. İade gelen siparişin faturası panelde listelenir; onayladığında BIEN'de iptal edilir. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Fatura <b>kesme</b> bu ürünün işi değil; panel yalnız "bugün kesilmesi gerekenler" listesini gösterir, kesmeyi sen kendi programında yaparsın.</p>
+        <p>Gelişmiş ve Profesyonel pakette, şimdilik yalnız BIEN kullanan mağazalarda. İade gelen siparişin faturası panelde listelenir; onayladığında BIEN'de iptal edilir. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Fatura <b>kesme</b> bu ürünün işi değil; panel yalnız "bugün kesilmesi gerekenler" listesini gösterir, kesmeyi sen kendi programında yaparsın.</p>
       </details>
       <details>
         <summary>Buybox takibi ve otomatik fiyat nasıl çalışıyor?</summary>
