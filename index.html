@@ -203,7 +203,7 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
   background:color-mix(in srgb,var(--uyari) 9%,transparent);font-size:15px;color:var(--yazi);
 }
 .taslakkutu strong{color:var(--uyari)}
-.donem{display:inline-flex;gap:4px;margin-top:28px;padding:4px;border:1px solid var(--cizgi);border-radius:999px;background:var(--kart)}
+.donem{display:flex;width:max-content;max-width:100%;gap:4px;margin:28px auto 0;padding:4px;border:1px solid var(--cizgi);border-radius:999px;background:var(--kart)}
 .donem[hidden]{display:none}
 .donemdugme{font:inherit;font-size:15px;font-weight:600;padding:8px 18px;border:0;border-radius:999px;background:transparent;color:var(--soluk);cursor:pointer}
 .donemdugme[aria-pressed="true"]{background:var(--yazi);color:var(--kart)}
@@ -214,6 +214,8 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
 }
 .paketad{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);font-weight:600}
 .paketfiyat{font-size:36px;font-weight:700;margin-top:12px;letter-spacing:-.03em}
+.eskifiyat{display:block;margin-top:4px;font-size:16px;font-weight:500;color:var(--soluk);letter-spacing:0}
+.eskifiyat[hidden]{display:none}
 .paketfiyat small{display:block;margin-top:2px;font-size:17px;font-weight:500;color:var(--soluk);letter-spacing:0}
 .paketkime{color:var(--soluk);font-size:15px;margin-top:6px}
 .paket ul{list-style:none;padding:0;margin:24px 0 28px;flex-grow:1}
@@ -827,7 +829,7 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="paket">
         <div class="paketad">Başlangıç</div>
-        <div class="paketfiyat"><span data-aylik="₺499,99" data-yillik="₺399,99">₺499,99</span> <small>/ ay</small></div>
+        <div class="paketfiyat"><span data-aylik="₺499,99" data-yillik="₺399,99">₺499,99</span> <small>/ ay</small><del class="eskifiyat" hidden>₺499,99 / ay</del></div>
         <div class="paketkime">Ayda 3.000 siparişe kadar · <span data-aylik="yıllık ödemede ₺399,99/ay" data-yillik="yıllık ₺4.799,88 tek seferde">yıllık ödemede ₺399,99/ay</span></div>
         <ul>
           <li>Ayda <b>200 soru taslağı</b></li>
@@ -852,7 +854,7 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="paket">
         <div class="paketad">Gelişmiş</div>
-        <div class="paketfiyat"><span data-aylik="₺1.099,99" data-yillik="₺879,99">₺1.099,99</span> <small>/ ay</small></div>
+        <div class="paketfiyat"><span data-aylik="₺1.099,99" data-yillik="₺879,99">₺1.099,99</span> <small>/ ay</small><del class="eskifiyat" hidden>₺1.099,99 / ay</del></div>
         <div class="paketkime">Ayda 10.000 siparişe kadar · <span data-aylik="yıllık ödemede ₺879,99/ay" data-yillik="yıllık ₺10.559,88 tek seferde">yıllık ödemede ₺879,99/ay</span></div>
         <ul>
           <li>Ayda <b>800 soru taslağı</b></li>
@@ -877,7 +879,7 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="paket">
         <div class="paketad">Profesyonel</div>
-        <div class="paketfiyat"><span data-aylik="₺1.999,99" data-yillik="₺1.599,99">₺1.999,99</span> <small>/ ay</small></div>
+        <div class="paketfiyat"><span data-aylik="₺1.999,99" data-yillik="₺1.599,99">₺1.999,99</span> <small>/ ay</small><del class="eskifiyat" hidden>₺1.999,99 / ay</del></div>
         <div class="paketkime">Ayda 30.000 siparişe kadar · <span data-aylik="yıllık ödemede ₺1.599,99/ay" data-yillik="yıllık ₺19.199,88 tek seferde">yıllık ödemede ₺1.599,99/ay</span></div>
         <ul>
           <li>Ayda <b>1.500 soru taslağı</b></li>
@@ -930,6 +932,9 @@ footer a:hover{color:var(--murekkep)}
   function sec(donem) {
     dugmeler.forEach(function (d) {
       d.setAttribute("aria-pressed", d.getAttribute("data-donem") === donem ? "true" : "false");
+    });
+    document.querySelectorAll("#fiyat .eskifiyat").forEach(function (el) {
+      el.hidden = donem !== "yillik";
     });
     document.querySelectorAll("#fiyat [data-aylik]").forEach(function (el) {
       el.textContent = el.getAttribute(donem === "yillik" ? "data-yillik" : "data-aylik");
