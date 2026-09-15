@@ -217,7 +217,7 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
    differences read side by side (Emre 15.09.2026). Each card spans 13 rows of the
    shared grid: name, price, order line, nine features, button. */
 @supports (grid-template-rows:subgrid){
-  .paketler .paket{display:grid;grid-row:span 13;grid-template-rows:subgrid;row-gap:0}
+  .paketler .paket{display:grid;grid-row:span 20;grid-template-rows:subgrid;row-gap:0}
   .paketler .paket ul{display:contents}
   .paketler .paket li{margin:0 0 11px}
   .paketler .paket li:first-child{margin-top:24px}
@@ -452,10 +452,9 @@ footer a:hover{color:var(--murekkep)}
 <section id="uygulamalar">
   <div class="kap">
     <span class="etiket">Uygulamalar</span>
-    <h2>Bir panelde dört uygulama. Hepsi her pakette.</h2>
+    <h2>Panelde neler var</h2>
     <p class="altyazi">
-      STOKVIN mağazanın günlük işlerinden dördünü tek panelde toplar.
-      Paketler arasında özellik farkı yok. Fark yalnız aylık yapay zekâ hakkında.
+      Aşağıdakilerin çoğu dört pakette de açık. Pakete göre değişenler fiyat bölümünde satır satır yazıyor.
     </p>
     <div class="izgara dort">
       <div class="kartkutu">
@@ -492,6 +491,54 @@ footer a:hover{color:var(--murekkep)}
           yalnız <b>BIEN</b> kullanan mağazalarda çalışır. Ayrıca teslim edilmiş ama faturası
           kesilmemiş siparişler ayrı bir listede gösterilir. Panel fatura <b>kesmez</b>,
           sadece hatırlatır.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Hakediş denetimi</h3>
+        <p>
+          Trendyol'un ödemesini siparişlerinle karşılaştırır: teslim edilip ödenmemiş siparişler, tutarı eksik yazılmış siparişler, sebebi tek cümle olan kesintiler. Bulduğu fark için Trendyol'a yapıştıracağın itiraz metnini yazar. Döküm eskiyse cevap vermez, çünkü eski dökümle bulunan fark çoğu zaman sahtedir.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Desi denetimi</h3>
+        <p>
+          Kargonun faturaladığı desiyi paketin içindeki ürünlerin desisiyle karşılaştırır, farkı gerçek kargo tarifesiyle TL'ye çevirir. Bir kademelik fark paketleme payı sayılır; iki kademe ve üstü için itiraz metni hazırlanır. Farklı ürünlerin aynı pakete girdiği siparişleri tahmin etmez, "incelenemedi" olarak sayar.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Stok takibi</h3>
+        <p>
+          Hangi ürünün sen yenisini getirmeden biteceğini gösterir; tedarik süresini kendin girersin. Satmayan ürünler ayrı listede, bağladıkları paraya göre sıralanır. 3'ten az satışı olan üründe gün sayısı yazılmaz.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Kampanya ve barem</h3>
+        <p>
+          Trendyol kampanya ya da flaş indirim önerdiğinde indirim oranını girersin; panel her ürünün o fiyatta kalan net kârını ve zarara düşenleri gösterir. Barem sınırının biraz üstünde satan ürünleri de listeler. Örneğin ₺201 yerine ₺199'a satınca kargo ucuzlar ve kâr artabilir; panel kaç TL arttığını yazar. Fiyatı panel değiştirmez.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Uyarılar</h3>
+        <p>
+          Bir ürün zarara geçtiğinde ya da elindeki buybox'ı kaybettiğinde panelde uyarı açılır. Aynı durum için iki kez uyarmaz; durum düzelince uyarı kapanır, tekrar olursa yeniden açılır.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Yorum analizi</h3>
+        <p>
+          Her ürünün yorum sayısı, yıldız dağılımı ve 1-2 yıldızlı yorumların payı bütün paketlerde hesaplanır. Müşterilerin en çok neden şikâyet ettiğini yazan özet, paketinde yorum analizi hakkı varsa hazırlanır.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Buybox ve fiyat</h3>
+        <p>
+          Kutunun kimde olduğunu ve rakibin fiyatını Trendyol'un kendi buybox servisinden okur. Rakibin fiyat hareketleri her pakette görünür. Gelişmiş ve Profesyonel'de otomatik fiyatı açarsan panel, taban fiyatının altına inmeden kutuyu almaya çalışır.
+        </p>
+      </div>
+      <div class="kartkutu">
+        <h3>Kopya ilan takibi</h3>
+        <p>
+          Ürününü ayrı bir ilan açıp satan mağazaları aynı fotoğraftan ya da aynı isimden bulur, fiyatlarını gösterir. "Aynı değil" dediğin eşleşme bir daha karşına çıkmaz. Başlangıç paketinden itibaren var.
         </p>
       </div>
     </div>
@@ -737,9 +784,9 @@ footer a:hover{color:var(--murekkep)}
     <span class="etiket">Fiyat</span>
     <h2>Dört paket, her sınırın rakamı belli.</h2>
     <p class="altyazi">
-      Hangi paketi alırsan al dört uygulama, panelin tamamı ve eklenti açık. Paketler
+      Kâr analizi, hakediş, desi ve stok denetimi, kampanya hesabı, uyarılar ve eklenti her pakette açık. Paketler
       rakamlarla ayrılır: aylık sipariş, soru taslağı, yorum analizi, buybox takibindeki ürün
-      ve mağaza sayısı. Ücretsiz pakette yapay zekâ soru taslağı ve yorum analizi yok;
+      ve mağaza sayısı. Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve kopya ilan takibi yok;
       bunlar Başlangıç'tan itibaren gelir. Ücretsiz ve Başlangıç paketlerinde
       günlük raporun rakamları gelir, yazılı yorumu gelmez. Otomatik fiyat güncelleme Gelişmiş
       ve Profesyonel pakette var. Ücretsiz ve Başlangıç'ta rakibin fiyat hareketlerini görürsün, fiyatı
@@ -757,10 +804,17 @@ footer a:hover{color:var(--murekkep)}
           <li>Günlük rapor, yazılı yorumsuz</li>
           <li><b>50 üründe</b> buybox takibi</li>
           <li>Rakibin fiyat hareketleri, otomatik fiyat yok</li>
+          <li>Kopya ilan takibi yok</li>
           <li>1 mağaza</li>
+          <li>Ürün ürün net kâr analizi</li>
+          <li>Eksik ödeme için hakediş denetimi</li>
+          <li>Fazla kesilen kargo için desi denetimi</li>
+          <li>Stok bitme tahmini ve ölü stok listesi</li>
+          <li>Kampanya kârı ve barem önerisi</li>
+          <li>Zarar ve buybox kaybı uyarısı</li>
+          <li>Üretim listesi ve BIEN fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
-          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -774,10 +828,17 @@ footer a:hover{color:var(--murekkep)}
           <li>Günlük rapor, yazılı yorumsuz</li>
           <li><b>500 üründe</b> buybox takibi</li>
           <li>Rakibin fiyat hareketleri, otomatik fiyat yok</li>
+          <li>Kopya ilan takibi</li>
           <li>1 mağaza</li>
+          <li>Ürün ürün net kâr analizi</li>
+          <li>Eksik ödeme için hakediş denetimi</li>
+          <li>Fazla kesilen kargo için desi denetimi</li>
+          <li>Stok bitme tahmini ve ölü stok listesi</li>
+          <li>Kampanya kârı ve barem önerisi</li>
+          <li>Zarar ve buybox kaybı uyarısı</li>
+          <li>Üretim listesi ve BIEN fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
-          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -791,10 +852,17 @@ footer a:hover{color:var(--murekkep)}
           <li>Günlük rapor, yazılı yorumlu</li>
           <li><b>3.000 üründe</b> buybox takibi</li>
           <li>Otomatik fiyat güncelleme</li>
+          <li>Kopya ilan takibi</li>
           <li>3 mağaza</li>
+          <li>Ürün ürün net kâr analizi</li>
+          <li>Eksik ödeme için hakediş denetimi</li>
+          <li>Fazla kesilen kargo için desi denetimi</li>
+          <li>Stok bitme tahmini ve ölü stok listesi</li>
+          <li>Kampanya kârı ve barem önerisi</li>
+          <li>Zarar ve buybox kaybı uyarısı</li>
+          <li>Üretim listesi ve BIEN fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
-          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme dolu" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -808,10 +876,17 @@ footer a:hover{color:var(--murekkep)}
           <li>Günlük rapor, yazılı yorumlu</li>
           <li><b>10.000 üründe</b> buybox takibi</li>
           <li>Otomatik fiyat güncelleme</li>
+          <li>Kopya ilan takibi</li>
           <li>5 mağaza</li>
+          <li>Ürün ürün net kâr analizi</li>
+          <li>Eksik ödeme için hakediş denetimi</li>
+          <li>Fazla kesilen kargo için desi denetimi</li>
+          <li>Stok bitme tahmini ve ölü stok listesi</li>
+          <li>Kampanya kârı ve barem önerisi</li>
+          <li>Zarar ve buybox kaybı uyarısı</li>
+          <li>Üretim listesi ve BIEN fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
-          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
