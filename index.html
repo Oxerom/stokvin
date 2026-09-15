@@ -213,6 +213,16 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
 .paketkime{color:var(--soluk);font-size:15px;margin-top:6px}
 .paket ul{list-style:none;padding:0;margin:24px 0 28px;flex-grow:1}
 .paket li{position:relative;padding-inline-start:26px;margin-bottom:11px;font-size:15px;color:var(--soluk)}
+/* Price cards: the same feature sits on the same row in all four cards, so the
+   differences read side by side (Emre 15.09.2026). Each card spans 13 rows of the
+   shared grid: name, price, order line, nine features, button. */
+@supports (grid-template-rows:subgrid){
+  .paketler .paket{display:grid;grid-row:span 13;grid-template-rows:subgrid;row-gap:0}
+  .paketler .paket ul{display:contents}
+  .paketler .paket li{margin:0 0 11px}
+  .paketler .paket li:first-child{margin-top:24px}
+  .paketler .paket .dugme{margin-top:17px;align-self:end}
+}
 .paket li::before{
   content:"";position:absolute;inset-inline-start:3px;top:6px;width:11px;height:6px;
   border-inline-start:2px solid var(--kar);border-bottom:2px solid var(--kar);
@@ -729,24 +739,28 @@ footer a:hover{color:var(--murekkep)}
     <p class="altyazi">
       Hangi paketi alırsan al dört uygulama, panelin tamamı ve eklenti açık. Paketler
       rakamlarla ayrılır: aylık sipariş, soru taslağı, yorum analizi, buybox takibindeki ürün
-      ve mağaza sayısı. Ücretsiz ve Başlangıç paketlerinde günlük raporun rakamları gelir, yazılı yorumu gelmez.
-      Otomatik fiyat güncelleme Gelişmiş ve Profesyonel pakette var. Ücretsiz ve Başlangıç'ta
-      rakibin fiyat hareketlerini görürsün, fiyatı Trendyol'a sen girersin.
-      Yıllık ödeyene %20 indirim.
+      ve mağaza sayısı. Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve buybox
+      takibi yok; bunlar Başlangıç'tan itibaren gelir. Ücretsiz ve Başlangıç paketlerinde
+      günlük raporun rakamları gelir, yazılı yorumu gelmez. Otomatik fiyat güncelleme Gelişmiş
+      ve Profesyonel pakette var. Başlangıç'ta rakibin fiyat hareketlerini görürsün, fiyatı
+      Trendyol'a sen girersin. Yıllık ödeyene %20 indirim.
     </p>
 
-    <div class="izgara dort">
+    <div class="izgara dort paketler">
       <div class="paket">
         <div class="paketad">Ücretsiz</div>
         <div class="paketfiyat">₺0 <small>/ ay</small></div>
         <div class="paketkime">Ayda 100 siparişe kadar · süresiz, kart istenmez</div>
         <ul>
-          <li>Dört uygulamanın tamamı</li>
+          <li>Yapay zekâ soru taslağı yok</li>
+          <li>Yorum analizi yok</li>
           <li>Günlük rapor, yazılı yorumsuz</li>
-          <li>Ayda <b>20 soru taslağı</b></li>
-          <li><b>50 üründe</b> buybox takibi, 5 dakikada bir</li>
-          <li>Rakibin fiyat hareketleri; otomatik fiyat yok</li>
+          <li>Buybox takibi yok</li>
+          <li>Otomatik fiyat yok</li>
           <li>1 mağaza</li>
+          <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
+          <li>Excel ile toplu maliyet girişi</li>
+          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -755,15 +769,15 @@ footer a:hover{color:var(--murekkep)}
         <div class="paketfiyat">₺499,99 <small>/ ay</small></div>
         <div class="paketkime">Ayda 3.000 siparişe kadar · yıllık ödemede ₺399,99/ay</div>
         <ul>
-          <li>Dört uygulamanın tamamı</li>
+          <li>Ayda <b>200 soru taslağı</b></li>
+          <li>Ayda 500 yorum analizi</li>
+          <li>Günlük rapor, yazılı yorumsuz</li>
+          <li><b>500 üründe</b> buybox takibi</li>
+          <li>Rakibin fiyat hareketleri, otomatik fiyat yok</li>
+          <li>1 mağaza</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
-          <li>Günlük rapor, yazılı yorumsuz</li>
-          <li>Ayda <b>200 soru taslağı</b></li>
-          <li><b>500 üründe</b> buybox takibi, 5 dakikada bir</li>
-          <li>Rakibin fiyat hareketleri; otomatik fiyat yok</li>
-          <li>Ayda 500 yorum analizi</li>
-          <li>1 mağaza</li>
+          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -772,28 +786,32 @@ footer a:hover{color:var(--murekkep)}
         <div class="paketfiyat">₺1.099,99 <small>/ ay</small></div>
         <div class="paketkime">Ayda 10.000 siparişe kadar · yıllık ödemede ₺879,99/ay</div>
         <ul>
-          <li>Başlangıç paketindeki her şey</li>
-          <li>Günlük rapor yorumu her gün</li>
           <li>Ayda <b>800 soru taslağı</b></li>
-          <li><b>3.000 üründe</b> buybox takibi, 5 dakikada bir</li>
-          <li>Otomatik fiyat güncelleme, kapalı gelir</li>
           <li>Ayda 1.500 yorum analizi</li>
+          <li>Günlük rapor, yazılı yorumlu</li>
+          <li><b>3.000 üründe</b> buybox takibi</li>
+          <li>Otomatik fiyat güncelleme</li>
           <li>3 mağaza</li>
+          <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
+          <li>Excel ile toplu maliyet girişi</li>
+          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme dolu" href="giris.html" style="text-align:center">Başla</a>
       </div>
       <div class="paket">
         <div class="paketad">Profesyonel</div>
-        <div class="paketfiyat">₺1.599,99 <small>/ ay</small></div>
-        <div class="paketkime">Ayda 30.000 siparişe kadar · yıllık ödemede ₺1.279,99/ay</div>
+        <div class="paketfiyat">₺1.999,99 <small>/ ay</small></div>
+        <div class="paketkime">Ayda 30.000 siparişe kadar · yıllık ödemede ₺1.599,99/ay</div>
         <ul>
-          <li>Başlangıç paketindeki her şey</li>
-          <li>Günlük rapor yorumu her gün</li>
           <li>Ayda <b>1.500 soru taslağı</b></li>
-          <li><b>10.000 üründe</b> buybox takibi 5 dakikada bir, rakibi olan <b>500 ürün</b> dakikada bir</li>
-          <li>Otomatik fiyat güncelleme, kapalı gelir</li>
           <li>Ayda 3.000 yorum analizi</li>
+          <li>Günlük rapor, yazılı yorumlu</li>
+          <li><b>10.000 üründe</b> buybox takibi</li>
+          <li>Otomatik fiyat güncelleme</li>
           <li>5 mağaza</li>
+          <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
+          <li>Excel ile toplu maliyet girişi</li>
+          <li>Dört uygulamanın tamamı</li>
         </ul>
         <a class="dugme bos" href="giris.html" style="text-align:center">Başla</a>
       </div>
@@ -866,8 +884,8 @@ footer a:hover{color:var(--murekkep)}
         <p>Şimdilik yalnız BIEN kullanan mağazalarda. İade gelen siparişin faturası panelde listelenir; onayladığında BIEN'de iptal edilir. Özellik kapalı doğar, açmak da kapatmak da senin elinde. Fatura <b>kesme</b> bu ürünün işi değil; panel yalnız "bugün kesilmesi gerekenler" listesini gösterir, kesmeyi sen kendi programında yaparsın.</p>
       </details>
       <details>
-        <summary>Buybox takibi ürünlere ne sıklıkla bakıyor?</summary>
-        <p>Trendyol'un kendi buybox servisinden her ürüne 5 dakikada bir bakıyoruz. Profesyonel pakette rakibi olan 500 ürüne dakikada bir. Rakip fiyatını değiştirince bu değişiklik panelde Fiyat hareketleri ekranında görünür. Gelişmiş ve Profesyonel pakette otomatik fiyatı açarsan panel, kutuyu kaybettiğin üründe taban fiyatının altına inmeden rakibin altına iner. Kutu sendeyken rakip daha pahalıysa fiyatını rakibin altına kadar yükseltir. Fiyatı iki katından fazla artıracak değişikliği sen onaylamadan göndermez. Maliyetini girmediğin ürüne dokunmaz.</p>
+        <summary>Buybox takibi ve otomatik fiyat nasıl çalışıyor?</summary>
+        <p>Buybox bilgisini Trendyol'un kendi buybox servisinden alıyoruz. Rakip fiyatını değiştirince bu değişiklik panelde Fiyat hareketleri ekranında görünür. Gelişmiş ve Profesyonel pakette otomatik fiyatı açarsan panel, kutuyu kaybettiğin üründe taban fiyatının altına inmeden rakibin altına iner. Kutu sendeyken rakip daha pahalıysa fiyatını rakibin altına kadar yükseltir. Fiyatı iki katından fazla artıracak değişikliği sen onaylamadan göndermez. Maliyetini girmediğin ürüne dokunmaz.</p>
       </details>
       <details>
         <summary>Paketimin bir sınırı dolarsa ne olur?</summary>
