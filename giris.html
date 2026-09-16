@@ -54,6 +54,9 @@ h1{font-size:25px;margin:0 0 8px;letter-spacing:-.02em}
 .onay{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13.5px;line-height:1.5;margin:6px 0 4px}
 .onay input{width:18px;height:18px;margin:2px 0 0;padding:0;flex:none}
 #onayAlani .hata{margin-top:8px;position:static}
+.onaynot{margin:0 0 6px 28px;font-size:13px;line-height:1.5;color:var(--soluk)}
+.unuttum{margin:-8px 0 18px;font-size:13.5px;text-align:right}
+.unuttum a{color:var(--soluk)}
 label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}
 input{
   width:100%;padding:12px 14px;border:1.5px solid var(--cizgi);border-radius:10px;
@@ -119,18 +122,21 @@ button.gonder{
     <input type="email" id="eposta" autocomplete="email" inputmode="email">
     <div class="hata" id="hataEposta">Geçerli bir e-posta yaz.</div>
 
-    <label for="sifre">Şifre</label>
-    <input type="password" id="sifre" autocomplete="current-password">
-    <div class="hata" id="hataSifre">Şifre en az 8 karakter olmalı.</div>
+    <div id="sifreAlani">
+      <label for="sifre">Şifre</label>
+      <input type="password" id="sifre" autocomplete="current-password">
+      <div class="hata" id="hataSifre">Şifre en az 8 karakter olmalı.</div>
+      <p class="unuttum" id="unuttumAlani"><a href="#" id="unuttumBag">Şifremi unuttum</a></p>
+    </div>
 
     <div id="onayAlani" hidden>
       <label class="onay" for="onay">
         <input type="checkbox" id="onay">
         <span><a href="kullanim-kosullari.html">Kullanım Koşulları</a>'nı ve
-          <a href="gizlilik.html">Gizlilik Politikası</a>'nı okudum, kabul ediyorum. Aynı mağaza
-          ücretsiz paketi ikinci kez kullanamasın diye, ücretsiz paketi kullandığım mağazanın satıcı
-          numarasının 1 yıl saklanacağını biliyorum.</span>
+          <a href="gizlilik.html">Gizlilik Politikası</a>'nı okudum, kabul ediyorum.</span>
       </label>
+      <p class="onaynot">Ücretsiz paketi kullandığın mağazanın satıcı numarası 1 yıl saklanır;
+        aynı mağaza ücretsiz paketi ikinci kez alamaz.</p>
       <div class="hata" id="hataOnay">Hesap açmak için koşulları kabul etmelisin.</div>
     </div>
 
@@ -161,24 +167,34 @@ button.gonder{
   var sonuc = document.getElementById("sonuc");
   var adAlani = document.getElementById("adAlani");
 
-  function sekmeSec(kayit){
-    kayitMi = kayit;
-    document.getElementById("sekmeGiris").setAttribute("aria-selected", String(!kayit));
-    document.getElementById("sekmeKayit").setAttribute("aria-selected", String(kayit));
-    adAlani.hidden = !kayit;
-    document.getElementById("onayAlani").hidden = !kayit;
-    document.getElementById("baslik").textContent = kayit ? "Hesap aç" : "Tekrar hoş geldin";
-    document.getElementById("altyazi").textContent = kayit
-      ? "Mağaza adını, e-postanı ve bir şifre yaz."
+  // Three modes: "giris", "kayit", "unuttum" (reset link, engine token lives 1 hour).
+  var mod = "giris";
+  function modSec(yeni){
+    mod = yeni;
+    kayitMi = (mod === "kayit");
+    var unuttum = (mod === "unuttum");
+    document.getElementById("sekmeGiris").setAttribute("aria-selected", String(!kayitMi));
+    document.getElementById("sekmeKayit").setAttribute("aria-selected", String(kayitMi));
+    adAlani.hidden = !kayitMi;
+    document.getElementById("onayAlani").hidden = !kayitMi;
+    document.getElementById("sifreAlani").hidden = unuttum;
+    document.getElementById("unuttumAlani").hidden = (mod !== "giris");
+    document.getElementById("baslik").textContent =
+      kayitMi ? "Hesap aç" : unuttum ? "Şifreni sıfırla" : "Tekrar hoş geldin";
+    document.getElementById("altyazi").textContent =
+      kayitMi ? "Mağaza adını, e-postanı ve bir şifre yaz."
+      : unuttum ? "E-postanı yaz, sıfırlama bağlantısı gönderelim. Bağlantı 1 saat geçerli."
       : "Panelini açmak için e-postanı ve şifreni yaz.";
-    document.getElementById("gonder").textContent = kayit ? "Hesap aç" : "Giriş yap";
-    document.getElementById("sifre").setAttribute("autocomplete", kayit ? "new-password" : "current-password");
+    document.getElementById("gonder").textContent =
+      kayitMi ? "Hesap aç" : unuttum ? "Sıfırlama bağlantısı gönder" : "Giriş yap";
+    document.getElementById("sifre").setAttribute("autocomplete", kayitMi ? "new-password" : "current-password");
     sonuc.classList.remove("acik");
     temizle();
   }
 
-  document.getElementById("sekmeGiris").addEventListener("click", function(){ sekmeSec(false); });
-  document.getElementById("sekmeKayit").addEventListener("click", function(){ sekmeSec(true); });
+  document.getElementById("sekmeGiris").addEventListener("click", function(){ modSec("giris"); });
+  document.getElementById("sekmeKayit").addEventListener("click", function(){ modSec("kayit"); });
+  document.getElementById("unuttumBag").addEventListener("click", function(olay){ olay.preventDefault(); modSec("unuttum"); });
 
   function isaretle(alanId, hataId, hataliMi){
     document.getElementById(alanId).setAttribute("aria-invalid", String(hataliMi));
@@ -201,10 +217,10 @@ button.gonder{
       isaretle("ad","hataAd",true); tamam = false;
     }
     var eposta = document.getElementById("eposta").value.trim();
-    if (eposta.indexOf("@") < 1 || eposta.lastIndexOf(".") < eposta.indexOf("@") + 2){
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(eposta)){
       isaretle("eposta","hataEposta",true); tamam = false;
     }
-    if (document.getElementById("sifre").value.length < 8){
+    if (mod !== "unuttum" && document.getElementById("sifre").value.length < 8){
       isaretle("sifre","hataSifre",true); tamam = false;
     }
 
