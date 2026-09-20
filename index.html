@@ -157,6 +157,23 @@ tbody tr:last-child td{border-bottom:0}
   padding:14px 18px;font-size:13px;color:var(--soluk);border-top:1px solid var(--cizgi);
   background:color-mix(in srgb,var(--soluk) 6%,transparent);
 }
+.epostabag{color:var(--murekkep);text-decoration:underline}
+.ekranlar{display:grid;gap:26px;margin-top:36px}
+.ekranlar .ekran{margin-top:0}
+.ekranyorum{padding:16px 18px;border-top:1px solid var(--cizgi);font-size:15px}
+.ekranyorum .yorumbas{
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk);
+  font-weight:600;margin-bottom:7px;
+}
+.ekransatir{padding:16px 18px;border-top:1px solid var(--cizgi)}
+.ekransatir .ustyazi{font-size:15px;font-weight:600}
+.ekransatir .taslak{font-size:15px;color:var(--soluk);margin-top:6px}
+.ekranrozet{
+  display:inline-block;padding:3px 9px;border-radius:6px;font-size:12px;font-weight:700;
+  background:color-mix(in srgb,var(--soluk) 14%,transparent);color:var(--soluk);
+  margin-inline-end:8px;
+}
+.ekrannot{font-size:13px;color:var(--soluk);margin-top:9px}
 
 .izgara{display:grid;gap:20px;margin-top:40px}
 .dort{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
@@ -577,6 +594,119 @@ footer a:hover{color:var(--murekkep)}
         </p>
       </div>
     </div>
+
+    <p class="altyazi" style="margin-top:56px">
+      <b>Bu ekranlar neye benziyor?</b> Aşağıdaki üç ekran örnektir. Panelde kendi mağazanın
+      kendi rakamları olur.
+    </p>
+
+    <div class="ekranlar">
+
+      <div class="ekran">
+        <div class="ekranbas"><i></i> STOKVIN · Günlük Rapor · her sabah 08:00</div>
+        <div class="kartlar">
+          <div class="kutucuk">
+            <div class="bas">Dünkü net kâr</div>
+            <div class="buyuk yesil">₺2.480</div>
+            <div class="alt">41 sipariş</div>
+          </div>
+          <div class="kutucuk">
+            <div class="bas">Bu hafta</div>
+            <div class="buyuk">₺14.900</div>
+            <div class="alt">geçen haftaya göre +%8</div>
+          </div>
+          <div class="kutucuk">
+            <div class="bas">Bekleyen iş</div>
+            <div class="buyuk">6</div>
+            <div class="alt">4 cevapsız soru, 2 üretim</div>
+          </div>
+          <div class="kutucuk">
+            <div class="bas">Zarar eden ürün</div>
+            <div class="buyuk kirmizi">2</div>
+            <div class="alt">Masa lambası, Duvar rafı</div>
+          </div>
+        </div>
+        <div class="ekranyorum">
+          <div class="yorumbas">Günün yorumu</div>
+          Masa lambası üç gündür zararda: ürün ₺201 barem sınırının altına düştüğü için kargo
+          ₺40,99'a çıkmış. Fiyatı ₺112'ye çekersen adet başı ₺4,20 kâra döner. Kablosuz şarj
+          standı dün 14 adet satmış, kârın yarısı ondan geliyor.
+        </div>
+        <div class="ornekyazi">
+          Rakamlar ve yorum <strong>örnektir</strong>. Yazılı yorum Gelişmiş ve Profesyonel
+          pakette var; rakamlar dört pakette de gelir.
+        </div>
+      </div>
+
+      <div class="ekran">
+        <div class="ekranbas"><i></i> STOKVIN · Sorular &amp; Üretim</div>
+        <div class="ekransatir">
+          <div class="ustyazi">"Bu lamba 12V akü ile çalışır mı?"</div>
+          <div class="taslak">
+            Taslak cevap: Evet, 12V akü ile çalışır. Kutudan çıkan kablo 1,5 metre, ucu çakmak
+            girişine uygundur.
+          </div>
+          <div class="ekrannot"><span class="ekranrozet">Onayını bekliyor</span>
+            Taslağı yapay zekâ yazdı. Sen onaylamadan gönderilmez.</div>
+        </div>
+        <div class="ekransatir">
+          <div class="ustyazi">"Üstüne isim yazdırabiliyor muyum?"</div>
+          <div class="taslak">
+            Taslak cevap: Evet. Siparişi verirken not kısmına yazdırmak istediğin ismi
+            yazman yeterli.
+          </div>
+          <div class="ekrannot"><span class="ekranrozet">Onaylandı, gönderildi</span>
+            09:12'de gitti.</div>
+        </div>
+        <div class="ekransatir">
+          <div class="ustyazi">Sipariş 172455 · Kablosuz şarj standı · 1 adet</div>
+          <div class="taslak">Üretim listesine düştü. Yazdırılacak isim: Ahmet. Renk: siyah.</div>
+          <div class="ekrannot">Üretim listesi Gelişmiş ve Profesyonel pakette, senin açtığın
+            kategorilerde çalışır.</div>
+        </div>
+        <div class="ornekyazi">
+          Sorular ve cevaplar <strong>örnektir</strong>. Panel hiçbir cevabı sen onaylamadan
+          göndermez; otomatik göndermeyi açmak da kapatmak da senin elinde.
+        </div>
+      </div>
+
+      <div class="ekran">
+        <div class="ekranbas"><i></i> STOKVIN · Buybox ve fiyat</div>
+        <div class="kaydir">
+          <table>
+            <thead>
+              <tr>
+                <th>Ürün</th><th>Kutu kimde</th><th class="sag">Rakip fiyatı</th>
+                <th class="sag">Senin fiyatın</th><th class="sag">Tabanın</th><th>Panel ne yaptı</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Kablosuz şarj standı</td><td>Rakip</td><td class="sag">₺147,90</td>
+                <td class="sag">₺149,90</td><td class="sag">₺138,00</td>
+                <td><span class="rozetkar">₺147,80'e indirdi</span></td>
+              </tr>
+              <tr>
+                <td>Masa lambası</td><td>Sen</td><td class="sag">₺119,00</td>
+                <td class="sag">₺109,00</td><td class="sag">₺104,50</td>
+                <td style="color:var(--soluk);font-size:13px">kutu sende, dokunmadı</td>
+              </tr>
+              <tr>
+                <td>Mutfak organizatörü · 4'lü</td><td>Rakip</td><td class="sag">₺59,90</td>
+                <td class="sag">₺69,90</td><td class="sag">₺66,00</td>
+                <td><span class="rozetzarar">taban altı, inmedi</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ornekyazi">
+          Rakamlar <strong>örnektir</strong>. Rakibin fiyat hareketleri dört pakette de görünür.
+          Fiyatı panelin yazması Gelişmiş ve Profesyonel pakette, sen açarsan olur; taban
+          fiyatının altına hiçbir zaman inmez.
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -951,7 +1081,8 @@ footer a:hover{color:var(--murekkep)}
     <p class="altyazi">
       <b>Paket ücretinin dışında ek ücret yok.</b> Sınır aşımı ücreti almıyoruz, seni
       kendiliğinden üst pakete geçirmiyoruz. Ayda 30.000 siparişin üstündeysen <b>Kurumsal</b>
-      paket için bize yaz, fiyatı birlikte belirleriz.
+      paket için <a class="epostabag" href="mailto:destek@stokvin.com">destek@stokvin.com</a>
+      adresine yaz, fiyatı birlikte belirleriz.
     </p>
   </div>
 <script>
@@ -1073,6 +1204,10 @@ footer a:hover{color:var(--murekkep)}
         <p class="tanitimcumle">
           Trendyol satıcıları için net kâr, komisyon ve kargo analizi. Çalışan bir mağazanın
           kendi ihtiyacından çıktı.
+        </p>
+        <p class="tanitimcumle">
+          STOKVIN'i Emine Erden şahıs işletmesi (Kayseri) işletiyor.<br>
+          Destek: <a class="epostabag" href="mailto:destek@stokvin.com">destek@stokvin.com</a>
         </p>
       </div>
       <div>
