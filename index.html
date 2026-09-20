@@ -75,7 +75,21 @@ nav a:hover{color:var(--murekkep)}
 }
 .dolu{background:var(--murekkep);color:var(--zemin)}
 .bos{background:transparent;color:var(--murekkep)}
-@media (max-width:900px){nav .gizlekucuk{display:none}}
+.navliste{display:flex;align-items:center;gap:24px}
+.menudugme{display:none;font:inherit;font-size:22px;line-height:1;width:48px;height:48px;align-items:center;justify-content:center;background:transparent;border:1.5px solid var(--cizgi);border-radius:10px;color:var(--murekkep);cursor:pointer}
+.menudugme:focus-visible{outline:2px solid var(--murekkep);outline-offset:2px}
+@media (max-width:900px){
+  .menudugme{display:flex}
+  nav{position:relative}
+  .navliste{
+    display:none;position:absolute;top:calc(100% + 10px);inset-inline-end:0;flex-direction:column;
+    align-items:stretch;gap:0;min-width:220px;padding:8px;background:var(--zemin);
+    border:1px solid var(--cizgi);border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.18);
+  }
+  .navliste.acik{display:flex}
+  .navliste a{display:flex;align-items:center;min-height:48px;padding:0 12px;border-radius:8px;font-size:16px}
+  .navliste a:hover{background:var(--kart)}
+}
 
 section{padding:80px 0;border-top:1px solid var(--cizgi)}
 section:first-of-type{border-top:0}
@@ -205,7 +219,7 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
 .taslakkutu strong{color:var(--uyari)}
 .donem{display:flex;width:max-content;max-width:100%;gap:4px;margin:28px auto 0;padding:4px;border:1px solid var(--cizgi);border-radius:999px;background:var(--kart)}
 .donem[hidden]{display:none}
-.donemdugme{font:inherit;font-size:15px;font-weight:600;padding:8px 18px;border:0;border-radius:999px;background:transparent;color:var(--soluk);cursor:pointer}
+.donemdugme{font:inherit;font-size:15px;font-weight:600;padding:12px 18px;border:0;border-radius:999px;background:transparent;color:var(--soluk);cursor:pointer}
 .donemdugme[aria-pressed="true"]{background:var(--yazi);color:var(--kart)}
 .donemdugme:focus-visible{outline:2px solid var(--yazi);outline-offset:2px}
 .paket{
@@ -298,16 +312,33 @@ footer a:hover{color:var(--murekkep)}
       </span>
     </a>
     <nav>
-      <a class="gizlekucuk" href="#fark">Farkı ne?</a>
-      <a class="gizlekucuk" href="#uygulamalar">Uygulamalar</a>
-      <a class="gizlekucuk" href="#yontem">Nasıl hesaplıyor?</a>
-      <a class="gizlekucuk" href="#eklenti">Chrome eklentisi</a>
-      <a class="gizlekucuk" href="#kurulum">Kurulum</a>
-      <a class="gizlekucuk" href="#fiyat">Fiyat</a>
+      <button type="button" class="menudugme" id="menudugme" aria-expanded="false" aria-controls="navliste" aria-label="Menü">&#9776;</button>
+      <div class="navliste" id="navliste">
+      <a href="#fark">Farkı ne?</a>
+      <a href="#uygulamalar">Uygulamalar</a>
+      <a href="#yontem">Nasıl hesaplıyor?</a>
+      <a href="#eklenti">Chrome eklentisi</a>
+      <a href="#kurulum">Kurulum</a>
+      <a href="#fiyat">Fiyat</a>
+      </div>
       <a class="dugme bos" href="giris.html">Giriş</a>
     </nav>
   </div>
 </header>
+
+<script>
+(function () {
+  var dugme = document.getElementById("menudugme");
+  var liste = document.getElementById("navliste");
+  if (!dugme || !liste) { return; }
+  function kapat() { liste.classList.remove("acik"); dugme.setAttribute("aria-expanded", "false"); }
+  dugme.addEventListener("click", function () {
+    var acik = liste.classList.toggle("acik");
+    dugme.setAttribute("aria-expanded", acik ? "true" : "false");
+  });
+  liste.addEventListener("click", function (e) { if (e.target.tagName === "A") { kapat(); } });
+})();
+</script>
 
 <main>
 
