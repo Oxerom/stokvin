@@ -252,8 +252,8 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
 .paket ul{list-style:none;padding:0;margin:24px 0 28px;flex-grow:1}
 .paket li{position:relative;padding-inline-start:26px;margin-bottom:11px;font-size:15px;color:var(--soluk)}
 /* Price cards: the same feature sits on the same row in all four cards, so the
-   differences read side by side (Emre 15.09.2026). Each card spans 13 rows of the
-   shared grid: name, price, order line, nine features, button. */
+   differences read side by side (Emre 15.09.2026). Each card spans 3 + one row per
+   feature + 1 rows of the shared grid: name, price, order line, features, button. */
 @supports (grid-template-rows:subgrid){
   .paketler .paket{display:grid;grid-row:span 21;grid-template-rows:subgrid;row-gap:0}
   .paketler .paket ul{display:contents}
@@ -265,6 +265,13 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
   content:"";position:absolute;inset-inline-start:3px;top:6px;width:11px;height:6px;
   border-inline-start:2px solid var(--kar);border-bottom:2px solid var(--kar);
   transform:rotate(-45deg);
+}
+/* "... yok" satirlari yesil tik almaz: gri tire + soluk yazi, musteri neyin
+   dahil OLMADIGINI bir bakista gorsun (derin tur 22.09.2026). */
+.paket li.yok{opacity:.72}
+.paket li.yok::before{
+  top:10px;width:12px;height:0;transform:none;
+  border-inline-start:0;border-bottom:2px solid var(--soluk);
 }
 
 details{border-bottom:1px solid var(--cizgi);padding:20px 0}
@@ -307,9 +314,9 @@ footer a:hover{color:var(--murekkep)}
 <body>
 
 <div class="taslakbant">
-  <strong>TASLAK — bu site yayında değil.</strong>
-  Üyelik, ödeme ve satıcı verilerinin birbirinden ayrılması henüz kurulmadı; fiyatlar
-  onaylanmadı; yasal metinleri avukat okumadı. Bu sayfa yapılacak işin taslağıdır.
+  <strong>Şu an tanıtım sayfası.</strong>
+  Fiyatlar kesin; panel henüz açılmadı. Üyelik ve ödeme kurulduğunda buradan
+  duyuracağız. Yasal metinleri avukat okumadı.
 </div>
 
 <header>
@@ -949,12 +956,21 @@ footer a:hover{color:var(--murekkep)}
     <span class="etiket">Fiyat</span>
     <h2>Dört paket, her sınırın rakamı belli.</h2>
     <p class="altyazi">
-      Kâr analizi, hakediş, desi ve stok denetimi, kampanya hesabı, uyarılar ve eklenti her pakette açık. Paketler
-      rakamlarla ayrılır: aylık sipariş, soru taslağı, yorum analizi, buybox takibindeki ürün
-      ve mağaza sayısı. Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve kopya ilan takibi yok; bunlar Başlangıç'tan itibaren gelir. Üretim listesi ve BIEN ile fatura iptali Gelişmiş ve Profesyonel pakette var. Ücretsiz ve Başlangıç paketlerinde
-      günlük raporun rakamları gelir, yazılı yorumu gelmez. Otomatik fiyat güncelleme Gelişmiş
-      ve Profesyonel pakette var. Ücretsiz ve Başlangıç'ta rakibin fiyat hareketlerini görürsün, fiyatı
-      Trendyol'a sen girersin. Ücretsiz paket, hesabın açıldığı günden itibaren 30 gün kullanılır; süre bitince devam etmek için bir paket seçersin. Bir mağaza ücretsiz paketi yalnız bir kez kullanabilir. Yıllık ödeyene %20 indirim. Fiyatlara %20 KDV dahildir.
+      Kâr analizi, hakediş, desi ve stok denetimi, kampanya hesabı, uyarılar ve eklenti her
+      pakette açık. Paketler rakamlarla ayrılır: aylık sipariş, soru taslağı, yorum analizi,
+      buybox takibindeki ürün ve mağaza sayısı.
+    </p>
+    <p class="altyazi">
+      Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve kopya ilan takibi yok;
+      bunlar Başlangıç'tan itibaren gelir. Üretim listesi, BIEN ile fatura iptali, günlük
+      raporun yazılı yorumu ve otomatik fiyat güncelleme Gelişmiş ve Profesyonel pakette var.
+      Ücretsiz ve Başlangıç'ta günlük raporun rakamları gelir, rakibin fiyat hareketlerini
+      görürsün, fiyatı Trendyol'a sen girersin.
+    </p>
+    <p class="altyazi">
+      Ücretsiz paket, hesabın açıldığı günden itibaren 30 gün kullanılır; süre bitince devam
+      etmek için bir paket seçersin. Bir mağaza ücretsiz paketi yalnız bir kez kullanabilir.
+      Yıllık ödeyene %20 indirim. Fiyatlara %20 KDV dahildir.
     </p>
 
     <div class="donem" role="group" aria-label="Ödeme dönemi" hidden>
@@ -968,12 +984,12 @@ footer a:hover{color:var(--murekkep)}
         <div class="paketfiyat">₺0 <small>/ ay</small></div>
         <div class="paketkime">Ayda 100 siparişe kadar · 30 gün, kart istenmez</div>
         <ul>
-          <li>Soru taslağı yok</li>
-          <li>Yorum analizi yok</li>
+          <li class="yok">Soru taslağı yok</li>
+          <li class="yok">Yorum analizi yok</li>
           <li>Günlük rapor, yazılı yorumsuz</li>
           <li><b>50 üründe</b> buybox takibi</li>
-          <li>Rakibin fiyat hareketleri, otomatik fiyat yok</li>
-          <li>Kopya ilan takibi yok</li>
+          <li class="yok">Otomatik fiyat yok</li>
+          <li class="yok">Kopya ilan takibi yok</li>
           <li>1 mağaza</li>
           <li>Ürün ürün net kâr analizi</li>
           <li>Eksik ödeme için hakediş denetimi</li>
@@ -981,8 +997,8 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi yok</li>
-          <li>Fatura iptali yok</li>
+          <li class="yok">Üretim listesi yok</li>
+          <li class="yok">Fatura iptali yok</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
         </ul>
@@ -997,7 +1013,7 @@ footer a:hover{color:var(--murekkep)}
           <li>500 yorum analizi/ay</li>
           <li>Günlük rapor, yazılı yorumsuz</li>
           <li><b>500 üründe</b> buybox takibi</li>
-          <li>Rakibin fiyat hareketleri, otomatik fiyat yok</li>
+          <li class="yok">Otomatik fiyat yok</li>
           <li>Kopya ilan takibi</li>
           <li>1 mağaza</li>
           <li>Ürün ürün net kâr analizi</li>
@@ -1006,8 +1022,8 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi yok</li>
-          <li>Fatura iptali yok</li>
+          <li class="yok">Üretim listesi yok</li>
+          <li class="yok">Fatura iptali yok</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
         </ul>
@@ -1160,7 +1176,7 @@ footer a:hover{color:var(--murekkep)}
       </details>
       <details>
         <summary>Paketimin bir sınırı dolarsa ne olur?</summary>
-        <p>%80'e gelince e-posta atarız ve panelin en üstünde uyarı çıkar. Dolduğunda ne olacağı sınıra göre değişir. Sipariş sınırı dolarsa yeni siparişler panele alınmaz; kâr, hakediş ve stok rakamların hatalı olur. Soru taslağı hakkın biterse yeni sorulara yapay zekâ yerine basit kalıp taslak yazılır ve otomatik cevap gitmez. Yorum analizi hakkın biterse yeni yorumlar özetlenmez. Buybox takibinde sınırın üstündeki ürünler takip edilmez. Aylık sınırlar ay başında yenilenir, üst pakete geçince hemen büyür. Aşan kullanım için ayrıca para istemiyoruz.</p>
+        <p>%80'e gelince e-posta atarız ve panelin en üstünde uyarı çıkar. Dolduğunda ne olacağı sınıra göre değişir. Sipariş sınırı dolarsa yeni siparişler panele alınmaz; kâr, hakediş ve stok rakamların hatalı olur. Soru taslağı hakkın biterse yeni sorulara yapay zekâ yerine basit kalıp taslak yazılır ve otomatik cevap gitmez. Yorum analizi hakkın biterse yeni yorumlar özetlenmez. Buybox takibinde sınırın üstündeki ürünler takip edilmez. Aylık sınırlar ay başında yenilenir, üst pakete geçince hemen büyür. Aşan kullanım için ayrıca para istemiyoruz. Ayda 30.000 siparişin üstündeysen Profesyonel'in sınırı sana dar gelir; Kurumsal paket için <a class="epostabag" href="mailto:destek@stokvin.com">destek@stokvin.com</a> adresine yaz, fiyatı birlikte belirleriz.</p>
       </details>
       <details>
         <summary>Verilerimi siz görüyor musunuz?</summary>
