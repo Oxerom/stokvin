@@ -66,6 +66,8 @@ input:focus{outline:none;border-color:var(--murekkep)}
 input[aria-invalid="true"]{border-color:var(--zarar)}
 .hata{color:var(--zarar);font-size:13.5px;margin:-13px 0 16px;display:none}
 .hata.acik{display:block}
+.ipucu{color:var(--soluk);font-size:13.5px;margin:-13px 0 16px}
+.hata.acik + .ipucu{display:none}
 
 button.gonder{
   width:100%;padding:13px;border:0;border-radius:10px;background:var(--murekkep);
@@ -126,14 +128,15 @@ button.gonder{
       <label for="sifre">Şifre</label>
       <input type="password" id="sifre" autocomplete="current-password">
       <div class="hata" id="hataSifre">Şifre en az 8 karakter olmalı.</div>
+      <div class="ipucu" id="ipucuSifre" hidden>En az 8 karakter.</div>
       <p class="unuttum" id="unuttumAlani"><a href="#" id="unuttumBag">Şifremi unuttum</a></p>
     </div>
 
     <div id="onayAlani" hidden>
       <label class="onay" for="onay">
         <input type="checkbox" id="onay">
-        <span><a href="kullanim-kosullari.html">Kullanım Koşulları</a>'nı ve
-          <a href="gizlilik.html">Gizlilik Politikası</a>'nı okudum, kabul ediyorum.</span>
+        <span><a href="kullanim-kosullari.html" target="_blank" rel="noopener">Kullanım Koşulları</a>'nı ve
+          <a href="gizlilik.html" target="_blank" rel="noopener">Gizlilik Politikası</a>'nı okudum, kabul ediyorum.</span>
       </label>
       <p class="onaynot">Ücretsiz paketi kullandığın mağazanın satıcı numarası 1 yıl saklanır;
         aynı mağaza ücretsiz paketi ikinci kez alamaz.</p>
@@ -153,8 +156,8 @@ button.gonder{
     <p>Trendyol anahtarın burada istenmez. Hesabın açıldıktan sonra panelin içinden bağlanır.</p>
     <p>Stoğuna dokunulmaz. Mağazana giden her işlem senin açtığın bir anahtara bağlı —
       otomatik fiyat güncelleme dâhil, hepsi kapalı gelir.</p>
-    <p>Ücretli plana geçmeden önce ayrıca <a href="on-bilgilendirme.html">Ön Bilgilendirme
-      Formu</a> ve <a href="mesafeli-satis.html">Mesafeli Satış Sözleşmesi</a> gösterilir.</p>
+    <p>Ücretli plana geçmeden önce ayrıca <a href="on-bilgilendirme.html" target="_blank" rel="noopener">Ön Bilgilendirme
+      Formu</a> ve <a href="mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış Sözleşmesi</a> gösterilir.</p>
   </div>
 </div>
 
@@ -178,6 +181,7 @@ button.gonder{
     adAlani.hidden = !kayitMi;
     document.getElementById("onayAlani").hidden = !kayitMi;
     document.getElementById("sifreAlani").hidden = unuttum;
+    document.getElementById("ipucuSifre").hidden = !kayitMi;
     document.getElementById("unuttumAlani").hidden = (mod !== "giris");
     document.getElementById("baslik").textContent =
       kayitMi ? "Hesap aç" : unuttum ? "Şifreni sıfırla" : "Tekrar hoş geldin";
