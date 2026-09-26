@@ -198,6 +198,11 @@ tbody tr:last-child td{border-bottom:0}
 .hesap table{min-width:420px}
 .hesap td:first-child{white-space:normal}
 .hesap .kucuk{color:var(--soluk);font-size:13px}
+@media (max-width:760px){
+  .hesap table{min-width:0}
+  .hesap .kaydir{box-shadow:none}
+  .hesap .kaydir::after{display:none}
+}
 .toplam td{font-weight:700;font-size:17px;border-top:2px solid var(--murekkep)}
 
 ul.maddeler{list-style:none;padding:0;margin:26px 0 0}
