@@ -57,6 +57,20 @@ h1{font-size:25px;margin:0 0 8px;letter-spacing:-.02em}
 .onaynot{margin:0 0 6px 28px;font-size:13px;line-height:1.5;color:var(--soluk)}
 .unuttum{margin:-8px 0 18px;font-size:13.5px;text-align:right}
 .unuttum a{color:var(--soluk)}
+.geri{margin:-8px 0 18px;font-size:13.5px}
+.geri a{color:var(--soluk)}
+.sifresar{position:relative}
+.sifresar input{padding-right:48px}
+.goz{
+  position:absolute;right:6px;top:0;height:calc(100% - 18px);width:38px;
+  border:0;background:transparent;cursor:pointer;color:var(--soluk);
+  display:flex;align-items:center;justify-content:center;padding:0;border-radius:8px;
+}
+.goz:hover,.goz:focus-visible{color:var(--yazi);outline:none}
+.goz svg{width:20px;height:20px}
+.goz .kapali{display:none}
+.goz[aria-pressed="true"] .acik{display:none}
+.goz[aria-pressed="true"] .kapali{display:block}
 label{display:block;font-size:14px;font-weight:600;margin-bottom:7px}
 input{
   width:100%;padding:12px 14px;border:1.5px solid var(--cizgi);border-radius:10px;
@@ -126,11 +140,18 @@ button.gonder{
 
     <div id="sifreAlani">
       <label for="sifre">Şifre</label>
-      <input type="password" id="sifre" autocomplete="current-password">
-      <div class="hata" id="hataSifre">Şifre en az 8 karakter olmalı.</div>
+      <div class="sifresar">
+        <input type="password" id="sifre" autocomplete="current-password">
+        <button type="button" class="goz" id="goz" aria-pressed="false" aria-label="Şifreyi göster" title="Şifreyi göster">
+          <svg class="acik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg class="kapali" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg>
+        </button>
+      </div>
+      <div class="hata" id="hataSifre">Şifreni yaz.</div>
       <div class="ipucu" id="ipucuSifre" hidden>En az 8 karakter.</div>
       <p class="unuttum" id="unuttumAlani"><a href="#" id="unuttumBag">Şifremi unuttum</a></p>
     </div>
+    <p class="geri" id="geriAlani" hidden><a href="#" id="geriBag">← Girişe dön</a></p>
 
     <div id="onayAlani" hidden>
       <label class="onay" for="onay">
@@ -183,6 +204,10 @@ button.gonder{
     document.getElementById("sifreAlani").hidden = unuttum;
     document.getElementById("ipucuSifre").hidden = !kayitMi;
     document.getElementById("unuttumAlani").hidden = (mod !== "giris");
+    document.getElementById("geriAlani").hidden = !unuttum;
+    // Length rule only when a NEW password is set (kayıt); login just needs it filled.
+    document.getElementById("hataSifre").textContent =
+      kayitMi ? "Şifre en az 8 karakter olmalı." : "Şifreni yaz.";
     document.getElementById("baslik").textContent =
       kayitMi ? "Hesap aç" : unuttum ? "Şifreni sıfırla" : "Tekrar hoş geldin";
     document.getElementById("altyazi").textContent =
@@ -199,6 +224,18 @@ button.gonder{
   document.getElementById("sekmeGiris").addEventListener("click", function(){ modSec("giris"); });
   document.getElementById("sekmeKayit").addEventListener("click", function(){ modSec("kayit"); });
   document.getElementById("unuttumBag").addEventListener("click", function(olay){ olay.preventDefault(); modSec("unuttum"); });
+  document.getElementById("geriBag").addEventListener("click", function(olay){ olay.preventDefault(); modSec("giris"); });
+
+  // Show / hide the password. Nothing is sent; the field only changes type.
+  document.getElementById("goz").addEventListener("click", function(){
+    var sifre = document.getElementById("sifre");
+    var gosteriliyor = (sifre.type === "text");
+    sifre.type = gosteriliyor ? "password" : "text";
+    this.setAttribute("aria-pressed", String(!gosteriliyor));
+    this.setAttribute("aria-label", gosteriliyor ? "Şifreyi göster" : "Şifreyi gizle");
+    this.title = gosteriliyor ? "Şifreyi göster" : "Şifreyi gizle";
+    sifre.focus();
+  });
 
   function isaretle(alanId, hataId, hataliMi){
     document.getElementById(alanId).setAttribute("aria-invalid", String(hataliMi));
@@ -224,7 +261,8 @@ button.gonder{
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(eposta)){
       isaretle("eposta","hataEposta",true); tamam = false;
     }
-    if (mod !== "unuttum" && document.getElementById("sifre").value.length < 8){
+    var sifre = document.getElementById("sifre").value;
+    if (mod === "kayit" ? sifre.length < 8 : (mod === "giris" && sifre === "")){
       isaretle("sifre","hataSifre",true); tamam = false;
     }
 
