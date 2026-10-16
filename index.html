@@ -260,7 +260,7 @@ ul.maddeler li strong,ul.maddeler li b{color:var(--yazi)}
    differences read side by side (Emre 15.09.2026). Each card spans 3 + one row per
    feature + 1 rows of the shared grid: name, price, order line, features, button. */
 @supports (grid-template-rows:subgrid){
-  .paketler .paket{display:grid;grid-row:span 21;grid-template-rows:subgrid;row-gap:0}
+  .paketler .paket{display:grid;grid-row:span 20;grid-template-rows:subgrid;row-gap:0}
   .paketler .paket ul{display:contents}
   .paketler .paket li{margin:0 0 11px}
   .paketler .paket li:first-child{margin-top:24px}
@@ -541,12 +541,12 @@ footer a:hover{color:var(--murekkep)}
         </p>
       </div>
       <div class="kartkutu">
-        <h3>Sorular &amp; Üretim</h3>
+        <h3>Sorular</h3>
         <p>
-          Müşteri soruları tek kuyrukta. Yapay zekâ cevabı taslak olarak yazar; sen onaylarsın,
-          sistem gönderir. İstersen yüksek güvenli cevaplar için otomatik göndermeyi açarsın,
-          istediğin an kapatırsın. Gelişmiş ve Profesyonel pakette, üretim yapan mağazada sorulardan ve siparişlerden üretim listesi de çıkar; hangi kategorinin üretim sayılacağını ve hangi bilginin çıkarılacağını
-          <b>kendin ayarlarsın</b>.
+          Her müşteri sorusu tek listede görünür. Soru, yazdığın cevap kurallarından birine
+          uyuyorsa cevabın hazır gelir; sen onaylarsın, sistem gönderir. Uymayan soruyu sen
+          cevaplarsın ve istersen o cevabı kural olarak kaydedersin. Giden metin her zaman senin
+          cümlendir, yapay zekâ yalnız hangi kuralın uyduğunu seçer.
         </p>
       </div>
       <div class="kartkutu">
@@ -630,7 +630,7 @@ footer a:hover{color:var(--murekkep)}
           <div class="kutucuk">
             <div class="bas">Bekleyen iş</div>
             <div class="buyuk">6</div>
-            <div class="alt">4 cevapsız soru, 2 üretim</div>
+            <div class="alt">4 cevapsız soru, 2 kesilecek fatura</div>
           </div>
           <div class="kutucuk">
             <div class="bas">Zarar eden ürün</div>
@@ -651,34 +651,35 @@ footer a:hover{color:var(--murekkep)}
       </div>
 
       <div class="ekran">
-        <div class="ekranbas"><i></i> STOKVIN · Sorular &amp; Üretim</div>
+        <div class="ekranbas"><i></i> STOKVIN · Sorular</div>
         <div class="ekransatir">
-          <div class="ustyazi">"Bu lamba 12V akü ile çalışır mı?"</div>
+          <div class="ustyazi">"Kargom ne zaman gelir?"</div>
           <div class="taslak">
-            Taslak cevap: Evet, 12V akü ile çalışır. Kutudan çıkan kablo 1,5 metre, ucu çakmak
-            girişine uygundur.
+            Hazır cevap: Merhaba, siparişinizin durumunu Hesabım &gt; Siparişlerim bölümünden
+            görebilirsiniz. Kargoya verilince takip numarası da orada yazar.
           </div>
           <div class="ekrannot"><span class="ekranrozet">Onayını bekliyor</span>
-            Taslağı yapay zekâ yazdı. Sen onaylamadan gönderilmez.</div>
+            "Siparişim nerede" kuralından geldi. Sen onaylamadan gönderilmez.</div>
         </div>
         <div class="ekransatir">
-          <div class="ustyazi">"Üstüne isim yazdırabiliyor muyum?"</div>
+          <div class="ustyazi">"İadeyi nasıl yapıyorum?"</div>
           <div class="taslak">
-            Taslak cevap: Evet. Siparişi verirken not kısmına yazdırmak istediğin ismi
-            yazman yeterli.
+            Hazır cevap: Merhaba, Hesabım &gt; Siparişlerim bölümünden siparişi seçip iade
+            talebi oluşturabilirsiniz.
           </div>
           <div class="ekrannot"><span class="ekranrozet">Onaylandı, gönderildi</span>
             09:12'de gitti.</div>
         </div>
         <div class="ekransatir">
-          <div class="ustyazi">Sipariş 172455 · Kablosuz şarj standı · 1 adet</div>
-          <div class="taslak">Üretim listesine düştü. Yazdırılacak isim: Ahmet. Renk: siyah.</div>
-          <div class="ekrannot">Üretim listesi Gelişmiş ve Profesyonel pakette, senin açtığın
-            kategorilerde çalışır.</div>
+          <div class="ustyazi">"Bu lamba 12V akü ile çalışır mı?"</div>
+          <div class="taslak">Bu soruya uyan bir kuralın yok. Cevabı sen yazarsın, istersen kural
+            olarak kaydedersin.</div>
+          <div class="ekrannot"><span class="ekranrozet">Cevabını bekliyor</span>
+            Yazdığın cevap da onaylayınca gider.</div>
         </div>
         <div class="ornekyazi">
           Sorular ve cevaplar <strong>örnektir</strong>. Panel hiçbir cevabı sen onaylamadan
-          göndermez; otomatik göndermeyi açmak da kapatmak da senin elinde.
+          göndermez.
         </div>
       </div>
 
@@ -929,7 +930,7 @@ footer a:hover{color:var(--murekkep)}
       </div>
       <div class="kartkutu">
         <h3>Her gönderim senin onayınla</h3>
-        <p>Soru cevabı da fatura iptali de önce ekranda taslak olarak durur; sen onaylamadan gitmez. Otomatik cevap ayrı bir anahtardır ve o anahtar sende.</p>
+        <p>Soru cevabı da fatura iptali de önce ekranda bekler; sen onaylamadan gitmez.</p>
       </div>
       <div class="kartkutu">
         <h3>Eklenti sadece Trendyol'da</h3>
@@ -967,7 +968,7 @@ footer a:hover{color:var(--murekkep)}
     </p>
     <p class="altyazi">
       Ücretsiz pakette yapay zekâ soru taslağı, yorum analizi ve kopya ilan takibi yok;
-      bunlar Başlangıç'tan itibaren gelir. Üretim listesi, BIEN ile fatura iptali, günlük
+      bunlar Başlangıç'tan itibaren gelir. BIEN ile fatura iptali, günlük
       raporun yazılı yorumu ve otomatik fiyat güncelleme Gelişmiş ve Profesyonel pakette var.
       Ücretsiz ve Başlangıç'ta günlük raporun rakamları gelir, rakibin fiyat hareketlerini
       görürsün, fiyatı Trendyol'a sen girersin.
@@ -1002,7 +1003,6 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li class="yok">Üretim listesi yok</li>
           <li class="yok">Fatura iptali yok</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
@@ -1027,7 +1027,6 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li class="yok">Üretim listesi yok</li>
           <li class="yok">Fatura iptali yok</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
@@ -1052,7 +1051,6 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi</li>
           <li>BIEN ile fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
@@ -1077,7 +1075,6 @@ footer a:hover{color:var(--murekkep)}
           <li>Stok bitme tahmini ve ölü stok listesi</li>
           <li>Kampanya kârı ve barem önerisi</li>
           <li>Zarar ve buybox kaybı uyarısı</li>
-          <li>Üretim listesi</li>
           <li>BIEN ile fatura iptali</li>
           <li>Chrome eklentisi (Trendyol'un beş ekranı)</li>
           <li>Excel ile toplu maliyet girişi</li>
@@ -1094,7 +1091,7 @@ footer a:hover{color:var(--murekkep)}
     <p class="altyazi">
       <b>Sipariş sınırı dolarsa</b> o ay yeni siparişler panele alınmaz; kâr, hakediş ve stok
       rakamların eksik siparişle hesaplanır ve hatalı olur. <b>Soru taslağı hakkın biterse</b>
-      yeni sorulara yapay zekâ yerine basit kalıp taslak yazılır, otomatik cevap gitmez.
+      yeni sorular yine listelenir ama hazır cevap gelmez, cevabı sen yazarsın.
       <b>Yorum analizi hakkın biterse</b> yeni yorumlar özetlenmez. <b>Buybox takibinde</b>
       sınırın üstündeki ürünler takip edilmez. Aylık sınırlar ay başında yenilenir, üst pakete
       geçersen hemen büyür.
@@ -1169,7 +1166,7 @@ footer a:hover{color:var(--murekkep)}
       </details>
       <details>
         <summary>Müşteri sorularını benim yerime mi cevaplıyorsunuz?</summary>
-        <p>Taslağı yapay zekâ yazar, sen ekranda görürsün, onaylarsın, sistem gönderir. Onaylamadığın hiçbir cevap gitmez. İstersen yalnız yüksek güvenli cevaplar için otomatik göndermeyi açarsın; o anahtar sende, istediğin an kapatırsın. Taslak yazılırken soru metni yapay zekâ sağlayıcımıza iletilir; kime ve nasıl, <a href="gizlilik.html">gizlilik politikasında</a> yazılı.</p>
+        <p>Hayır, cevap senden çıkar. Her soru panelde listelenir. Soru, yazdığın cevap kurallarından birine uyuyorsa o kuraldaki cevabın hazır gelir; sen onaylarsın, sistem gönderir. Uymayan soruya cevabı sen yazarsın. Onaylamadığın hiçbir cevap gitmez. Hangi kuralın uyduğuna bakılırken soru metni yapay zekâ sağlayıcımıza iletilir; kime ve nasıl, <a href="gizlilik.html">gizlilik politikasında</a> yazılı.</p>
       </details>
       <details>
         <summary>Fatura iptali nasıl çalışıyor?</summary>
@@ -1181,7 +1178,7 @@ footer a:hover{color:var(--murekkep)}
       </details>
       <details>
         <summary>Paketimin bir sınırı dolarsa ne olur?</summary>
-        <p>%80'e gelince e-posta atarız ve panelin en üstünde uyarı çıkar. Dolduğunda ne olacağı sınıra göre değişir. Sipariş sınırı dolarsa yeni siparişler panele alınmaz; kâr, hakediş ve stok rakamların hatalı olur. Soru taslağı hakkın biterse yeni sorulara yapay zekâ yerine basit kalıp taslak yazılır ve otomatik cevap gitmez. Yorum analizi hakkın biterse yeni yorumlar özetlenmez. Buybox takibinde sınırın üstündeki ürünler takip edilmez. Aylık sınırlar ay başında yenilenir, üst pakete geçince hemen büyür. Aşan kullanım için ayrıca para istemiyoruz. Ayda 30.000 siparişin üstündeysen Profesyonel'in sınırı sana dar gelir; Kurumsal paket için <a class="epostabag" href="mailto:destek@stokvin.com">destek@stokvin.com</a> adresine yaz, fiyatı birlikte belirleriz.</p>
+        <p>%80'e gelince e-posta atarız ve panelin en üstünde uyarı çıkar. Dolduğunda ne olacağı sınıra göre değişir. Sipariş sınırı dolarsa yeni siparişler panele alınmaz; kâr, hakediş ve stok rakamların hatalı olur. Soru taslağı hakkın biterse yeni sorular yine listelenir ama hazır cevap gelmez, cevabı sen yazarsın. Yorum analizi hakkın biterse yeni yorumlar özetlenmez. Buybox takibinde sınırın üstündeki ürünler takip edilmez. Aylık sınırlar ay başında yenilenir, üst pakete geçince hemen büyür. Aşan kullanım için ayrıca para istemiyoruz. Ayda 30.000 siparişin üstündeysen Profesyonel'in sınırı sana dar gelir; Kurumsal paket için <a class="epostabag" href="mailto:destek@stokvin.com">destek@stokvin.com</a> adresine yaz, fiyatı birlikte belirleriz.</p>
       </details>
       <details>
         <summary>Verilerimi siz görüyor musunuz?</summary>
